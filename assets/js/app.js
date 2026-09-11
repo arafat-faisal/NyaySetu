@@ -524,6 +524,7 @@ NyaySetu is an omnichannel, inclusive digital legal aid infrastructure designed 
 // =========================================================
 document.addEventListener('DOMContentLoaded', () => {
     initTheme();
+    initSmoothScrollLinks();
     initScrollSpy();
     initMobileDrawer();
     initProblemsExplorer();
@@ -537,19 +538,25 @@ document.addEventListener('DOMContentLoaded', () => {
 function initTheme() {
     const htmlEl = document.documentElement;
     const themeBtn = document.getElementById('theme-toggle-btn');
+    const mobThemeBtn = document.getElementById('mobile-drawer-theme-btn');
     
     // Check saved theme or default to LIGHT (primary theme)
     const savedTheme = localStorage.getItem('nyaysetu_theme') || 'light';
     htmlEl.setAttribute('data-theme', savedTheme);
 
+    function toggleTheme() {
+        const currentTheme = htmlEl.getAttribute('data-theme');
+        const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        htmlEl.setAttribute('data-theme', targetTheme);
+        localStorage.setItem('nyaysetu_theme', targetTheme);
+        showToast(`Switched to ${targetTheme === 'dark' ? 'Dark' : 'Light'} theme`);
+    }
+
     if (themeBtn) {
-        themeBtn.addEventListener('click', () => {
-            const currentTheme = htmlEl.getAttribute('data-theme');
-            const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            htmlEl.setAttribute('data-theme', targetTheme);
-            localStorage.setItem('nyaysetu_theme', targetTheme);
-            showToast(`Switched to ${targetTheme === 'dark' ? 'Dark' : 'Light'} theme`);
-        });
+        themeBtn.addEventListener('click', toggleTheme);
+    }
+    if (mobThemeBtn) {
+        mobThemeBtn.addEventListener('click', toggleTheme);
     }
 }
 
@@ -595,6 +602,42 @@ function initMobileDrawer() {
 }
 
 // =========================================================
+// 5.1 SMOOTH SCROLLING FOR ALL ANCHOR BUTTONS & LINKS
+// =========================================================
+function initSmoothScrollLinks() {
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (!href || href === '#') return;
+            const target = document.querySelector(href);
+            if (target) {
+                e.preventDefault();
+                const header = document.getElementById('site-header');
+                const quickNav = document.getElementById('mobile-quick-nav');
+                let headerOffset = 70;
+                if (header) headerOffset = header.offsetHeight;
+                if (quickNav && window.getComputedStyle(quickNav).display !== 'none') {
+                    headerOffset += quickNav.offsetHeight;
+                }
+                headerOffset += 14;
+
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: Math.max(0, offsetPosition),
+                    behavior: 'smooth'
+                });
+
+                try {
+                    history.pushState(null, null, href);
+                } catch (_) {}
+            }
+        });
+    });
+}
+
+// =========================================================
 // 6. SCROLL-SPY & ACTIVE NAV LINK HIGHLIGHTING
 // =========================================================
 function initScrollSpy() {
@@ -602,10 +645,11 @@ function initScrollSpy() {
     const navLinks = document.querySelectorAll('.nav-link');
     const quickNavPills = document.querySelectorAll('.quick-nav-pill');
     const mobileDrawerLinks = document.querySelectorAll('.mobile-drawer-link');
+    const quickNav = document.getElementById('mobile-quick-nav');
 
     window.addEventListener('scroll', () => {
         let currentSectionId = '';
-        const scrollPosition = window.scrollY + 150; // Header + quick nav offset
+        const scrollPosition = window.scrollY + 160; // Header + quick nav offset
 
         sections.forEach(sec => {
             const sectionTop = sec.offsetTop;
@@ -624,13 +668,20 @@ function initScrollSpy() {
                 }
             });
 
-            // Update mobile quick-nav pills
+            // Update mobile quick-nav pills without fighting window scroll
             quickNavPills.forEach(pill => {
                 pill.classList.remove('active');
                 if (pill.getAttribute('data-section') === currentSectionId) {
                     pill.classList.add('active');
-                    // Ensure the active pill is visible in horizontal scroll
-                    pill.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                    if (quickNav && window.getComputedStyle(quickNav).display !== 'none') {
+                        const pillLeft = pill.offsetLeft;
+                        const pillWidth = pill.offsetWidth;
+                        const navWidth = quickNav.offsetWidth;
+                        quickNav.scrollTo({
+                            left: pillLeft - (navWidth / 2) + (pillWidth / 2),
+                            behavior: 'smooth'
+                        });
+                    }
                 }
             });
 
@@ -971,3 +1022,12 @@ function showToast(message) {
         toast.style.display = 'none';
     }, 3000);
 }
+
+// =========================================================
+// 9. EXPLICIT GLOBAL WINDOW BINDINGS (Inline onclick support)
+// =========================================================
+window.inspectProblem = inspectProblem;
+window.switchProposalDoc = switchProposalDoc;
+window.copyCurrentUrl = copyCurrentUrl;
+window.showToast = showToast;
+

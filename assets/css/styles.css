@@ -98,14 +98,10 @@
     padding: 0;
 }
 
-html, body {
-    overflow-x: hidden;
-    width: 100%;
-}
-
 html {
     scroll-behavior: smooth;
     scroll-padding-top: calc(var(--header-height) + var(--quick-nav-height) + 16px);
+    overflow-x: clip;
 }
 
 body {
@@ -115,6 +111,10 @@ body {
     line-height: 1.65;
     font-size: 15px;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
     transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
@@ -404,10 +404,12 @@ a {
     backdrop-filter: blur(4px);
     z-index: 2050;
     display: none;
+    pointer-events: none;
 }
 
 .mobile-drawer-backdrop.open {
     display: block;
+    pointer-events: auto;
 }
 
 .mobile-drawer-header {
@@ -1211,10 +1213,17 @@ a {
     background: rgba(0, 0, 0, 0.65);
     backdrop-filter: blur(8px);
     z-index: 2500;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     padding: 16px;
+    pointer-events: none;
+}
+
+.modal-backdrop.open,
+.modal-backdrop[style*="display: flex"] {
+    display: flex;
+    pointer-events: auto;
 }
 
 .modal-window {

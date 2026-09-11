@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
     <!-- Top Sticky Header -->
@@ -106,6 +105,10 @@
                 </a>
             </nav>
             <div class="mobile-drawer-footer">
+                <button id="mobile-drawer-theme-btn" class="btn-mobile-share" style="margin-bottom: 8px; background: var(--bg-elevated); color: var(--text-primary); border-color: var(--border-medium);">
+                    <span>🌓</span>
+                    <span>Toggle Light / Dark Theme</span>
+                </button>
                 <button id="mobile-drawer-share-btn" class="btn-mobile-share">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
                     <span>Copy Showcase Link to Share</span>
@@ -877,6 +880,5 @@
     <div id="toast" class="toast-popup" style="display: none;"></div>
 
     <script src="app.js"></script>
-    <script src="assets/js/app.js"></script>
 </body>
 </html>
