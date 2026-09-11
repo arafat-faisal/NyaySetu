@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NyaySetu // Legal Tech Hackathon 2026 — Digital Legal Aid Bangladesh</title>
+    <meta name="description" content="NyaySetu: Inclusive 4-Tier Omnichannel Legal Aid Platform for Bangladesh. Aligned with 6 Official Tracks of Legal Tech Hackathon 2026.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- Top Sticky Header -->
+    <header class="site-header" id="site-header">
+        <div class="header-container">
+            <a href="#competition" class="brand-logo">
+                <div class="logo-emblem">⚖️</div>
+                <div class="brand-titles">
+                    <div class="brand-primary">NyaySetu <span class="bangla-title">ন্যায়সেতু</span></div>
+                    <div class="brand-subtitle">Legal Tech Hackathon 2026 • Bangladesh</div>
+                </div>
+            </a>
+
+            <nav class="nav-links" id="nav-links">
+                <a href="#competition" class="nav-link active" data-section="competition">
+                    <span class="nav-icon">🏛️</span>
+                    <span>Competition</span>
+                </a>
+                <a href="#tracks-problems" class="nav-link" data-section="tracks-problems">
+                    <span class="nav-icon">🎯</span>
+                    <span>Tracks & Problems</span>
+                </a>
+                <a href="#proposal" class="nav-link" data-section="proposal">
+                    <span class="nav-icon">📜</span>
+                    <span>The Proposal</span>
+                </a>
+                <a href="#techstack" class="nav-link" data-section="techstack">
+                    <span class="nav-icon">⚡</span>
+                    <span>Tech Stack</span>
+                </a>
+            </nav>
+
+            <div class="header-controls">
+                <button id="theme-toggle-btn" class="ctrl-btn theme-btn" aria-label="Toggle Dark/Light Mode" title="Toggle Theme">
+                    <span class="theme-icon moon-icon">🌙</span>
+                    <span class="theme-icon sun-icon">☀️</span>
+                    <span class="theme-label">Theme</span>
+                </button>
+                <button id="share-btn" class="ctrl-btn share-btn" title="Share showcase link">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
+                    <span>Share</span>
+                </button>
+                <a href="#proposal" class="btn-cta">
+                    <span>Explore Proposal</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="page-wrapper">
+
+        <!-- ========================================================= -->
+        <!-- SECTION 1: INITIAL INFO ABOUT THE COMPETITION -->
+        <!-- ========================================================= -->
+        <section id="competition" class="content-section competition-section">
+            <div class="section-badge">
+                <span class="pulse-dot"></span>
+                <span>Official Grand Challenge Overview</span>
+            </div>
+
+            <div class="hero-intro">
+                <div class="organizer-ribbon">
+                    <span class="org-chip eu">🇪🇺 European Union Funded</span>
+                    <span class="org-chip gov">🇧🇩 Ministry of Law, Justice & Parliamentary Affairs (DBLA)</span>
+                    <span class="org-chip undp">🇺🇳 Technical Assistance: UNDP Bangladesh</span>
+                </div>
+                <h1 class="hero-headline">
+                    Digital Legal Aid For Future: <br>
+                    <span class="gradient-text">Building Justice For Every Citizen</span>
+                </h1>
+                <p class="hero-lead">
+                    Accelerating Digital Legal Aid Services in Bangladesh (ADLASB) Grand Challenge 2026. Transforming a paper-burdened judicial landscape into an omnichannel, citizen-centric legal infrastructure that leaves no one behind.
+                </p>
+            </div>
+
+            <!-- National Crisis Statistics -->
+            <div class="crisis-stats-grid">
+                <div class="stat-card">
+                    <div class="stat-num">4.639M+</div>
+                    <div class="stat-label">Pending Court Cases</div>
+                    <div class="stat-desc">Severe backlog crippling subordinate and appellate courts nationwide.</div>
+                </div>
+                <div class="stat-card alert">
+                    <div class="stat-num">70%+</div>
+                    <div class="stat-label">Undertrial Detainees</div>
+                    <div class="stat-desc">Over 70% of 85,000+ prison inmates are awaiting trial without conviction.</div>
+                </div>
+                <div class="stat-card warning">
+                    <div class="stat-num">97%</div>
+                    <div class="stat-label">Legal Aid Awareness Gap</div>
+                    <div class="stat-desc">Eligible impoverished citizens unaware that state-funded legal aid is a legal right.</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">27</div>
+                    <div class="stat-label">Full-Time Officers</div>
+                    <div class="stat-desc">Only 27 full-time Legal Aid Officers serving all 64 districts (1 per 6.3M citizens).</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">8–15 Yrs</div>
+                    <div class="stat-label">Average Civil Delay</div>
+                    <div class="stat-desc">Rural boundary and inheritance disputes take up to a decade and a half to resolve.</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">40%+</div>
+                    <div class="stat-label">Dialect Exclusion</div>
+                    <div class="stat-desc">Citizens speak Sylheti, Chatgaya, or Rangpuri—unsupported by standard e-gov portals.</div>
+                </div>
+            </div>
+
+            <!-- Competition Details & Rules Grid -->
+            <div class="comp-info-cards-grid">
+                <!-- Timeline & Venue -->
+                <div class="info-card">
+                    <div class="card-icon-header">
+                        <div class="icon-circle calendar">📅</div>
+                        <h3>Timeline & Live Finals</h3>
+                    </div>
+                    <div class="timeline-list">
+                        <div class="timeline-row">
+                            <div class="time-tag">1 – 12 Sept 2026</div>
+                            <div class="time-info">
+                                <strong>Round 1: Online Case Study & Solution Submission</strong>
+                                <span>Evaluating legal bottlenecks, human-centered design, and technical feasibility.</span>
+                            </div>
+                        </div>
+                        <div class="timeline-row highlight">
+                            <div class="time-tag">26 – 27 Sept 2026</div>
+                            <div class="time-info">
+                                <strong>Round 2: Live 48-Hour Finals (Top 10 Teams)</strong>
+                                <span>Krishibid Institute Bangladesh (KIB), 3DS Hall / Auditorium, Farmgate, Dhaka. Mentored by Supreme Court advocates, judicial officers, and software architects.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mandatory Team Composition -->
+                <div class="info-card">
+                    <div class="card-icon-header">
+                        <div class="icon-circle team">👥</div>
+                        <h3>Mandatory Team Rules (3–5 Members)</h3>
+                    </div>
+                    <ul class="rule-checklist">
+                        <li>
+                            <span class="check-icon">⚖️</span>
+                            <div>
+                                <strong>At least ONE Law Student</strong>
+                                <p>Ensures rigorous statutory compliance with Legal Aid Act 2000 & 2014 Policy.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">💻</span>
+                            <div>
+                                <strong>At least ONE CS / IT Student</strong>
+                                <p>Guarantees robust, scalable software architecture, mobile PWA, and AI models.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">👩</span>
+                            <div>
+                                <strong>At least ONE Female Participant</strong>
+                                <p>Mandatory gender diversity to represent women's legal protection perspectives.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">🎓</span>
+                            <div>
+                                <strong>Enrolled Students (Undergrad / Postgrad)</strong>
+                                <p>Cross-university collaboration actively encouraged by the Grand Challenge.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Legal Frameworks -->
+                <div class="info-card">
+                    <div class="card-icon-header">
+                        <div class="icon-circle law">📜</div>
+                        <h3>Governing Statutory Frameworks</h3>
+                    </div>
+                    <div class="statutes-list">
+                        <div class="statute-item">
+                            <span class="statute-badge">Act of 2000</span>
+                            <strong>Legal Aid Services Act 2000</strong>
+                            <p>Sec 7(1)(c) emergency aid, Sec 15 panel lawyer allocation, Sec 21B mandatory ADR.</p>
+                        </div>
+                        <div class="statute-item">
+                            <span class="statute-badge">Policy 2014</span>
+                            <strong>Legal Aid Policy 2014 & 2026 Amendments</strong>
+                            <p>14 eligibility classes, income thresholds, priority for detainees and July martyrs.</p>
+                        </div>
+                        <div class="statute-item">
+                            <span class="statute-badge">Act of 2006</span>
+                            <strong>Village Courts Act 2006 (Amended 2013)</strong>
+                            <p>Union Parishad adjudication for minor disputes and claims up to BDT 75,000.</p>
+                        </div>
+                        <div class="statute-item">
+                            <span class="statute-badge">CPC Sec 89A</span>
+                            <strong>Code of Civil Procedure Mediation</strong>
+                            <p>Mandatory court-annexed mediation and statutory dispute diversion.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The 6 Official Challenge Tracks Banner -->
+            <div class="tracks-glance-box">
+                <div class="tracks-glance-header">
+                    <div>
+                        <h3>The 6 Official Hackathon Challenge Tracks</h3>
+                        <p>Our research and proposal map 100% directly to all six official challenge tracks defined by DBLA, EU, and UNDP:</p>
+                    </div>
+                    <a href="#tracks-problems" class="btn-text-action">View Problems & Solutions Matrix →</a>
+                </div>
+                <div class="tracks-pills-row">
+                    <a href="#tracks-problems" class="track-glance-pill" data-track-id="track1">
+                        <span class="trk-num">01</span>
+                        <span class="trk-title">Citizen Access</span>
+                    </a>
+                    <a href="#tracks-problems" class="track-glance-pill" data-track-id="track2">
+                        <span class="trk-num">02</span>
+                        <span class="trk-title">AI for Legal Aid</span>
+                    </a>
+                    <a href="#tracks-problems" class="track-glance-pill" data-track-id="track3">
+                        <span class="trk-num">03</span>
+                        <span class="trk-title">Justice Operations</span>
+                    </a>
+                    <a href="#tracks-problems" class="track-glance-pill" data-track-id="track4">
+                        <span class="trk-num">04</span>
+                        <span class="trk-title">ODR & Accountability</span>
+                    </a>
+                    <a href="#tracks-problems" class="track-glance-pill" data-track-id="track5">
+                        <span class="trk-num">05</span>
+                        <span class="trk-title">Community Innovation</span>
+                    </a>
+                    <a href="#tracks-problems" class="track-glance-pill" data-track-id="track6">
+                        <span class="trk-num">06</span>
+                        <span class="trk-title">AI Call Centre & Omnichannel</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================================= -->
+        <!-- SECTION 2: IDENTIFIED PROBLEMS, SOLUTIONS & TRACK ALIGNMENT -->
+        <!-- ========================================================= -->
+        <section id="tracks-problems" class="content-section problems-solutions-section">
+            <div class="section-badge">
+                <span class="pulse-dot emerald"></span>
+                <span>Empirical Research & Challenge Alignment</span>
+            </div>
+
+            <div class="section-heading-group">
+                <h2 class="section-title">Identified Problems & Engineered Solutions</h2>
+                <p class="section-subtitle">
+                    Synthesized from an exhaustive analysis of 1,572 cataloged bottlenecks across Bangladesh's legal reality, 8 frontier AI evaluation models, and direct statutory alignment with the 6 Hackathon Challenge Tracks.
+                </p>
+            </div>
+
+            <!-- Track Filter Tabs & Live Search Bar -->
+            <div class="filter-toolbar">
+                <div class="track-filter-tabs" id="track-filters">
+                    <button class="filter-tab active" data-filter="all">All Tracks (24 Core Breakthroughs)</button>
+                    <button class="filter-tab" data-filter="track1">Track 1: Citizen Access</button>
+                    <button class="filter-tab" data-filter="track2">Track 2: AI for Legal Aid</button>
+                    <button class="filter-tab" data-filter="track3">Track 3: Justice Operations</button>
+                    <button class="filter-tab" data-filter="track4">Track 4: ODR & Accountability</button>
+                    <button class="filter-tab" data-filter="track5">Track 5: Community Innovation</button>
+                    <button class="filter-tab" data-filter="track6">Track 6: AI Call Centre</button>
+                </div>
+
+                <div class="search-input-wrapper">
+                    <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <input type="text" id="problem-search" placeholder="Search problems, root causes, laws (e.g. bail, land, dialect, Sec 15)..." autocomplete="off">
+                    <button id="search-clear-btn" class="clear-search-btn" style="display: none;">✕</button>
+                </div>
+            </div>
+
+            <!-- Active Track Scope Banner -->
+            <div id="track-scope-card" class="track-scope-card">
+                <div class="scope-icon-wrap">🎯</div>
+                <div class="scope-content">
+                    <h4 id="scope-title">Showing All 6 Official Challenge Tracks</h4>
+                    <p id="scope-desc">Explore how each systemic challenge identified in Bangladesh's subordinate courts, district legal aid offices, and rural union parishads is paired with a direct, feasible technological solution in our NyaySetu architecture.</p>
+                </div>
+                <div class="scope-count-badge" id="visible-count-badge">24 Problems Mapped</div>
+            </div>
+
+            <!-- Problem Cards Grid -->
+            <div class="problems-grid" id="problems-container">
+                <!-- Dynamically populated by app.js with rich cards -->
+            </div>
+
+            <!-- Deep Problem Compendium Modal (Interactive inspection) -->
+            <div id="problem-modal" class="modal-backdrop" style="display: none;">
+                <div class="modal-window">
+                    <button class="modal-close-btn" id="modal-close-btn">✕</button>
+                    <div class="modal-body" id="modal-content">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================================= -->
+        <!-- SECTION 3: THE PROPOSAL (NyaySetu: The Justice Bridge) -->
+        <!-- ========================================================= -->
+        <section id="proposal" class="content-section proposal-section">
+            <div class="section-badge">
+                <span class="pulse-dot indigo"></span>
+                <span>The Unified Master Proposal</span>
+            </div>
+
+            <div class="section-heading-group">
+                <h2 class="section-title">NyaySetu (ন্যায়সেতু) — The Justice Bridge</h2>
+                <p class="section-subtitle">
+                    <em>"No device, no literacy, no distance, no delay — no citizen left outside justice."</em><br>
+                    A 4-Tier Omnichannel Architecture combining physical paper-to-digital auto-bridging, dialect-fluent voice AI, and an intelligent justice operations backbone for Bangladesh.
+                </p>
+            </div>
+
+            <!-- 4-Tier Architecture Overview -->
+            <div class="tier-architecture-wrapper">
+                <div class="tier-header">
+                    <h3>The 4-Tier Inclusive Access Continuum</h3>
+                    <p>Designed specifically to ensure 100% coverage across the socio-economic and digital divide in Bangladesh:</p>
+                </div>
+
+                <div class="tiers-grid">
+                    <!-- Tier 0 -->
+                    <div class="tier-card tier-0">
+                        <div class="tier-badge-top">Tier 0</div>
+                        <div class="tier-icon">📄</div>
+                        <h4>No Device / Illiterate</h4>
+                        <div class="tier-channel">Physical Paper Auto-Bridging</div>
+                        <p class="tier-summary">
+                            Leveraging <strong>4,554 Union Digital Centres (UDCs)</strong> and Village Courts (গ্রাম আদালত).
+                        </p>
+                        <ul class="tier-features">
+                            <li><strong>ArUco Marker Forms:</strong> Physical LAF-1 applications with alignment anchors & QR codes.</li>
+                            <li><strong>Bangla OCR Parsing:</strong> Local UDC scanners auto-ingest handwritten forms without data entry burden.</li>
+                            <li><strong>Full Digital Parity:</strong> Zero smartphone requirement for impoverished rural citizens.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Tier 1 -->
+                    <div class="tier-card tier-1">
+                        <div class="tier-badge-top">Tier 1</div>
+                        <div class="tier-icon">📞</div>
+                        <h4>Button Phone / 2G</h4>
+                        <div class="tier-channel">16430 Hotline Modernization</div>
+                        <p class="tier-summary">
+                            Works on any basic keypad feature phone without internet or mobile data.
+                        </p>
+                        <ul class="tier-features">
+                            <li><strong>Dialect Voicebot:</strong> Asterisk/FreeSWITCH IVR with Sylheti & Chatgaya speech-to-text.</li>
+                            <li><strong>Zero-Data USSD (*16430#):</strong> Instant status tracking and emergency callback request.</li>
+                            <li><strong>SMS Milestones:</strong> Push notifications at every court hearing and lawyer assignment.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Tier 2 -->
+                    <div class="tier-card tier-2">
+                        <div class="tier-badge-top">Tier 2</div>
+                        <div class="tier-icon">💬</div>
+                        <h4>Smartphone & Citizen</h4>
+                        <div class="tier-channel">WhatsApp Bot & Offline PWA</div>
+                        <p class="tier-summary">
+                            Frictionless instant messaging and low-bandwidth web access.
+                        </p>
+                        <ul class="tier-features">
+                            <li><strong>WhatsApp Intake:</strong> Send voice notes, photos of FIRs/Summons, and NID cards.</li>
+                            <li><strong>Sub-2MB Offline PWA:</strong> Cached locally via Service Workers for remote char paralegals.</li>
+                            <li><strong>Nari-Shield Stealth:</strong> One-tap panic escape for domestic abuse victims.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Tier 3 -->
+                    <div class="tier-card tier-3 highlight-tier">
+                        <div class="tier-badge-top">Tier 3</div>
+                        <div class="tier-icon">⚖️</div>
+                        <h4>Justice Operations Backbone</h4>
+                        <div class="tier-channel">DLAC ERP & Smart Triage</div>
+                        <p class="tier-summary">
+                            The enterprise operational engine for District Legal Aid Officers & Judges.
+                        </p>
+                        <ul class="tier-features">
+                            <li><strong>Nyay-Triage Engine:</strong> Red Alert priority for undertrials, trafficking, and July martyrs.</li>
+                            <li><strong>Automated Forms:</strong> 1-click export of LA Forms 20–25 & Registers 01–09.</li>
+                            <li><strong>Sec 15 Panel Matching:</strong> Workload balancing + strict 1/3 female lawyer quota.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Innovations Highlights Row -->
+            <div class="innovations-banner-row">
+                <div class="innovation-chip">
+                    <div class="inno-icon">⚡</div>
+                    <div class="inno-text">
+                        <strong>FastBail-BD (PKI Dispatch)</strong>
+                        <span>30-second cryptographic bail order transmission to eliminate over-detention.</span>
+                    </div>
+                </div>
+                <div class="innovation-chip">
+                    <div class="inno-icon">📝</div>
+                    <div class="inno-text">
+                        <strong>1-Page Bengali AI Case Brief</strong>
+                        <span>Extracts core facts, penal sections, and statutory eligibility from 40-page FIRs.</span>
+                    </div>
+                </div>
+                <div class="innovation-chip">
+                    <div class="inno-icon">🗺️</div>
+                    <div class="inno-text">
+                        <strong>Bhoo-Chitra Cadastral Warping</strong>
+                        <span>AI alignment of historical CS/RS mouza maps with drone imagery to resolve land disputes.</span>
+                    </div>
+                </div>
+                <div class="innovation-chip">
+                    <div class="inno-icon">🛡️</div>
+                    <div class="inno-text">
+                        <strong>HabeasAlert Over-Detention Scanner</strong>
+                        <span>Autonomous prison census watchdog alerting DLAOs when detention breaches CrPC limits.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Document Viewer Section -->
+            <div class="proposal-doc-viewer-wrapper">
+                <div class="doc-viewer-header">
+                    <div class="viewer-titles">
+                        <h3>Interactive Project Proposal & Research Documentation</h3>
+                        <p>Read our full statutory proposals, product specifications, and multi-agent synthesis reports:</p>
+                    </div>
+                    <div class="doc-tabs-bar" id="doc-tabs">
+                        <button class="doc-tab-btn active" data-doc="faisal">🌟 Master Proposal (Faisal)</button>
+                        <button class="doc-tab-btn" data-doc="prd">📋 Product Requirements (PRD)</button>
+                        <button class="doc-tab-btn" data-doc="sakib">⚖️ Sakib's Nyay-Triage</button>
+                        <button class="doc-tab-btn" data-doc="ai-report">🤖 8-Model AI Evaluation</button>
+                        <button class="doc-tab-btn" data-doc="fastbail">⚡ FastBail-BD Module</button>
+                        <button class="doc-tab-btn" data-doc="kanthonyay">📞 Kantho-Nyay Module</button>
+                        <button class="doc-tab-btn" data-doc="bhoochitra">🗺️ Bhoo-Chitra Module</button>
+                    </div>
+                </div>
+
+                <!-- Markdown Content Render Box -->
+                <div class="markdown-reader-container" id="markdown-reader-container">
+                    <div class="reader-toolbar">
+                        <span class="reading-filename" id="reading-doc-title">FAISAL_Proposal.md</span>
+                        <div class="reader-actions">
+                            <button class="btn-sm" id="copy-doc-btn" title="Copy Document Markdown">📋 Copy Text</button>
+                            <button class="btn-sm" id="fullscreen-doc-btn" title="Toggle Fullscreen View">⛶ Expand</button>
+                        </div>
+                    </div>
+                    <div class="rendered-markdown-body" id="rendered-doc-content">
+                        <!-- Loaded by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================================= -->
+        <!-- SECTION 4: TECH STACK (SEPARATE SECTION) -->
+        <!-- ========================================================= -->
+        <section id="techstack" class="content-section techstack-section">
+            <div class="section-badge">
+                <span class="pulse-dot amber"></span>
+                <span>System Architecture & Engineering Decisions</span>
+            </div>
+
+            <div class="section-heading-group">
+                <h2 class="section-title">Technical Architecture & Stack Decisions</h2>
+                <p class="section-subtitle">
+                    A rigorous architectural comparison designed specifically for sovereign data privacy, low-bandwidth resilience, open-source longevity, and high-concurrency public service.
+                </p>
+            </div>
+
+            <!-- Architecture Diagram Block -->
+            <div class="arch-diagram-card">
+                <div class="diagram-header">
+                    <h3>End-to-End System Component Architecture</h3>
+                    <span class="diagram-badge">Decoupled Microservices • JCO Event Bus</span>
+                </div>
+                
+                <div class="arch-flow-grid">
+                    <div class="flow-col client-tier">
+                        <div class="col-title">Omnichannel Channels</div>
+                        <div class="flow-box">
+                            <strong>Physical Paper (LAF-1)</strong>
+                            <span>ArUco Scan & Bangla OCR at 4,554 UDCs</span>
+                        </div>
+                        <div class="flow-box">
+                            <strong>Telephony (16430)</strong>
+                            <span>2G Feature Phone IVR & USSD (*16430#)</span>
+                        </div>
+                        <div class="flow-box">
+                            <strong>WhatsApp & PWA</strong>
+                            <span>Sub-2MB Offline PWA + WhatsApp Bot</span>
+                        </div>
+                    </div>
+
+                    <div class="flow-arrow">→</div>
+
+                    <div class="flow-col gateway-tier">
+                        <div class="col-title">Edge & Telephony Layer</div>
+                        <div class="flow-box">
+                            <strong>FreeSWITCH SIP Core</strong>
+                            <span>Sovereign PBX with Telecom SIP Trunking</span>
+                        </div>
+                        <div class="flow-box">
+                            <strong>Kong API Gateway</strong>
+                            <span>Rate limiting, JWT auth & mTLS security</span>
+                        </div>
+                    </div>
+
+                    <div class="flow-arrow">→</div>
+
+                    <div class="flow-col core-tier">
+                        <div class="col-title">Core ERP & AI Engine</div>
+                        <div class="flow-box highlight-box">
+                            <strong>Spring Boot 3 + Flowable</strong>
+                            <span>ACID Case Transactions & Statutory Forms LA-20 to LA-25</span>
+                        </div>
+                        <div class="flow-box highlight-box">
+                            <strong>Python FastAPI AI Suite</strong>
+                            <span>Whisper Dialect ASR, Bengali Brief & Triage</span>
+                        </div>
+                    </div>
+
+                    <div class="flow-arrow">→</div>
+
+                    <div class="flow-col storage-tier">
+                        <div class="col-title">Data & External Sync</div>
+                        <div class="flow-box">
+                            <strong>PostgreSQL 16 + PostGIS</strong>
+                            <span>Spatial radius & relational integrity</span>
+                        </div>
+                        <div class="flow-box">
+                            <strong>X.509 PKI Dispatch</strong>
+                            <span>Digital bail bond transmission to District Jails</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparison Matrix Table -->
+            <div class="matrix-wrapper">
+                <div class="matrix-header">
+                    <h3>Comprehensive Technology Comparison Matrix</h3>
+                    <p>Why we selected our specific technologies over common industry alternatives:</p>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Component Tier</th>
+                                <th>Final Selection</th>
+                                <th>Evaluated Candidates</th>
+                                <th>Why Selected (Strengths)</th>
+                                <th>Why Discarded (Weaknesses)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="tier-name-cell">
+                                        <span class="icon">⚙️</span>
+                                        <strong>Backend Core ERP</strong>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="badge-chosen">Java (Spring Boot 3) + Flowable BPMN</span>
+                                </td>
+                                <td>Node.js (NestJS), Python (Django), Go, Ruby on Rails</td>
+                                <td>
+                                    <strong>Enterprise ACID Reliability:</strong> Strict transactional integrity for legal evidence; native Flowable BPMN workflow execution for statutory Registers 01-09.
+                                </td>
+                                <td>
+                                    <strong>Node.js:</strong> Lacks robust native BPMN engines and CPU intensive capabilities; <strong>Django:</strong> Slower concurrency for multi-district transactional loads.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="tier-name-cell">
+                                        <span class="icon">🤖</span>
+                                        <strong>AI & Voice Microservices</strong>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="badge-chosen">Python (FastAPI) + Fine-tuned Whisper</span>
+                                </td>
+                                <td>Cloud OpenAI API Only, Flask, Node.js</td>
+                                <td>
+                                    <strong>Local Dialect Adaptation:</strong> Supports self-hosted quantized models fine-tuned on Sylheti and Chittagonian dialects; async high-throughput inference; strict data privacy.
+                                </td>
+                                <td>
+                                    <strong>Cloud OpenAI Only:</strong> Violates state data sovereignty for confidential criminal records; recurring dollar billing unsustainable for government budget; fails offline.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="tier-name-cell">
+                                        <span class="icon">🗄️</span>
+                                        <strong>Database & Geospatial</strong>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="badge-chosen">PostgreSQL 16 + PostGIS</span>
+                                </td>
+                                <td>MongoDB, MySQL 8, CouchDB</td>
+                                <td>
+                                    <strong>Strict Relational Schemas:</strong> Enforces statutory foreign keys between Beneficiary, Panel Lawyer, Hearing, and Statutory Registers; PostGIS performs instant polygon distance matching for Sec 15 allocation.
+                                </td>
+                                <td>
+                                    <strong>MongoDB:</strong> Document stores lack rigid relational constraints, leading to data corruption in audit-critical judicial registers; weak geospatial polygon intersection for mouza maps.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="tier-name-cell">
+                                        <span class="icon">📱</span>
+                                        <strong>Frontend & Mobile</strong>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="badge-chosen">Progressive Web App (PWA) + Vanilla/React</span>
+                                </td>
+                                <td>Flutter Mobile App, React Native</td>
+                                <td>
+                                    <strong>Zero Install Friction:</strong> Sub-2MB bundle loads instantly via link or QR code; IndexedDB offline persistence allows field paralegals in char areas to work with zero network.
+                                </td>
+                                <td>
+                                    <strong>Flutter:</strong> Requires 20MB+ Play Store download; in rural Bangladesh where phone storage is constrained and mobile data costs money, app-store requirement causes 80%+ drop-off.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="tier-name-cell">
+                                        <span class="icon">📞</span>
+                                        <strong>Telephony & PBX (16430)</strong>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="badge-chosen">FreeSWITCH / Asterisk PBX Core</span>
+                                </td>
+                                <td>Twilio API SaaS, Agora, Vonage</td>
+                                <td>
+                                    <strong>Sovereign Zero-Per-Minute Cost:</strong> Hosted on government cloud; direct SIP interconnection with local telecom carriers (Teletalk, Grameenphone, Robi); zero recurring SaaS fees.
+                                </td>
+                                <td>
+                                    <strong>Twilio:</strong> Foreign SaaS creates sovereign privacy breach for national emergency calls; pay-per-minute USD billing creates massive foreign exchange drain on public funds.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="tier-name-cell">
+                                        <span class="icon">🔒</span>
+                                        <strong>Security & Bail Dispatch</strong>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="badge-chosen">OpenSSL X.509 PKI + AES-256</span>
+                                </td>
+                                <td>Unsigned PDF via Email, Courier</td>
+                                <td>
+                                    <strong>Cryptographic Non-Repudiation:</strong> Judicial digital signature verifiable offline at prison gate terminal via high-density QR hash; eliminates fake bail releases and paper couriers.
+                                </td>
+                                <td>
+                                    <strong>Unsigned Email/Courier:</strong> Takes 7–21 days to transit, highly vulnerable to forgery, corrupt middlemen, and unauthorized detainee detention.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Architecture Decision Records (ADR) Cards Grid -->
+            <div class="adrs-section-wrapper">
+                <div class="matrix-header">
+                    <h3>Architectural Decision Records (ADRs)</h3>
+                    <p>Formal engineering decisions recorded for future developers and judicial stakeholders:</p>
+                </div>
+
+                <div class="adrs-grid">
+                    <div class="adr-card">
+                        <div class="adr-id">ADR-001</div>
+                        <h4>Sovereign Telephony Architecture for National 16430</h4>
+                        <div class="adr-meta"><strong>Status:</strong> Approved • <strong>Driver:</strong> Data Sovereignty & Telecom Interconnect</div>
+                        <p>
+                            <strong>Context:</strong> National legal helpline (16430) requires IVR, USSD capabilities, and dialect-specific speech-to-text without recurring USD cloud costs.
+                        </p>
+                        <p>
+                            <strong>Decision:</strong> Deploy open-source FreeSWITCH PBX integrated with BTRC-authorized SIP trunks and custom Python AGI for AI voicebot processing.
+                        </p>
+                    </div>
+
+                    <div class="adr-card">
+                        <div class="adr-id">ADR-002</div>
+                        <h4>Dual Microservices: Spring Boot ERP + FastAPI ML</h4>
+                        <div class="adr-meta"><strong>Status:</strong> Approved • <strong>Driver:</strong> Performance Separation of Concerns</div>
+                        <p>
+                            <strong>Context:</strong> Relational legal registers require ACID database locking, while voice transcription and OCR require high-throughput GPU/CPU execution.
+                        </p>
+                        <p>
+                            <strong>Decision:</strong> Decouple into a Java Spring Boot transactional core and a Python FastAPI intelligence suite communicating via an asynchronous event bus.
+                        </p>
+                    </div>
+
+                    <div class="adr-card">
+                        <div class="adr-id">ADR-003</div>
+                        <h4>PostgreSQL + PostGIS for Geospatial Panel Allocation</h4>
+                        <div class="adr-meta"><strong>Status:</strong> Approved • <strong>Driver:</strong> Section 15 Proximity & Mouza Cadastral Maps</div>
+                        <p>
+                            <strong>Context:</strong> Section 15 of Legal Aid Act requires matching victims to nearby lawyers within Upazilas, while Bhoo-Chitra requires spatial polygon matching for land plots.
+                        </p>
+                        <p>
+                            <strong>Decision:</strong> Utilize PostgreSQL with PostGIS spatial indexing for sub-millisecond distance and cadastral boundary intersection calculations.
+                        </p>
+                    </div>
+
+                    <div class="adr-card">
+                        <div class="adr-id">ADR-004</div>
+                        <h4>Sub-2MB Offline-First PWA over Native App Store Bundles</h4>
+                        <div class="adr-meta"><strong>Status:</strong> Approved • <strong>Driver:</strong> Rural Device Storage & Connectivity</div>
+                        <p>
+                            <strong>Context:</strong> Rural field workers and paralegals frequently lose cellular connectivity in riverine char regions and use entry-level Android devices.
+                        </p>
+                        <p>
+                            <strong>Decision:</strong> Build a Progressive Web App utilizing Service Workers and IndexedDB for local offline queuing with automatic background synchronization.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col brand-col">
+                <div class="footer-brand">
+                    <span class="footer-emblem">⚖️</span>
+                    <div>
+                        <strong>NyaySetu // ন্যায়সেতু</strong>
+                        <span>The Digital Legal Aid Bridge for Bangladesh</span>
+                    </div>
+                </div>
+                <p>
+                    Built for the <strong>Legal Tech Hackathon 2026</strong> under the <em>Accelerating Digital Legal Aid Services in Bangladesh (ADLASB)</em> project.
+                </p>
+                <div class="footer-meta-tags">
+                    <span>🇪🇺 EU Funded</span>
+                    <span>🇧🇩 DBLA / Min of Law</span>
+                    <span>🇺🇳 UNDP Technical Assistance</span>
+                </div>
+            </div>
+
+            <div class="footer-col links-col">
+                <h4>Quick Navigation</h4>
+                <ul>
+                    <li><a href="#competition">Competition Overview & Stats</a></li>
+                    <li><a href="#tracks-problems">Problems & Solutions Matrix</a></li>
+                    <li><a href="#proposal">Master Proposal: NyaySetu</a></li>
+                    <li><a href="#techstack">Architecture & Tech Stack</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col research-col">
+                <h4>Consensus Research</h4>
+                <p>
+                    Synthesized from <strong>1,572 identified bottlenecks</strong> and evaluated across <strong>8 frontier AI models</strong> (ChatGPT, Claude 3.5, DeepSeek V3, Sakana, Grok, LLaMA 3.1, Mistral, GPT 5.6).
+                </p>
+                <div class="footer-action-row">
+                    <a href="#proposal" class="footer-link-btn" onclick="switchProposalDoc('ai-report')">Read 8-Model Report</a>
+                    <a href="#site-header" class="back-to-top-btn" title="Back to top">↑ Back to Top</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+            <div>© 2026 Legal Tech Hackathon BD • Project NyaySetu. Developed with precision and care for the citizens of Bangladesh.</div>
+            <div class="footer-badges">
+                <span class="status-live">● Ready for Round 1 & Round 2 Deployment</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification for Share / Copy -->
+    <div id="toast" class="toast-popup" style="display: none;"></div>
+
+    <script src="app.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

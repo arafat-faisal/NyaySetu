@@ -1,0 +1,157 @@
+{
+  "title": "Digital Legal Aid & Justice Innovation Grand Challenge",
+  "country": "Bangladesh & South Asia",
+  "theme": "Access to Justice, Legal Operations, Court Modernization, and Law + Computer Science Innovation",
+  "core_crisis_statistics": {
+    "total_pending_cases": "4.639+ Million Cases (buckling lower courts and High Court)",
+    "under_trial_prisoners_rate": "70%+ of total incarcerated population are awaiting trial without conviction",
+    "legal_aid_awareness_gap": "97% of eligible citizens are unaware that free state legal aid exists (UNDP Bangladesh)",
+    "full_time_legal_aid_officers": "Only 27 full-time officers serving 64 districts (approx. 1 per 6.3 million citizens)",
+    "average_civil_case_delay": "8 to 15 years to reach final appellate decree",
+    "rural_dialect_barrier": "Over 40% of rural population speak regional dialects (Sylheti, Chittagonian, Rangpuri) unsupported by standard NLP"
+  },
+  "key_statutes_and_frameworks": [
+    {
+      "name": "Legal Aid Services Act 2000",
+      "scope": "Statutory foundation establishing NLASO, district legal aid committees, and citizen rights to free counsel."
+    },
+    {
+      "name": "Village Courts Act 2006 (Amended 2013)",
+      "scope": "Grassroots Union Parishad adjudication of small civil disputes (up to BDT 75,000) and minor offenses."
+    },
+    {
+      "name": "Code of Civil Procedure (CPC) Section 89A-89E",
+      "scope": "Mandatory judicial mediation and alternative dispute resolution mechanisms."
+    },
+    {
+      "name": "Information and Communication Technology (ICT) Act 2006 & Cyber Security Act",
+      "scope": "Digital evidence admissibility, electronic signatures, and cybercrime jurisdiction."
+    },
+    {
+      "name": "UNDP SDG 16: Peace, Justice and Strong Institutions",
+      "scope": "Target 16.3: Promote the rule of law at the national and international levels and ensure equal access to justice for all."
+    }
+  ],
+  "top_20_consensus_breakthroughs": [
+    {
+      "rank": 1,
+      "title": "FastBail-BD",
+      "category": "Bail & Over-Detention",
+      "summary": "PKI-signed cryptographic bail dispatch network linking courts and central jails to instantly eliminate detention after bail grants."
+    },
+    {
+      "rank": 2,
+      "title": "Kantho-Nay (Voice-to-Justice)",
+      "category": "Digital Inclusion & Dialects",
+      "summary": "Dialect-tolerant (Sylheti/Chittagonian) voice AI gateway accessible via 2G feature phones and toll-free 16430 helpline."
+    },
+    {
+      "rank": 3,
+      "title": "Bhoo-Chitra Cadastral Overlay",
+      "category": "Land Disputes",
+      "summary": "AI drone survey and historical CS/RS/SA cadastral map alignment engine to resolve 60%+ of rural land litigation at source."
+    },
+    {
+      "rank": 4,
+      "title": "SuretyCheck-BD",
+      "category": "Integrity & Identity",
+      "summary": "Biometric fingerprint and NID cross-matching system to eliminate professional fake bail guarantors and rent-seeking."
+    },
+    {
+      "rank": 5,
+      "title": "OrderLock Judicial Vault",
+      "category": "Cybersecurity & Evidence",
+      "summary": "Server-side cryptographic QR sealing for lower court decrees to prevent forged rulings and order tampering."
+    },
+    {
+      "rank": 6,
+      "title": "SmartPeshkar Docket Alerter",
+      "category": "Court Delay & Scheduling",
+      "summary": "Predictive cause-list call-up ticker and SMS alerter saving rural litigants millions in unnecessary travel days."
+    },
+    {
+      "rank": 7,
+      "title": "GramAdalat-Tab Offline Suite",
+      "category": "Village Courts & ADR",
+      "summary": "Offline-first tablet assistant for Union Parishad chairmen with statutory boundary validation to prevent ultra vires rulings."
+    },
+    {
+      "rank": 8,
+      "title": "BDLII Open Legal Knowledge Engine",
+      "category": "Legal Research & Precedents",
+      "summary": "Free open-access national legal database with bilingual semantic vector search fine-tuned on Bangladesh Supreme Court jurisprudence."
+    },
+    {
+      "rank": 9,
+      "title": "Nari-Shield PII Redactor",
+      "category": "Women's Justice & Privacy",
+      "summary": "Autonomous agentic redactor stripping victim PII from public sexual violence and domestic abuse dockets."
+    },
+    {
+      "rank": 10,
+      "title": "Shilishi-Online ODR",
+      "category": "Alternative Dispute Resolution",
+      "summary": "Asynchronous guided mediation portal with automated smart-contract settlement escrow for small claims and e-commerce disputes."
+    },
+    {
+      "rank": 11,
+      "title": "HabeasAlert Over-Detention Watchdog",
+      "category": "Prisoners & Human Rights",
+      "summary": "Automated algorithmic scanner alerting district legal aid committees when under-trial detention exceeds statutory limits."
+    },
+    {
+      "rank": 12,
+      "title": "CustodyLock Forensic Evidence Chain",
+      "category": "Digital Evidence",
+      "summary": "NFC and blockchain-timestamped physical/digital evidence tracking ledger from crime scene seizure to courtroom admission."
+    },
+    {
+      "rank": 13,
+      "title": "Farayez-Chain Inheritance Calculator",
+      "category": "Family & Property Law",
+      "summary": "Algorithmic Islamic and Hindu inheritance share generator mapping multi-generational family trees into exact decimal shares."
+    },
+    {
+      "rank": 14,
+      "title": "Shepardize-BD Precedent Citator",
+      "category": "Judicial Operations",
+      "summary": "Automated graph neural network tracking whether High Court precedents have been overruled, distinguished, or upheld."
+    },
+    {
+      "rank": 15,
+      "title": "KhorposhTrack Maintenance Gateway",
+      "category": "Family Law & Women",
+      "summary": "Digital family court alimony and denmohor asset tracking gateway with automated bank/MFS garnishment alerts."
+    },
+    {
+      "rank": 16,
+      "title": "ArjiDoshok Pleading Assembly Studio",
+      "category": "Document Drafting",
+      "summary": "Guided legal document builder for pro se litigants ensuring civil petitions adhere to statutory procedural rules."
+    },
+    {
+      "rank": 17,
+      "title": "StealthRakhi Duress Lifeline",
+      "category": "Domestic Violence",
+      "summary": "Covert domestic abuse emergency legal beacon disguised as everyday utility apps with instant evidence locker."
+    },
+    {
+      "rank": 18,
+      "title": "DeepProof Media Forensic Tool",
+      "category": "Evidence & AI Ethics",
+      "summary": "Judicial forensics pipeline detecting AI-generated synthetic voice notes and video evidence presented in court."
+    },
+    {
+      "rank": 19,
+      "title": "BhoomiAlert Proactive SMS Guard",
+      "category": "Land Governance",
+      "summary": "Proactive land registry SMS alert notifying landowners the instant a caveat, deed change, or suit is filed on their mouza plot."
+    },
+    {
+      "rank": 20,
+      "title": "Zero-Knowledge Legal Aid Passport",
+      "category": "Privacy & Verification",
+      "summary": "Cryptographic eligibility verification enabling low-income citizens to prove poverty status without disclosing sensitive PII."
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "Antigravity": {
+    "model_name": "Gemini 3.8 Flash (High)",
+    "research_team": "Antigravity Multidisciplinary LegalTech Research Consortium",
+    "total_problems": 312,
+    "total_ideas": 50,
+    "total_future_ideas": 100,
+    "key_strength": "Deep 52-category systemic breakdown, PKI & cryptographic verification, dialect voice interfaces, cadastral AI"
+  },
+  "Claude": {
+    "model_name": "Claude 3.7 Sonnet / Notion AI",
+    "research_team": "Multidisciplinary Justice-Tech Research Team",
+    "total_problems": 320,
+    "total_ideas": 50,
+    "total_future_ideas": 100,
+    "key_strength": "High-purity dataset engineering, 100 solution opportunities, granular implementation difficulty scoring"
+  },
+  "Sakana": {
+    "model_name": "Sakana AI Justice-Lab",
+    "research_team": "AI Scientist Multidisciplinary Justice Team",
+    "total_problems": 351,
+    "total_ideas": 50,
+    "total_future_ideas": 100,
+    "key_strength": "351 problems comprehensive enumeration, interactive standalone single-page delivery, human-centric justice focus"
+  },
+  "Meta": {
+    "model_name": "Llama 3.3 70B / Meta AI",
+    "research_team": "Elite Multidisciplinary Team (LegalTech, Justice, Policy, AI Architect, HCD)",
+    "total_problems": 328,
+    "total_ideas": 50,
+    "total_future_ideas": 0,
+    "key_strength": "Bangladesh grassroots reality, Union Digital Centers, 46.39 lakh case backlog integration, high social impact focus"
+  },
+  "Mistral": {
+    "model_name": "Mistral Large / Le Chat",
+    "research_team": "Vibe Multidisciplinary Legal-Tech Research Team",
+    "total_problems": 137,
+    "total_ideas": 50,
+    "total_future_ideas": 100,
+    "key_strength": "Exhaustive Section 2-4 textual breakdown, 50 detailed hackathon pitches, deep ADR and Village Court coverage"
+  },
+  "Perplexity": {
+    "model_name": "Sonar / Perplexity Deep Research",
+    "research_team": "Multidisciplinary Justice-Tech Research Team",
+    "total_problems": 120,
+    "total_ideas": 50,
+    "total_future_ideas": 100,
+    "key_strength": "Fact-grounded citations, UNCITRAL ODR compliance, live web verified Bangladesh statistics"
+  },
+  "OpenCode": {
+    "model_name": "OpenCode / Ling 3",
+    "research_team": "Multidisciplinary Justice Innovation Research Team",
+    "total_problems": 35,
+    "total_ideas": 50,
+    "total_future_ideas": 100,
+    "key_strength": "Structured tabular engineering, 387 cataloged problem taxonomy, compact high-yield hackathon scoring"
+  },
+  "ChatGPT": {
+    "model_name": "GPT-4 Turbo / OpenAI",
+    "research_team": "Multidisciplinary Justice Innovation Team",
+    "total_problems": 41,
+    "total_ideas": 20,
+    "total_future_ideas": 20,
+    "key_strength": "Deep policy and human-centered design perspective, institutional bottleneck analysis, high severity focus"
+  },
+  "DeepSeek": {
+    "model_name": "DeepSeek-R1 / V3",
+    "research_team": "LexInnovate Consortium",
+    "total_problems": 20,
+    "total_ideas": 5,
+    "total_future_ideas": 5,
+    "key_strength": "Algorithmic triage reasoning, zero-knowledge proofs, rural dialect RAG architectures"
+  },
+  "Gemini": {
+    "model_name": "Gemini 1.5 Pro / Advanced Multimodal",
+    "research_team": "Nexus JusticeTech Multidisciplinary Group",
+    "total_problems": 7,
+    "total_ideas": 0,
+    "total_future_ideas": 0,
+    "key_strength": "Model Context Protocol (MCP) integration, multi-modal evidence chain-of-custody, acoustic deception analytics"
+  },
+  "Grok": {
+    "model_name": "Grok 4.5 (xAI)",
+    "research_team": "Multidisciplinary Legal-Tech Research Collective",
+    "total_problems": 5,
+    "total_ideas": 0,
+    "total_future_ideas": 0,
+    "key_strength": "High-throughput statutory verification, decentralized audit trails, cybernetic legal resilience"
+  }
+}
