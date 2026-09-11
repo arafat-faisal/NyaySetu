@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>NyaySetu // Legal Tech Hackathon 2026 — Digital Legal Aid Bangladesh</title>
     <meta name="description" content="NyaySetu: Inclusive 4-Tier Omnichannel Legal Aid Platform for Bangladesh. Aligned with 6 Official Tracks of Legal Tech Hackathon 2026.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,10 +20,11 @@
                 <div class="logo-emblem">⚖️</div>
                 <div class="brand-titles">
                     <div class="brand-primary">NyaySetu <span class="bangla-title">ন্যায়সেতু</span></div>
-                    <div class="brand-subtitle">Legal Tech Hackathon 2026 • Bangladesh</div>
+                    <div class="brand-subtitle">Legal Tech BD 2026</div>
                 </div>
             </a>
 
+            <!-- Desktop Nav Links -->
             <nav class="nav-links" id="nav-links">
                 <a href="#competition" class="nav-link active" data-section="competition">
                     <span class="nav-icon">🏛️</span>
@@ -43,23 +44,86 @@
                 </a>
             </nav>
 
+            <!-- Header Controls -->
             <div class="header-controls">
                 <button id="theme-toggle-btn" class="ctrl-btn theme-btn" aria-label="Toggle Dark/Light Mode" title="Toggle Theme">
                     <span class="theme-icon moon-icon">🌙</span>
                     <span class="theme-icon sun-icon">☀️</span>
                     <span class="theme-label">Theme</span>
                 </button>
-                <button id="share-btn" class="ctrl-btn share-btn" title="Share showcase link">
+                <button id="share-btn" class="ctrl-btn share-btn desktop-only" title="Share showcase link">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
                     <span>Share</span>
                 </button>
-                <a href="#proposal" class="btn-cta">
+                <a href="#proposal" class="btn-cta desktop-only">
                     <span>Explore Proposal</span>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </a>
+                <!-- Mobile Hamburger Toggle -->
+                <button id="mobile-menu-btn" class="ctrl-btn mobile-menu-btn" aria-label="Open Navigation Menu" title="Menu">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
             </div>
         </div>
+
+        <!-- Mobile Drawer Overlay -->
+        <div class="mobile-drawer" id="mobile-drawer">
+            <div class="mobile-drawer-header">
+                <div class="drawer-brand">
+                    <span class="drawer-emblem">⚖️</span>
+                    <strong>NyaySetu // মেন্যু</strong>
+                </div>
+                <button class="drawer-close-btn" id="drawer-close-btn" aria-label="Close Menu">✕</button>
+            </div>
+            <nav class="mobile-drawer-nav">
+                <a href="#competition" class="mobile-drawer-link" data-section="competition">
+                    <span class="m-icon">🏛️</span>
+                    <div>
+                        <strong>Competition Overview</strong>
+                        <small>Stats, Rules, Timeline & Organizers</small>
+                    </div>
+                </a>
+                <a href="#tracks-problems" class="mobile-drawer-link" data-section="tracks-problems">
+                    <span class="m-icon">🎯</span>
+                    <div>
+                        <strong>Tracks & Problems</strong>
+                        <small>24 Breakthroughs Mapped to 6 Tracks</small>
+                    </div>
+                </a>
+                <a href="#proposal" class="mobile-drawer-link" data-section="proposal">
+                    <span class="m-icon">📜</span>
+                    <div>
+                        <strong>The Master Proposal</strong>
+                        <small>4-Tier Architecture & Interactive Reader</small>
+                    </div>
+                </a>
+                <a href="#techstack" class="mobile-drawer-link" data-section="techstack">
+                    <span class="m-icon">⚡</span>
+                    <div>
+                        <strong>Technical Stack & ADRs</strong>
+                        <small>Component Architecture & Comparisons</small>
+                    </div>
+                </a>
+            </nav>
+            <div class="mobile-drawer-footer">
+                <button id="mobile-drawer-share-btn" class="btn-mobile-share">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
+                    <span>Copy Showcase Link to Share</span>
+                </button>
+            </div>
+        </div>
+        <div class="mobile-drawer-backdrop" id="drawer-backdrop"></div>
     </header>
+
+    <!-- Mobile Quick-Jump Horizontal Pills Bar -->
+    <div class="mobile-quick-nav" id="mobile-quick-nav">
+        <div class="quick-nav-track">
+            <a href="#competition" class="quick-nav-pill active" data-section="competition">🏛️ Competition</a>
+            <a href="#tracks-problems" class="quick-nav-pill" data-section="tracks-problems">🎯 Tracks & Problems</a>
+            <a href="#proposal" class="quick-nav-pill" data-section="proposal">📜 Proposal</a>
+            <a href="#techstack" class="quick-nav-pill" data-section="techstack">⚡ Tech Stack</a>
+        </div>
+    </div>
 
     <!-- Main Content Container -->
     <main class="page-wrapper">
@@ -274,14 +338,16 @@
 
             <!-- Track Filter Tabs & Live Search Bar -->
             <div class="filter-toolbar">
-                <div class="track-filter-tabs" id="track-filters">
-                    <button class="filter-tab active" data-filter="all">All Tracks (24 Core Breakthroughs)</button>
-                    <button class="filter-tab" data-filter="track1">Track 1: Citizen Access</button>
-                    <button class="filter-tab" data-filter="track2">Track 2: AI for Legal Aid</button>
-                    <button class="filter-tab" data-filter="track3">Track 3: Justice Operations</button>
-                    <button class="filter-tab" data-filter="track4">Track 4: ODR & Accountability</button>
-                    <button class="filter-tab" data-filter="track5">Track 5: Community Innovation</button>
-                    <button class="filter-tab" data-filter="track6">Track 6: AI Call Centre</button>
+                <div class="track-filter-tabs-wrapper">
+                    <div class="track-filter-tabs" id="track-filters">
+                        <button class="filter-tab active" data-filter="all">All Tracks (24 Core Breakthroughs)</button>
+                        <button class="filter-tab" data-filter="track1">Track 1: Citizen Access</button>
+                        <button class="filter-tab" data-filter="track2">Track 2: AI for Legal Aid</button>
+                        <button class="filter-tab" data-filter="track3">Track 3: Justice Operations</button>
+                        <button class="filter-tab" data-filter="track4">Track 4: ODR & Accountability</button>
+                        <button class="filter-tab" data-filter="track5">Track 5: Community Innovation</button>
+                        <button class="filter-tab" data-filter="track6">Track 6: AI Call Centre</button>
+                    </div>
                 </div>
 
                 <div class="search-input-wrapper">
@@ -448,14 +514,16 @@
                         <h3>Interactive Project Proposal & Research Documentation</h3>
                         <p>Read our full statutory proposals, product specifications, and multi-agent synthesis reports:</p>
                     </div>
-                    <div class="doc-tabs-bar" id="doc-tabs">
-                        <button class="doc-tab-btn active" data-doc="faisal">🌟 Master Proposal (Faisal)</button>
-                        <button class="doc-tab-btn" data-doc="prd">📋 Product Requirements (PRD)</button>
-                        <button class="doc-tab-btn" data-doc="sakib">⚖️ Sakib's Nyay-Triage</button>
-                        <button class="doc-tab-btn" data-doc="ai-report">🤖 8-Model AI Evaluation</button>
-                        <button class="doc-tab-btn" data-doc="fastbail">⚡ FastBail-BD Module</button>
-                        <button class="doc-tab-btn" data-doc="kanthonyay">📞 Kantho-Nyay Module</button>
-                        <button class="doc-tab-btn" data-doc="bhoochitra">🗺️ Bhoo-Chitra Module</button>
+                    <div class="doc-tabs-wrapper">
+                        <div class="doc-tabs-bar" id="doc-tabs">
+                            <button class="doc-tab-btn active" data-doc="faisal">🌟 Master Proposal (Faisal)</button>
+                            <button class="doc-tab-btn" data-doc="prd">📋 Product Requirements (PRD)</button>
+                            <button class="doc-tab-btn" data-doc="sakib">⚖️ Sakib's Nyay-Triage</button>
+                            <button class="doc-tab-btn" data-doc="ai-report">🤖 8-Model AI Evaluation</button>
+                            <button class="doc-tab-btn" data-doc="fastbail">⚡ FastBail-BD Module</button>
+                            <button class="doc-tab-btn" data-doc="kanthonyay">📞 Kantho-Nyay Module</button>
+                            <button class="doc-tab-btn" data-doc="bhoochitra">🗺️ Bhoo-Chitra Module</button>
+                        </div>
                     </div>
                 </div>
 
@@ -565,6 +633,7 @@
                 <div class="matrix-header">
                     <h3>Comprehensive Technology Comparison Matrix</h3>
                     <p>Why we selected our specific technologies over common industry alternatives:</p>
+                    <div class="table-scroll-hint">👈 Swipe horizontally on mobile to view complete matrix 👉</div>
                 </div>
 
                 <div class="table-responsive">

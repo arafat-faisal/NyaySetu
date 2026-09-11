@@ -525,20 +525,21 @@ NyaySetu is an omnichannel, inclusive digital legal aid infrastructure designed 
 document.addEventListener('DOMContentLoaded', () => {
     initTheme();
     initScrollSpy();
+    initMobileDrawer();
     initProblemsExplorer();
     initDocViewer();
     initShareAndCopy();
 });
 
 // =========================================================
-// 4. THEME CONTROLLER (DARK / LIGHT WITH LOCAL STORAGE)
+// 4. THEME CONTROLLER (PRIMARY: LIGHT, TOGGLED: DARK)
 // =========================================================
 function initTheme() {
     const htmlEl = document.documentElement;
     const themeBtn = document.getElementById('theme-toggle-btn');
     
-    // Check saved theme or default to dark
-    const savedTheme = localStorage.getItem('nyaysetu_theme') || 'dark';
+    // Check saved theme or default to LIGHT (primary theme)
+    const savedTheme = localStorage.getItem('nyaysetu_theme') || 'light';
     htmlEl.setAttribute('data-theme', savedTheme);
 
     if (themeBtn) {
@@ -553,15 +554,58 @@ function initTheme() {
 }
 
 // =========================================================
-// 5. SCROLL-SPY & ACTIVE NAV LINK HIGHLIGHTING
+// 5. MOBILE DRAWER & NAVIGATION
+// =========================================================
+function initMobileDrawer() {
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const drawer = document.getElementById('mobile-drawer');
+    const backdrop = document.getElementById('drawer-backdrop');
+    const closeBtn = document.getElementById('drawer-close-btn');
+    const drawerLinks = document.querySelectorAll('.mobile-drawer-link');
+    const mobileShareBtn = document.getElementById('mobile-drawer-share-btn');
+
+    function openDrawer() {
+        if (drawer) drawer.classList.add('open');
+        if (backdrop) backdrop.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+        if (drawer) drawer.classList.remove('open');
+        if (backdrop) backdrop.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    if (menuBtn) menuBtn.addEventListener('click', openDrawer);
+    if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+    if (backdrop) backdrop.addEventListener('click', closeDrawer);
+
+    drawerLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            closeDrawer();
+        });
+    });
+
+    if (mobileShareBtn) {
+        mobileShareBtn.addEventListener('click', () => {
+            closeDrawer();
+            copyCurrentUrl();
+        });
+    }
+}
+
+// =========================================================
+// 6. SCROLL-SPY & ACTIVE NAV LINK HIGHLIGHTING
 // =========================================================
 function initScrollSpy() {
     const sections = document.querySelectorAll('.content-section');
     const navLinks = document.querySelectorAll('.nav-link');
+    const quickNavPills = document.querySelectorAll('.quick-nav-pill');
+    const mobileDrawerLinks = document.querySelectorAll('.mobile-drawer-link');
 
     window.addEventListener('scroll', () => {
         let currentSectionId = '';
-        const scrollPosition = window.scrollY + 140; // Header offset
+        const scrollPosition = window.scrollY + 150; // Header + quick nav offset
 
         sections.forEach(sec => {
             const sectionTop = sec.offsetTop;
@@ -572,7 +616,26 @@ function initScrollSpy() {
         });
 
         if (currentSectionId) {
+            // Update desktop nav
             navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('data-section') === currentSectionId) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Update mobile quick-nav pills
+            quickNavPills.forEach(pill => {
+                pill.classList.remove('active');
+                if (pill.getAttribute('data-section') === currentSectionId) {
+                    pill.classList.add('active');
+                    // Ensure the active pill is visible in horizontal scroll
+                    pill.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                }
+            });
+
+            // Update mobile drawer links
+            mobileDrawerLinks.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('data-section') === currentSectionId) {
                     link.classList.add('active');
