@@ -128,6 +128,45 @@
         </div>
     </div>
 
+    <!-- Floating Mobile Journey Rail (Right-Side Progress & Guided Nav) -->
+    <nav id="mobile-journey-rail" class="mobile-journey-rail" aria-label="Journey Progress Navigator">
+        <!-- Prev Step Button -->
+        <button class="journey-step-btn journey-prev-btn" id="journey-prev-btn" title="Previous section" aria-label="Go to previous section">
+            <span class="journey-btn-icon">▲</span>
+            <span class="journey-btn-text" id="journey-prev-label">Prev</span>
+        </button>
+
+        <!-- Journey Section Track & Dots -->
+        <div class="journey-track" id="journey-track">
+            <button class="journey-node active" data-section="competition" data-index="0" data-name="Overview" title="1. Competition Overview">
+                <span class="node-icon">🏛️</span>
+                <span class="node-indicator"></span>
+                <span class="node-label">Overview</span>
+            </button>
+            <button class="journey-node" data-section="tracks-problems" data-index="1" data-name="Problems" title="2. Tracks & Problems">
+                <span class="node-icon">🎯</span>
+                <span class="node-indicator"></span>
+                <span class="node-label">Problems</span>
+            </button>
+            <button class="journey-node" data-section="proposal" data-index="2" data-name="Proposal" title="3. The Proposal">
+                <span class="node-icon">📜</span>
+                <span class="node-indicator"></span>
+                <span class="node-label">Proposal</span>
+            </button>
+            <button class="journey-node" data-section="techstack" data-index="3" data-name="Stack" title="4. Tech Stack">
+                <span class="node-icon">⚡</span>
+                <span class="node-indicator"></span>
+                <span class="node-label">Stack</span>
+            </button>
+        </div>
+
+        <!-- Next Step Button -->
+        <button class="journey-step-btn journey-next-btn" id="journey-next-btn" title="Next section" aria-label="Go to next section">
+            <span class="journey-btn-text" id="journey-next-label">Next</span>
+            <span class="journey-btn-icon">▼</span>
+        </button>
+    </nav>
+
     <!-- Main Content Container -->
     <main class="page-wrapper">
 

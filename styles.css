@@ -373,6 +373,209 @@ a {
     border-color: var(--accent-emerald);
 }
 
+/* ========================================================= */
+/* Floating Mobile Journey Rail (Right-Side Progress Guide)  */
+/* ========================================================= */
+.mobile-journey-rail {
+    position: fixed;
+    right: 8px;
+    top: 52%;
+    transform: translateY(-50%) translateX(28px);
+    z-index: 950;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    background: var(--bg-glass);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-medium);
+    border-radius: var(--radius-full);
+    padding: 6px 4px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease, border-color 0.25s ease;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    width: 48px;
+}
+
+[data-theme="dark"] .mobile-journey-rail {
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
+    background: rgba(14, 22, 38, 0.9);
+}
+
+/* Visible when scrolled past header */
+.mobile-journey-rail.is-visible {
+    opacity: 0.92;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(-50%) translateX(0);
+}
+
+/* Grayed out / dimmed state when idle / not trying to click */
+.mobile-journey-rail.is-visible.is-dimmed {
+    opacity: 0.25;
+    filter: grayscale(85%);
+    transform: translateY(-50%) translateX(2px) scale(0.92);
+}
+
+/* Highlighted on hover, touch, or active interaction */
+.mobile-journey-rail.is-visible:hover,
+.mobile-journey-rail.is-visible:active,
+.mobile-journey-rail.is-visible:focus-within {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: translateY(-50%) translateX(0) scale(1.02) !important;
+    border-color: var(--accent-emerald) !important;
+    box-shadow: 0 6px 24px rgba(5, 150, 105, 0.25) !important;
+}
+
+/* Prev / Next Mini Step Buttons */
+.journey-step-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    width: 40px;
+    padding: 3px 2px;
+    cursor: pointer;
+    font-size: 8px;
+    font-weight: 700;
+    transition: all var(--transition-fast);
+    line-height: 1;
+}
+
+.journey-step-btn:hover:not(:disabled) {
+    background: var(--accent-emerald-subtle);
+    color: var(--accent-emerald);
+    border-color: var(--accent-emerald);
+    transform: scale(1.05);
+}
+
+.journey-step-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.journey-btn-icon {
+    font-size: 8px;
+    line-height: 1;
+}
+
+.journey-btn-text {
+    font-size: 7px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-top: 2px;
+    max-width: 36px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 800;
+}
+
+/* Vertical Journey Track */
+.journey-track {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 0;
+    position: relative;
+}
+
+.journey-track::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    background: var(--border-subtle);
+    z-index: 0;
+}
+
+/* Section Nodes */
+.journey-node {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 2px;
+    transition: all var(--transition-fast);
+    border-radius: var(--radius-sm);
+}
+
+.node-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--bg-surface);
+    border: 2px solid var(--border-medium);
+    transition: all var(--transition-normal);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.node-icon {
+    font-size: 11px;
+    line-height: 1;
+    margin-bottom: 2px;
+    display: none;
+    transition: transform var(--transition-fast);
+}
+
+.node-label {
+    font-size: 7.5px;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: -0.01em;
+    margin-top: 2px;
+    display: none;
+    white-space: nowrap;
+}
+
+/* Active Node Highlight */
+.journey-node.active .node-indicator {
+    background: var(--accent-emerald);
+    border-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.35), 0 2px 8px rgba(5, 150, 105, 0.4);
+    transform: scale(1.25);
+}
+
+[data-theme="dark"] .journey-node.active .node-indicator {
+    border-color: #080c15;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.4), 0 2px 8px rgba(16, 185, 129, 0.5);
+}
+
+.journey-node.active .node-label {
+    color: var(--accent-emerald);
+    font-weight: 800;
+    display: block;
+}
+
+.journey-node.active .node-icon {
+    display: block;
+    transform: scale(1.15);
+}
+
+.journey-node:hover .node-indicator {
+    border-color: var(--accent-emerald);
+    transform: scale(1.2);
+}
+
 /* Mobile Drawer Overlay */
 .mobile-drawer {
     position: fixed;

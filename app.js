@@ -530,6 +530,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initProblemsExplorer();
     initDocViewer();
     initShareAndCopy();
+    initMobileJourneyRail();
 });
 
 // =========================================================
@@ -1024,10 +1025,183 @@ function showToast(message) {
 }
 
 // =========================================================
+// 8.1 MOBILE FLOATING JOURNEY NAVIGATOR
+// =========================================================
+function initMobileJourneyRail() {
+    const rail = document.getElementById('mobile-journey-rail');
+    if (!rail) return;
+
+    const sections = [
+        { id: 'competition', name: 'Overview', icon: '🏛️' },
+        { id: 'tracks-problems', name: 'Problems', icon: '🎯' },
+        { id: 'proposal', name: 'Proposal', icon: '📜' },
+        { id: 'techstack', name: 'Stack', icon: '⚡' }
+    ];
+
+    const prevBtn = document.getElementById('journey-prev-btn');
+    const nextBtn = document.getElementById('journey-next-btn');
+    const prevLabel = document.getElementById('journey-prev-label');
+    const nextLabel = document.getElementById('journey-next-label');
+    const nodes = document.querySelectorAll('.journey-node');
+
+    let currentSectionIndex = 0;
+    let isUserHovering = false;
+    let dimTimer = null;
+
+    function resetDimTimer() {
+        rail.classList.remove('is-dimmed');
+        clearTimeout(dimTimer);
+        if (!isUserHovering) {
+            dimTimer = setTimeout(() => {
+                rail.classList.add('is-dimmed');
+            }, 2200);
+        }
+    }
+
+    // Wake up on mouse hover / touch
+    rail.addEventListener('mouseenter', () => {
+        isUserHovering = true;
+        rail.classList.remove('is-dimmed');
+        clearTimeout(dimTimer);
+    });
+
+    rail.addEventListener('mouseleave', () => {
+        isUserHovering = false;
+        resetDimTimer();
+    });
+
+    rail.addEventListener('touchstart', () => {
+        isUserHovering = true;
+        rail.classList.remove('is-dimmed');
+        clearTimeout(dimTimer);
+    }, { passive: true });
+
+    rail.addEventListener('touchend', () => {
+        isUserHovering = false;
+        resetDimTimer();
+    }, { passive: true });
+
+    function scrollToSectionIndex(index) {
+        if (index < 0 || index >= sections.length) return;
+        const targetSec = document.getElementById(sections[index].id);
+        if (targetSec) {
+            const header = document.getElementById('site-header');
+            const quickNav = document.getElementById('mobile-quick-nav');
+            let headerOffset = 70;
+            if (header) headerOffset = header.offsetHeight;
+            if (quickNav && window.getComputedStyle(quickNav).display !== 'none') {
+                headerOffset += quickNav.offsetHeight;
+            }
+            headerOffset += 14;
+
+            const elementPosition = targetSec.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+                top: Math.max(0, offsetPosition),
+                behavior: 'smooth'
+            });
+
+            resetDimTimer();
+        }
+    }
+
+    // Node click handlers
+    nodes.forEach((node, idx) => {
+        node.addEventListener('click', (e) => {
+            e.preventDefault();
+            scrollToSectionIndex(idx);
+        });
+    });
+
+    // Prev & Next button handlers
+    if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (currentSectionIndex > 0) {
+                scrollToSectionIndex(currentSectionIndex - 1);
+            }
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (currentSectionIndex < sections.length - 1) {
+                scrollToSectionIndex(currentSectionIndex + 1);
+            }
+        });
+    }
+
+    // Scroll listener: activates when header is gone (> 180px) and tracks journey
+    window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+
+        // Show only when scrolled past top header
+        if (scrollY > 180) {
+            rail.classList.add('is-visible');
+            resetDimTimer();
+        } else {
+            rail.classList.remove('is-visible');
+            clearTimeout(dimTimer);
+            return;
+        }
+
+        // Detect current section position
+        const scrollPosition = scrollY + 200;
+        let detectedIndex = 0;
+
+        sections.forEach((sec, idx) => {
+            const el = document.getElementById(sec.id);
+            if (el) {
+                const top = el.offsetTop;
+                if (scrollPosition >= top) {
+                    detectedIndex = idx;
+                }
+            }
+        });
+
+        currentSectionIndex = detectedIndex;
+
+        // Update active indicator node
+        nodes.forEach((node, idx) => {
+            if (idx === currentSectionIndex) {
+                node.classList.add('active');
+            } else {
+                node.classList.remove('active');
+            }
+        });
+
+        // Update Prev button & label
+        if (prevBtn && prevLabel) {
+            if (currentSectionIndex > 0) {
+                prevBtn.disabled = false;
+                prevLabel.textContent = sections[currentSectionIndex - 1].name;
+            } else {
+                prevBtn.disabled = true;
+                prevLabel.textContent = 'Top';
+            }
+        }
+
+        // Update Next button & label
+        if (nextBtn && nextLabel) {
+            if (currentSectionIndex < sections.length - 1) {
+                nextBtn.disabled = false;
+                nextLabel.textContent = sections[currentSectionIndex + 1].name;
+            } else {
+                nextBtn.disabled = true;
+                nextLabel.textContent = 'End';
+            }
+        }
+    }, { passive: true });
+}
+
+// =========================================================
 // 9. EXPLICIT GLOBAL WINDOW BINDINGS (Inline onclick support)
 // =========================================================
 window.inspectProblem = inspectProblem;
 window.switchProposalDoc = switchProposalDoc;
 window.copyCurrentUrl = copyCurrentUrl;
 window.showToast = showToast;
+window.initMobileJourneyRail = initMobileJourneyRail;
 
