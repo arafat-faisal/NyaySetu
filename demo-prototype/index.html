@@ -2,96 +2,644 @@
 <html lang="bn">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NyaySetu (ন্যায়সেতু) - Interactive Demo Prototype & Architecture Control Center</title>
-  <meta name="description" content="Official Interactive Demo Prototype of NyaySetu: Configurable legal aid intake, voice AI, USSD phone, FastBail cryptography, and Bhoo-Chitra map warping.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>NyaySetu OS // Sovereign Judicial Workspace Operating System</title>
+  <meta name="description" content="NyaySetu OS: Next-generation omnichannel legal aid workspace cockpit for Bangladesh. Features multithreaded cryptography, cadastral GIS warping, dialect voice AI, and statutory triage.">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="theme-sovereign">
 
-  <!-- Top Telemetry & Global Control Header -->
-  <header class="telemetry-header">
-    <div class="header-branding">
-      <div class="brand-badge">
-        <svg class="svg-icon svg-icon-lg svg-icon-stroke" viewBox="0 0 24 24">
-          <path d="M12 3v18M6 8l6-5 6 5M3 13l3-5 3 5a3 3 0 0 1-6 0zM15 13l3-5 3 5a3 3 0 0 1-6 0zM4 21h16"/>
-        </svg>
+  <!-- Main App Shell Grid -->
+  <div class="app-shell">
+
+    <!-- ====================================================================
+         1. LEFT SIDEBAR NAVIGATION RAIL
+         ==================================================================== -->
+    <aside class="app-sidebar">
+      <div>
+        <!-- Brand Block -->
+        <div class="sidebar-brand-block">
+          <div class="brand-emblem">
+            <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="M12 3v18M6 8l6-5 6 5M3 13l3-5 3 5a3 3 0 0 1-6 0zM15 13l3-5 3 5a3 3 0 0 1-6 0zM4 21h16"/></svg>
+          </div>
+          <div class="brand-details">
+            <span class="brand-title">NyaySetu OS</span>
+            <span class="brand-tag">BANGLADESH LEGAL AID</span>
+          </div>
+        </div>
+
+        <!-- Navigation Workspaces -->
+        <nav class="sidebar-nav-list" aria-label="Workspaces">
+          <div class="nav-section-heading">বিচারিক কনসোল</div>
+
+          <button class="nav-item-btn active" data-workspace="triage" onclick="switchWorkspace('triage')" title="Case Docket & Triage [1]">
+            <div class="nav-btn-content">
+              <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              <span>কেস ডকেট ও ট্রায়াজ</span>
+            </div>
+            <span class="hotkey-chip">1</span>
+          </button>
+
+          <button class="nav-item-btn" data-workspace="voice" onclick="switchWorkspace('voice')" title="Voice & USSD [2]">
+            <div class="nav-btn-content">
+              <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>কণ্ঠন্যায় ১৬৪৩০ ও USSD</span>
+            </div>
+            <span class="hotkey-chip">2</span>
+          </button>
+
+          <button class="nav-item-btn" data-workspace="fastbail" onclick="switchWorkspace('fastbail')" title="FastBail-BD [3]">
+            <div class="nav-btn-content">
+              <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+              <span>FastBail-BD জামিন পাস</span>
+            </div>
+            <span class="hotkey-chip">3</span>
+          </button>
+
+          <button class="nav-item-btn" data-workspace="gis" onclick="switchWorkspace('gis')" title="Bhoo-Chitra GIS [4]">
+            <div class="nav-btn-content">
+              <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+              <span>ভূ-চিত্র GIS ও ফারায়েজ</span>
+            </div>
+            <span class="hotkey-chip">4</span>
+          </button>
+
+          <div class="nav-section-heading" style="margin-top:0.6rem;">প্রবেশদ্বার ও নিরাপত্তা</div>
+
+          <button class="nav-item-btn" data-workspace="aruco" onclick="switchWorkspace('aruco')" title="ArUco Scanner [5]">
+            <div class="nav-btn-content">
+              <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+              <span>ArUco পেপার স্ক্যানার</span>
+            </div>
+            <span class="hotkey-chip">5</span>
+          </button>
+
+          <button class="nav-item-btn" data-workspace="whatsapp" onclick="switchWorkspace('whatsapp')" title="WhatsApp & Nari-Shield [6]">
+            <div class="nav-btn-content">
+              <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <span>হোয়াটসঅ্যাপ ও নারী-শিল্ড</span>
+            </div>
+            <span class="hotkey-chip">6</span>
+          </button>
+        </nav>
       </div>
-      <div class="brand-title">
-        <span class="brand-name">
-          NyaySetu (ন্যায়সেতু)
-          <span class="tier-badge" style="font-size:0.65rem; padding:0.15rem 0.45rem;">PROTOTYPE v1.0</span>
+
+      <!-- Sidebar Footer Controls -->
+      <div class="sidebar-footer-block">
+        <button class="sidebar-toggle-btn" onclick="toggleSidebarCollapse()" title="Toggle Sidebar Width">
+          <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+          <span>সাইডবার সংকোচন</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- ====================================================================
+         2. TOP COMMAND & TELEMETRY HEADER
+         ==================================================================== -->
+    <header class="app-header">
+      <div class="header-left-zone">
+        <nav class="breadcrumbs-trail" aria-label="Breadcrumbs">
+          <span class="breadcrumb-crumb">NyaySetu OS</span>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-crumb active" id="header-active-workspace-label">কেস ডকেট ও ট্রায়াজ কনসোল (Tier 3)</span>
+        </nav>
+      </div>
+
+      <div class="header-center-zone">
+        <div class="engine-pill-badge" id="header-engine-pill" onclick="toggleAdminDrawer(true)" title="Configure Engine Architecture (Ctrl + K)">
+          <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/></svg>
+          Triage: Hybrid Ensemble (Rules + LLM)
+        </div>
+      </div>
+
+      <div class="header-right-zone">
+        <button class="btn-header-action" onclick="toggleAdminDrawer(true)" title="Architecture Admin Hub (Ctrl + K)">
+          <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/></svg>
+          <span>কনফিগ (Ctrl+K)</span>
+        </button>
+        <a href="../index.html" class="btn-header-action" title="Back to Master Showcase">
+          <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>
+          <span>শোকেস</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- ====================================================================
+         3. CENTRAL ACTIVE WORKSPACE STAGE
+         ==================================================================== -->
+    <main class="workspace-stage">
+
+      <!-- WORKSPACE 1: CASE DOCKET & TRIAGE (3-COLUMN WORKSTATION) -->
+      <section class="workspace-pane active" id="pane-triage">
+        <div class="docket-layout-grid">
+          <!-- Col 1: Searchable Filterable Case List -->
+          <div class="pane-card">
+            <div class="pane-header-strip">
+              <span class="pane-title-text">
+                <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+                লাইভ মামলা কিউ (১০টি)
+              </span>
+              <span style="font-family:var(--font-mono); font-size:0.68rem; color:var(--text-muted);">[J/K নেভিগেট]</span>
+            </div>
+
+            <div class="pane-filter-bar">
+              <div class="search-input-wrapper">
+                <svg class="svg-icon svg-icon-stroke search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="text" id="docket-search-field" placeholder="নাম, এনআইডি বা কেস নং খুঁজুন... (/)" oninput="handleDocketSearch(this.value)">
+              </div>
+              <div class="filter-chips-row">
+                <button class="filter-chip active" data-urgency="ALL" onclick="setDocketUrgencyFilter('ALL')">সব মামলা</button>
+                <button class="filter-chip" data-urgency="URGENT_RED" onclick="setDocketUrgencyFilter('URGENT_RED')">রেড অ্যালার্ট</button>
+                <button class="filter-chip" data-urgency="HIGH_YELLOW" onclick="setDocketUrgencyFilter('HIGH_YELLOW')">উচ্চ অগ্রাধিকার</button>
+                <button class="filter-chip" data-urgency="STANDARD_GREEN" onclick="setDocketUrgencyFilter('STANDARD_GREEN')">সাধারণ</button>
+              </div>
+            </div>
+
+            <div class="docket-scroll-list" id="docket-cases-list">
+              <!-- Dynamically populated from BANGLADESH_CASES -->
+            </div>
+          </div>
+
+          <!-- Col 2: 1-Page Bengali Case Brief -->
+          <div class="pane-card">
+            <div class="pane-header-strip">
+              <span class="pane-title-text">
+                <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="M12 3v18M6 8l6-5 6 5M3 13l3-5 3 5a3 3 0 0 1-6 0zM15 13l3-5 3 5a3 3 0 0 1-6 0zM4 21h16"/></svg>
+                ১-পৃষ্ঠার বাংলা কেস ব্রিফ (স্বয়ংক্রিয় এক্সট্র্যাকশন)
+              </span>
+              <button class="btn-header-action" onclick="generateStatutoryForm('LA_20')" style="font-size:0.72rem; padding:0.2rem 0.5rem;">
+                <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                প্রিন্ট
+              </button>
+            </div>
+            <div class="brief-content-scroll" id="bengali-brief-render-area">
+              <!-- Populated by selectDocketCase() -->
+            </div>
+          </div>
+
+          <!-- Col 3: Legal Quota & Statutory Compliance Inspector -->
+          <div class="pane-card">
+            <div class="pane-header-strip">
+              <span class="pane-title-text">
+                <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                ধারা ১৫ কোটা অডিট
+              </span>
+            </div>
+            <div style="padding:1rem; display:flex; flex-direction:column; justify-content:space-between; height:100%;">
+              <div>
+                <div style="font-size:0.75rem; color:var(--text-muted); margin-bottom:0.35rem;">নারী প্যানেল আইনজীবী কোটা:</div>
+                <div style="display:flex; justify-content:space-between; font-size:0.8rem; font-weight:700; margin-bottom:0.3rem;">
+                  <span style="color:#ec4899;">বরাদ্দ: ৩৮.২%</span>
+                  <span style="color:var(--text-muted);">আইনি বাধ্যবাধকতা: ৩৩.৩%</span>
+                </div>
+                <div style="background:var(--surface-base); height:10px; border-radius:var(--radius-full); overflow:hidden; display:flex; border:1px solid var(--border-subtle);">
+                  <div style="background:#ec4899; width:38.2%;"></div>
+                  <div style="background:var(--accent-primary); width:61.8%;"></div>
+                </div>
+                <div style="font-size:0.68rem; color:var(--accent-light); margin-top:0.4rem;">
+                  সংবিধিবদ্ধ কোটা সংরক্ষিত (Status: COMPLIANT)
+                </div>
+
+                <div style="margin-top:1.5rem; border-top:1px solid var(--border-subtle); padding-top:1rem;">
+                  <div style="font-size:0.75rem; font-weight:700; color:var(--text-main); margin-bottom:0.5rem;">
+                    ২০১৪ নীতিমালা প্যারা ২ যাচাই:
+                  </div>
+                  <div class="statutory-checklist-item">
+                    <svg class="svg-icon svg-icon-stroke statutory-check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>বার্ষিক পারিবারিক আয় ১.৫০ লক্ষ টাকার নিচে।</span>
+                  </div>
+                  <div class="statutory-checklist-item">
+                    <svg class="svg-icon svg-icon-stroke statutory-check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>আবেদনকারী অসচ্ছল/কারাবন্দী/সহিংসতার শিকার।</span>
+                  </div>
+                  <div class="statutory-checklist-item">
+                    <svg class="svg-icon svg-icon-stroke statutory-check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>প্রথমিক আইনি মেধা (Prima Facie Merit) সন্তোষজনক।</span>
+                  </div>
+                </div>
+              </div>
+
+              <div style="background:var(--surface-base); border:1px solid var(--border-subtle); border-radius:var(--radius-sm); padding:0.75rem;">
+                <div style="font-size:0.7rem; color:var(--text-muted);">DLAC বরাদ্দকৃত বাজেট:</div>
+                <div style="font-size:1.1rem; font-family:var(--font-mono); font-weight:700; color:var(--accent-light);">
+                  ৳ ৫,০০০ / কেস
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WORKSPACE 2: KANLHONYAY 16430 & RETRO FEATURE PHONE -->
+      <section class="workspace-pane" id="pane-voice">
+        <div class="telephony-console-grid">
+          <!-- Left: Call Center Terminal -->
+          <div class="live-call-terminal">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border-subtle); padding-bottom:0.75rem;">
+                <div>
+                  <h3 style="font-size:1.05rem; font-weight:700; color:var(--text-main);">১৬৪৩০ কল সেন্টার অডিও কনসোল</h3>
+                  <div style="font-size:0.72rem; color:var(--text-muted);">FreeSWITCH SIP গেটওয়ে • লাইভ ট্রান্সক্রিপশন ও উপভাষা ফিল্টার</div>
+                </div>
+                <div style="display:flex; align-items:center; gap:0.5rem;">
+                  <select id="voice-dialect-select" class="config-select" style="width:180px;">
+                    <option value="sylheti" selected>সিলেটি উপভাষা</option>
+                    <option value="chatgaya">চাটগাঁইয়া উপভাষা</option>
+                    <option value="standard">প্রমিত বাংলা</option>
+                  </select>
+                  <button class="btn-header-action btn-header-primary" id="voice-play-audio-btn" onclick="toggleHotlineAudio()">
+                    <svg class="svg-icon" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    অডিও শুনুন ও লাইভ ট্রান্সক্রিপ্ট
+                  </button>
+                </div>
+              </div>
+
+              <!-- Animated Equalizer Waveform -->
+              <div class="waveform-canvas-box" id="waveform-canvas-box">
+                <div class="audio-bar" style="height:12px;"></div>
+                <div class="audio-bar" style="height:24px;"></div>
+                <div class="audio-bar" style="height:38px;"></div>
+                <div class="audio-bar" style="height:18px;"></div>
+                <div class="audio-bar" style="height:44px;"></div>
+                <div class="audio-bar" style="height:30px;"></div>
+                <div class="audio-bar" style="height:50px;"></div>
+                <div class="audio-bar" style="height:22px;"></div>
+                <div class="audio-bar" style="height:40px;"></div>
+                <div class="audio-bar" style="height:16px;"></div>
+                <div class="audio-bar" style="height:32px;"></div>
+                <div class="audio-bar" style="height:48px;"></div>
+                <div class="audio-bar" style="height:20px;"></div>
+                <div class="audio-bar" style="height:35px;"></div>
+                <div class="audio-bar" style="height:14px;"></div>
+                <div class="audio-bar" style="height:28px;"></div>
+              </div>
+            </div>
+
+            <!-- Live Streaming Transcript Window -->
+            <div>
+              <div style="font-size:0.75rem; font-weight:700; color:var(--accent-light); margin-bottom:0.4rem;">
+                রিয়েল-টাইম অডিও স্ট্রিম ট্রান্সক্রিপ্ট ও ইনটেন্ট সনাক্তকরণ:
+              </div>
+              <div class="live-transcript-terminal" id="live-transcript-terminal">
+                <div style="color:var(--text-dim); font-size:0.8rem; text-align:center; padding:2rem 0;">
+                  উপরের “অডিও শুনুন” বাটনে চাপ দিয়ে লাইভ ডায়ালগ প্লেব্যাক সক্রিয় করুন...
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Bespoke 3D Nokia Feature Phone Emulator -->
+          <div style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
+            <div class="physical-phone-chassis">
+              <div class="phone-earpiece-grille"></div>
+              <div class="phone-screen-bezel">
+                <div class="phone-monochrome-lcd" id="ussd-phone-lcd">
+                  ডায়াল করুন:<br/>
+                  <strong>*16430#</strong><br/><br/>
+                  [SEND চাপুন]
+                </div>
+              </div>
+              <div class="phone-rubber-keypad">
+                <button class="phone-key" onclick="pressUssdKey('1')">1 <span class="phone-key-label-sub">.</span></button>
+                <button class="phone-key" onclick="pressUssdKey('2')">2 <span class="phone-key-label-sub">ABC</span></button>
+                <button class="phone-key" onclick="pressUssdKey('3')">3 <span class="phone-key-label-sub">DEF</span></button>
+                <button class="phone-key" onclick="pressUssdKey('4')">4 <span class="phone-key-label-sub">GHI</span></button>
+                <button class="phone-key" onclick="pressUssdKey('5')">5 <span class="phone-key-label-sub">JKL</span></button>
+                <button class="phone-key" onclick="pressUssdKey('6')">6 <span class="phone-key-label-sub">MNO</span></button>
+                <button class="phone-key" onclick="pressUssdKey('7')">7 <span class="phone-key-label-sub">PQRS</span></button>
+                <button class="phone-key" onclick="pressUssdKey('8')">8 <span class="phone-key-label-sub">TUV</span></button>
+                <button class="phone-key" onclick="pressUssdKey('9')">9 <span class="phone-key-label-sub">WXYZ</span></button>
+                <button class="phone-key" onclick="pressUssdKey('*')">* <span class="phone-key-label-sub">@</span></button>
+                <button class="phone-key" onclick="pressUssdKey('0')">0 <span class="phone-key-label-sub">+</span></button>
+                <button class="phone-key" onclick="pressUssdKey('#')"># <span class="phone-key-label-sub">_</span></button>
+                <button class="phone-key" style="background:#047857; color:#fff;" onclick="pressUssdKey('CALL')">SEND</button>
+                <button class="phone-key" style="background:#b91c1c; color:#fff;" onclick="pressUssdKey('CLEAR')">END</button>
+                <button class="phone-key" onclick="pressUssdKey('CLEAR')">CLR</button>
+              </div>
+            </div>
+            <div style="font-size:0.72rem; color:var(--text-muted); margin-top:0.65rem; text-align:center;">
+              বাস্তব সাউন্ড এফেক্টস সহ কীপ্যাডে ক্লিক করে মেনু নেভিগেট করুন।
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WORKSPACE 3: FASTBAIL-BD CRYPTOGRAPHIC BENCH -->
+      <section class="workspace-pane" id="pane-fastbail">
+        <div class="fastbail-dual-bench">
+          <!-- Left Judicial Grant Controls -->
+          <div class="pane-card" style="padding:1.5rem; justify-content:space-between;">
+            <div>
+              <div style="border-bottom:1px solid var(--border-subtle); padding-bottom:0.75rem; margin-bottom:1rem;">
+                <h3 style="font-size:1.05rem; font-weight:700; color:var(--text-main);">বিচারিক জামিন অনুমোদন ও ডিজিটাল সিল</h3>
+                <div style="font-size:0.72rem; color:var(--text-muted);">Ed25519 Curve / SHA-256 ক্রিপ্টোগ্রাফিক কিউআর টোকেন জেনারেটর</div>
+              </div>
+
+              <div style="margin-bottom:0.75rem;">
+                <label class="config-label">বন্দির পরিচয় ও কয়েদি নং:</label>
+                <input type="text" id="fastbail-inmate-id" class="config-select" value="মোঃ রফিকুল ইসলাম (বন্দি নং ৮৪১৯/ক)">
+              </div>
+              <div style="margin-bottom:1.25rem;">
+                <label class="config-label">মামলা নম্বর ও আদালত:</label>
+                <input type="text" id="fastbail-case-no" class="config-select" value="NLAS-2026-0841 (CJM Gazipur, CrPC §497)">
+              </div>
+
+              <button class="btn-header-action btn-header-primary" style="width:100%; justify-content:center; padding:0.65rem;" onclick="issueFastBailOrder()">
+                <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+                বিচারিক জামিন মঞ্জুর ও কিউআর সিল প্রস্তুত করুন
+              </button>
+            </div>
+
+            <!-- Judicial Bail Pass Render Area -->
+            <div id="fastbail-judicial-pass-output" style="margin-top:1.5rem;">
+              <div style="color:var(--text-dim); font-size:0.8rem; text-align:center; padding:2rem 0; border:1px dashed var(--border-subtle); border-radius:var(--radius-sm);">
+                জামিন আদেশ প্রস্তুত করতে উপরের বাটনে চাপ দিন।
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Gate Verification Terminal -->
+          <div class="gate-terminal-bay">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+                <span style="font-family:var(--font-mono); font-size:0.78rem; color:var(--accent-light); font-weight:700;">
+                  [TERMINAL: KASHIMPUR_JAIL_GATE_01]
+                </span>
+                <span style="font-family:var(--font-mono); font-size:0.7rem; color:var(--text-muted);">OFFLINE PKI VERIFIER</span>
+              </div>
+              <div style="background:#080e18; border:1px dashed #334155; height:180px; border-radius:6px; display:flex; flex-direction:column; align-items:center; justify-content:center; color:var(--text-dim); font-size:0.8rem; gap:0.5rem;">
+                <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24" style="width:2.5em; height:2.5em;"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                ফটক ক্যামেরা প্রস্তুত • কিউআর কোড স্ক্যান করুন
+              </div>
+            </div>
+
+            <!-- Audit Logs -->
+            <div style="background:var(--surface-base); border:1px solid var(--border-subtle); border-radius:var(--radius-sm); padding:1rem; min-height:140px;" id="fastbail-gate-log-box">
+              <div style="color:var(--text-dim); font-size:0.75rem; font-family:var(--font-mono);">
+                সিস্টেম সক্রিয়। জামিন আদেশ প্রস্তুত হওয়ার পর স্ক্যান টেস্ট চালান।
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WORKSPACE 4: BHOO-CHITRA GIS & FARAYEZ -->
+      <section class="workspace-pane" id="pane-gis">
+        <div class="gis-workstation-grid">
+          <!-- Left: Expansive GIS Map Canvas with CS vs Sat Overlay -->
+          <div class="gis-map-viewport" id="gis-map-viewport">
+            <!-- HUD Overlays -->
+            <div class="gis-hud-overlay">
+              <span class="gis-hud-tag">মৌজা: বাহাদুরাবাদ (দেওয়ানগঞ্জ)</span>
+              <span class="gis-hud-tag">দাগ নং: ৮৪২</span>
+              <span class="gis-hud-tag" style="color:#ef4444; border-color:rgba(239,68,68,0.4);">দখল: ১৪.৮ শতক</span>
+            </div>
+
+            <!-- CS 1888 Survey Canvas (Background) -->
+            <div class="map-layer map-layer-cs">
+              <svg viewBox="0 0 600 450" width="100%" height="100%" style="opacity:0.85;">
+                <path d="M40 50 L280 45 L340 260 L80 300 Z" fill="none" stroke="#78350f" stroke-width="2.5"/>
+                <text x="90" y="140" fill="#78350f" font-family="sans-serif" font-size="14" font-weight="bold">দাগ নং: ৮৪২ (সিএস ১৮৮৮ মৌজা নকশা)</text>
+                <!-- Red Encroachment Polygon -->
+                <polygon points="210,130 290,135 275,225 195,215" fill="rgba(239, 68, 68, 0.45)" stroke="#dc2626" stroke-width="2"/>
+                <text x="215" y="180" fill="#b91c1c" font-size="12" font-weight="bold">দখলকৃত: ১৪.৮ শতক</text>
+              </svg>
+            </div>
+
+            <!-- Modern Satellite Canvas (Foreground Clipped) -->
+            <div class="map-layer map-layer-sat" id="gis-sat-layer">
+              <svg viewBox="0 0 600 450" width="100%" height="100%">
+                <path d="M40 50 L280 45 L340 260 L80 300 Z" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-dasharray="5"/>
+                <text x="90" y="140" fill="#38bdf8" font-family="sans-serif" font-size="14">দাগ নং: ৮৪২ (RS ১৯৭০ বর্তমান স্যাটেলাইট)</text>
+              </svg>
+            </div>
+
+            <!-- Interactive Sliding Divider -->
+            <div class="map-divider-bar" id="gis-slider-divider">
+              <div class="map-handle-knob">
+                <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/><polyline points="9 18 3 12 9 6"/><polyline points="21 18 15 12 21 6"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Farayez Inheritance Calculator -->
+          <div class="pane-card" style="padding:1.25rem;">
+            <div style="border-bottom:1px solid var(--border-subtle); padding-bottom:0.6rem; margin-bottom:0.85rem;">
+              <h3 style="font-size:0.95rem; font-weight:700; color:var(--text-main);">ফারায়েজ সম্পত্তি বণ্টন হিসাবক</h3>
+              <div style="font-size:0.7rem; color:var(--text-muted);">কুরআনীয় নিয়ম ও ওয়ারিশ খতিয়ান সুষম বণ্টন</div>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.5rem; margin-bottom:0.75rem;">
+              <div>
+                <label class="config-label">মোট জমি (শতক):</label>
+                <input type="number" id="farayez-land-decimals" class="config-select" value="84" oninput="triggerFarayezCalculation()">
+              </div>
+              <div>
+                <label class="config-label">স্ত্রী (বিধবা):</label>
+                <input type="number" id="farayez-widows-count" class="config-select" value="1" min="0" max="4" oninput="triggerFarayezCalculation()">
+              </div>
+              <div>
+                <label class="config-label">পুত্র সন্তান:</label>
+                <input type="number" id="farayez-sons-count" class="config-select" value="2" min="0" oninput="triggerFarayezCalculation()">
+              </div>
+              <div>
+                <label class="config-label">কন্যা সন্তান:</label>
+                <input type="number" id="farayez-daughters-count" class="config-select" value="3" min="0" oninput="triggerFarayezCalculation()">
+              </div>
+            </div>
+
+            <!-- Shares Output List -->
+            <div id="farayez-shares-list" style="margin-top:0.5rem;">
+              <!-- Dynamically populated by triggerFarayezCalculation() -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WORKSPACE 5: ARUCO OPTICAL SCANNER STATION -->
+      <section class="workspace-pane" id="pane-aruco">
+        <div class="aruco-scanner-layout">
+          <!-- Optical Viewport -->
+          <div class="pane-card" style="padding:1.25rem; justify-content:space-between;">
+            <div>
+              <div style="border-bottom:1px solid var(--border-subtle); padding-bottom:0.6rem; margin-bottom:0.85rem;">
+                <h3 style="font-size:0.95rem; font-weight:700; color:var(--text-main);">ArUco অপটিক্যাল পেপার ইনজেশন</h3>
+                <div style="font-size:0.7rem; color:var(--text-muted);">কাগজের ফর্মের ৪ কোণার মার্কার দিয়ে স্বয়ংক্রিয় সোজা ও OCR এক্সট্র্যাকশন</div>
+              </div>
+
+              <div class="scanner-viewport" id="aruco-camera-viewport">
+                <div class="laser-line"></div>
+                <div class="scanner-sheet">
+                  <div class="aruco-marker aruco-tl"><div></div><div></div><div></div></div>
+                  <div class="aruco-marker aruco-tr"><div></div><div></div><div></div></div>
+                  <div class="aruco-marker aruco-bl"><div></div><div></div><div></div></div>
+                  <div class="aruco-marker aruco-br"><div></div><div></div><div></div></div>
+                  <div style="border-bottom:1px solid #cbd5e1; padding-bottom:4px; font-weight:bold; font-size:0.65rem; text-align:center;">
+                    জাতীয় আইনগত সহায়তা প্রদান সংস্থা (LAF-1)
+                  </div>
+                  <div style="line-height:1.4; color:#334155;">
+                    <strong>নাম:</strong> মোছাঃ রেজিয়া খাতুন<br/>
+                    <strong>পিতা/স্বামী:</strong> মৃত আকমল হোসেন<br/>
+                    <strong>এনআইডি:</strong> 19842691234567890<br/>
+                    <strong>বিরোধ:</strong> নদী চরের ১৪.৮ শতক জমি দখল<br/>
+                    <strong>স্বাক্ষর:</strong> [রেজিয়া খাতুন]
+                  </div>
+                  <div class="ocr-bounding-box" style="top:32px; left:4px; width:150px; height:18px;"></div>
+                  <div class="ocr-bounding-box" style="top:52px; left:4px; width:170px; height:18px;"></div>
+                  <div style="text-align:right; font-size:0.55rem; color:#64748b;">ArUco-Dict-4x4-50</div>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn-header-action btn-header-primary" id="aruco-start-scan-btn" style="width:100%; justify-content:center; padding:0.65rem; margin-top:1rem;" onclick="triggerArucoOpticalScan()">
+              <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+              ক্যামেরা স্ক্যান ও পার্সপেক্টিভ সংশোধন সিমুলেট করুন
+            </button>
+          </div>
+
+          <!-- Extracted Data Table -->
+          <div class="pane-card" style="padding:1.25rem;">
+            <div style="border-bottom:1px solid var(--border-subtle); padding-bottom:0.6rem; margin-bottom:0.85rem;">
+              <h3 style="font-size:0.95rem; font-weight:700; color:var(--text-main);">এক্সট্র্যাক্ট করা ডেটা ও কনফিডেন্স স্কোর</h3>
+              <div style="font-size:0.7rem; color:var(--text-muted);">বাংলা হাতের লেখা ও প্রিন্ট টোকেনাইজার ফলাফল</div>
+            </div>
+            <div id="aruco-detected-data-table">
+              <div style="color:var(--text-dim); font-size:0.8rem; text-align:center; padding:3rem 0;">
+                স্ক্যানিং শুরু করতে বাম পাশের বাটনে চাপ দিন।
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WORKSPACE 6: WHATSAPP & NARI-SHIELD -->
+      <section class="workspace-pane" id="pane-whatsapp">
+        <div class="whatsapp-nari-layout">
+          <!-- WhatsApp Chat Client -->
+          <div class="pane-card" style="background:#0b141a; border-color:#222d34;">
+            <div style="background:#202c33; padding:0.75rem 1rem; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #2a3942;">
+              <div style="display:flex; align-items:center; gap:0.75rem;">
+                <div style="width:34px; height:34px; border-radius:50%; background:#00a884; display:flex; align-items:center; justify-content:center; color:#fff;">
+                  <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div>
+                  <div style="font-size:0.85rem; font-weight:700; color:#e9edef;">জাতীয় আইনি সহায়তা বট (NLASO)</div>
+                  <div style="font-size:0.68rem; color:#8696a0;">অনলাইন • এন্ড-টু-এন্ড এনক্রিপ্টেড</div>
+                </div>
+              </div>
+              <button class="btn-header-action" onclick="triggerNariShieldEscape()" style="background:#ef4444; color:#fff; border:none;">
+                জরুরি প্রস্থান (Panic Escape)
+              </button>
+            </div>
+
+            <!-- Messages Stream -->
+            <div id="whatsapp-chat-messages" style="flex:1; padding:1.25rem; overflow-y:auto; display:flex; flex-direction:column; gap:0.75rem; background:#0b141a;">
+              <div style="align-self:flex-start; background:#202c33; color:#d1d7db; padding:0.6rem 0.85rem; border-radius:0 8px 8px 8px; max-width:82%; font-size:0.82rem;">
+                সালামু আলাইকুম। জাতীয় আইনি সহায়তা সংস্থায় স্বাগতম। আপনার সমস্যা লিখে পাঠান অথবা ভয়েস মেসেজ দিন।
+              </div>
+              <div style="align-self:flex-end; background:#005c4b; color:#e9edef; padding:0.6rem 0.85rem; border-radius:8px 0 8px 8px; max-width:82%; font-size:0.82rem;">
+                আমার স্বামী যৌতুকের জন্য আমাকে শারীরিক নির্যাতন করে ঘর থেকে বের করে দিয়েছে। আমি এখন বাবার বাড়ি আছি কিন্তু ওরা হুমকি দিচ্ছে।
+              </div>
+              <div style="align-self:flex-start; background:#202c33; color:#d1d7db; padding:0.6rem 0.85rem; border-radius:0 8px 8px 8px; max-width:82%; font-size:0.82rem; border-left:3px solid #00a884;">
+                <strong>জরুরি সুরক্ষা নিশ্চিত:</strong> আপনি নারী ও শিশু নির্যাতন দমন আইন এবং পারিবারিক সহিংসতা আইনে পূর্ণ বিনামূল্যে সরকারি সহায়তা ও আইনজীবী পাওয়ার যোগ্য। জেলা ও বর্তমান অবস্থান নিশ্চিত করুন, আমরা তাৎক্ষণিক প্যানেল আইনজীবী ও নারী আশ্রয়কেন্দ্রের সহায়তা সমন্বয় করছি।
+              </div>
+            </div>
+
+            <!-- Input Strip -->
+            <div style="background:#202c33; padding:0.65rem 1rem; display:flex; gap:0.5rem; align-items:center;">
+              <input type="text" id="whatsapp-chat-input" placeholder="বার্তা লিখুন অথবা ভয়েস রেকর্ড পাঠান..." style="flex:1; background:#2a3942; border:none; color:#e9edef; padding:0.5rem 0.75rem; border-radius:8px; font-size:0.82rem; outline:none;" onkeydown="if(event.key==='Enter')sendWhatsAppMessage()">
+              <button onclick="sendWhatsAppMessage()" style="background:#00a884; border:none; color:#fff; border-radius:50%; width:32px; height:32px; display:flex; align-items:center; justify-content:center; cursor:pointer;" title="বার্তা পাঠান">
+                <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Nari-Shield Protocol Center -->
+          <div class="pane-card" style="padding:1.5rem; justify-content:space-between;">
+            <div>
+              <div style="border-bottom:1px solid var(--border-subtle); padding-bottom:0.75rem; margin-bottom:1rem;">
+                <h3 style="font-size:1.05rem; font-weight:700; color:var(--text-main);">নারী-শিল্ড (Nari-Shield) ডিসক্রিট প্রটোকল</h3>
+                <div style="font-size:0.72rem; color:var(--text-muted);">পারিবারিক সহিংসতার শিকার নারীদের জন্য গোপনীয় ব্রাউজিং ও সুরক্ষা ব্যবস্থা</div>
+              </div>
+
+              <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.6; margin-bottom:1rem;">
+                যে কোনো মুহূর্তে কোনো সন্দেহভাজন ব্যক্তি কাছে আসলে কি-বোর্ডে <strong>Esc</strong> চাপুন অথবা <strong>“জরুরি প্রস্থান”</strong> বাটনে চাপ দিন। সিস্টেম তাৎক্ষণিক একটি স্বাভাবিক লাইফস্টাইল ও রান্নার রেসিপি পোর্টালে রূপান্তরিত হবে।
+              </p>
+
+              <div style="background:var(--surface-base); border:1px solid var(--border-subtle); border-radius:var(--radius-sm); padding:1rem;">
+                <div style="font-size:0.75rem; font-weight:700; color:var(--accent-light); margin-bottom:0.35rem;">
+                  সুরক্ষা বৈশিষ্ট্যসমূহ:
+                </div>
+                <ul style="font-size:0.75rem; color:var(--text-muted); line-height:1.7; padding-left:1.2rem;">
+                  <li>ব্রাউজার হিস্ট্রি স্বয়ংক্রিয় ট্রানজিয়েন্ট মোড</li>
+                  <li>কোনো মেসেজ হিস্ট্রি ডিভাইসের ক্যাশে সংরক্ষিত থাকে না</li>
+                  <li>জরুরি কন্টাক্ট স্বয়ংক্রিয় এনক্রিপ্ট হয়ে নিকটস্থ লিগ্যাল এইড অফিসারের ডকেটে জমা হয়</li>
+                </ul>
+              </div>
+            </div>
+
+            <button class="btn-header-action" onclick="triggerNariShieldEscape()" style="background:#ef4444; color:#fff; border:none; width:100%; justify-content:center; padding:0.65rem;">
+              প্যানিক এস্কেপ টেস্ট করুন (Esc)
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ====================================================================
+         4. BOTTOM SYSTEM TELEMETRY FOOTER
+         ==================================================================== -->
+    <footer class="app-footer">
+      <div style="display:flex; align-items:center; gap:1rem;">
+        <span class="footer-status-pill" id="footer-worker-status">
+          <span class="footer-dot"></span> Worker-Core-01 Active (4 Threads)
         </span>
-        <span class="brand-tagline">ARCHITECTURE COCKPIT • BANGLADESH LEGAL AID SERVICES</span>
+        <span id="footer-latency-metric">Latency: 0.42ms (Worker Idle)</span>
+        <span>Judicial Root CA: VERIFIED</span>
       </div>
-    </div>
+      <div style="display:flex; align-items:center; gap:0.75rem;">
+        <span>শর্টকাট: [1-6] ওয়ার্কস্পেস • [J/K] মামলা নির্বাচন • [/] সার্চ • [Ctrl+K] আর্কিটেকচার</span>
+      </div>
+    </footer>
 
-    <!-- Live Telemetry Stats -->
-    <div class="telemetry-pills">
-      <div class="telemetry-pill" id="worker-telemetry-pill">
-        <span class="indicator-dot"></span> Worker-Core-01 Active
-      </div>
-      <div class="telemetry-pill">
-        <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24" style="width:0.9em;height:0.9em;"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        <span id="last-compute-ms">0.42ms (Worker Idle)</span>
-      </div>
-      <div class="telemetry-pill">
-        <span style="color:var(--accent-light);">থিম:</span>
-        <span id="telemetry-theme-label">Sovereign Justice</span>
-      </div>
-      <div class="telemetry-pill" id="active-triage-method-badge">
-        Triage: Hybrid Ensemble
-      </div>
-    </div>
+  </div>
 
-    <!-- Header Actions -->
-    <div class="telemetry-actions">
-      <button class="btn-telemetry btn-telemetry-primary" onclick="toggleAdminDrawer(true)" title="Configure Engine Architecture (Ctrl + K)">
-        <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
-        আর্কিটেকচার কনফিগ (Ctrl+K)
-      </button>
-      <a href="../index.html" class="btn-telemetry" title="Return to Master Showcase Site">
-        <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>
-        শোকেস ওয়েবসাইট
-      </a>
-    </div>
-  </header>
-
-  <!-- Module Quick-Nav Anchor Bar -->
-  <nav class="module-nav-bar">
-    <a href="#mod-triage" class="nav-tab-btn active">
-      <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-      কেস ডকেট ও ট্রায়াজ (Tier 3)
-    </a>
-    <a href="#mod-voice-ussd" class="nav-tab-btn">
+  <!-- Mobile Bottom Navigation Dock (< 768px) -->
+  <nav class="mobile-bottom-dock" aria-label="Mobile Navigation">
+    <button class="mobile-dock-btn active" data-workspace="triage" onclick="switchWorkspace('triage')">
+      <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+      <span>ডকেট</span>
+    </button>
+    <button class="mobile-dock-btn" data-workspace="voice" onclick="switchWorkspace('voice')">
       <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      কণ্ঠন্যায় ১৬৪৩০ ও USSD (Tier 1)
-    </a>
-    <a href="#mod-fastbail" class="nav-tab-btn">
-      <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-      FastBail-BD ডিজিটাল বেইল (Tier 3)
-    </a>
-    <a href="#mod-bhoochitra" class="nav-tab-btn">
-      <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      ভূ-চিত্র ম্যাপ ও ফারায়েজ (Tier 3)
-    </a>
-    <a href="#mod-aruco" class="nav-tab-btn">
-      <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-      ArUco পেপার স্ক্যানার (Tier 0)
-    </a>
-    <a href="#mod-whatsapp" class="nav-tab-btn">
+      <span>ভয়েস</span>
+    </button>
+    <button class="mobile-dock-btn" data-workspace="fastbail" onclick="switchWorkspace('fastbail')">
+      <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <span>জামিন</span>
+    </button>
+    <button class="mobile-dock-btn" data-workspace="gis" onclick="switchWorkspace('gis')">
+      <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/></svg>
+      <span>নকশা</span>
+    </button>
+    <button class="mobile-dock-btn" data-workspace="aruco" onclick="switchWorkspace('aruco')">
+      <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/></svg>
+      <span>স্ক্যান</span>
+    </button>
+    <button class="mobile-dock-btn" data-workspace="whatsapp" onclick="switchWorkspace('whatsapp')">
       <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-      হোয়াটসঅ্যাপ ও নারী-শিল্ড (Tier 2)
-    </a>
+      <span>সুরক্ষা</span>
+    </button>
   </nav>
 
-  <!-- Architecture Admin Hub Drawer (Overlay Modal) -->
+  <!-- Architecture Admin Hub Drawer (Modal Overlay Ctrl + K) -->
   <div class="admin-drawer-overlay" id="admin-drawer-overlay" onclick="if(event.target===this)toggleAdminDrawer(false)">
     <div class="admin-drawer-card">
       <div class="drawer-header">
         <div class="drawer-title">
-          <svg class="svg-icon svg-icon-lg svg-icon-stroke" viewBox="0 0 24 24"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
-          আর্কিটেকচার ও ইঞ্জিন কনফিগুরেশন ডেসবোর্ড
+          <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+          আর্কিটেকচার ও ইঞ্জিন কনফিগুরেশন
         </div>
         <button class="drawer-close" onclick="toggleAdminDrawer(false)" title="Close (Esc)">
           <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
@@ -99,591 +647,60 @@
       </div>
 
       <div class="drawer-grid">
-        <!-- AI Triage Method -->
         <div class="config-section">
-          <div class="config-title">
-            <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-            আইনি ট্রায়াজ ইঞ্জিন
-          </div>
-          <div class="config-option">
-            <label class="config-label" for="config-triage-method">শ্রেণিবিভাগ পদ্ধতি নির্বাচন:</label>
-            <select id="config-triage-method" class="config-select">
-              <option value="hybrid" selected>পদ্ধতি ক: হাইব্রিড এনসেম্বল (রুলস + LLM এক্সট্র্যাকশন)</option>
-              <option value="statutory">পদ্ধতি খ: বিশুদ্ধ সংবিধিবদ্ধ (২০১৪ নীতিমালা প্যারা ২)</option>
-              <option value="llm">পদ্ধতি গ: জেনারেটিভ লিগ্যাল LLM (Llama 3.3 70B)</option>
-            </select>
-          </div>
+          <div class="config-title">আইনি ট্রায়াজ ইঞ্জিন</div>
+          <select id="config-triage-method" class="config-select" onchange="NyayState.config.triageMethod=this.value;updateHeaderTelemetry();">
+            <option value="hybrid" selected>পদ্ধতি ক: হাইব্রিড এনসেম্বল (রুলস + LLM এক্সট্র্যাকশন)</option>
+            <option value="statutory">পদ্ধতি খ: সংবিধিবদ্ধ নীতিমালা (২০১৪ প্যারা ২)</option>
+            <option value="llm">পদ্ধতি গ: জেনারেটিভ লিগ্যাল LLM (Llama 3.3 70B)</option>
+          </select>
         </div>
 
-        <!-- FastBail Cryptography -->
         <div class="config-section">
-          <div class="config-title">
-            <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            FastBail ক্রিপ্টোগ্রাফি
-          </div>
-          <div class="config-option">
-            <label class="config-label" for="config-crypto-method">ডিজিটাল সিগনেচার অ্যালগরিদম:</label>
-            <select id="config-crypto-method" class="config-select">
-              <option value="ed25519" selected>পদ্ধতি ১: Ed25519 Curve (দ্রুততম, ৩৮৪-বাইট QR টোকেন)</option>
-              <option value="rsa4096">পদ্ধতি ২: X.509 RSA-4096 / SHA-256 (হাইকোর্ট ট্র্যাডিশনাল)</option>
-              <option value="p256">পদ্ধতি ৩: NIST P-256 ECDSA (জাতীয় ই-গভর্নেন্স স্ট্যান্ডার্ড)</option>
-            </select>
-          </div>
+          <div class="config-title">FastBail ক্রিপ্টোগ্রাফি</div>
+          <select id="config-crypto-method" class="config-select" onchange="NyayState.config.cryptoMethod=this.value;issueFastBailOrder();">
+            <option value="ed25519" selected>পদ্ধতি ১: Ed25519 Curve (৩৮৪-বাইট দ্রুততম কিউআর)</option>
+            <option value="rsa4096">পদ্ধতি ২: X.509 RSA-4096 / SHA-256 (হাইকোর্ট)</option>
+            <option value="p256">পদ্ধতি ৩: NIST P-256 ECDSA (জাতীয় স্ট্যান্ডার্ড)</option>
+          </select>
         </div>
 
-        <!-- Bhoo-Chitra Map Warping -->
         <div class="config-section">
-          <div class="config-title">
-            <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
-            ভূ-চিত্র ম্যাপ ওয়ার্পিং
-          </div>
-          <div class="config-option">
-            <label class="config-label" for="config-map-method">স্পেশিয়াল ডিফরমেশন পদ্ধতি:</label>
-            <select id="config-map-method" class="config-select">
-              <option value="tps" selected>পদ্ধতি ১: Thin Plate Spline (TPS - কুঁচকানো কাগজের জন্য)</option>
-              <option value="homography">পদ্ধতি ২: Projective Homography (৪-বিন্দু সমতলীয় রূপান্তর)</option>
-              <option value="delaunay">পদ্ধতি ৩: Delaunay Triangulation (টুকরা অ্যাফাইন মেশ)</option>
-            </select>
-          </div>
+          <div class="config-title">মৌজা ম্যাপ ওয়ার্পিং</div>
+          <select id="config-map-method" class="config-select" onchange="NyayState.config.mapMethod=this.value;">
+            <option value="tps" selected>পদ্ধতি ১: Thin Plate Spline (TPS - কুঁচকানো নকশা)</option>
+            <option value="homography">পদ্ধতি ২: Projective Homography (সমতলীয় ৪-বিন্দু)</option>
+            <option value="delaunay">পদ্ধতি ৩: Delaunay Triangulation (টুকরা অ্যাফাইন)</option>
+          </select>
         </div>
 
-        <!-- Curated UI Theme -->
         <div class="config-section">
-          <div class="config-title">
-            <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-            ইউজার ইন্টারফেস থিম
-          </div>
-          <div class="config-option">
-            <label class="config-label" for="config-theme-select">প্যালেট নির্বাচন:</label>
-            <select id="config-theme-select" class="config-select">
-              <option value="theme-sovereign" selected>১. Sovereign Justice (পান্না সবুজ ও ডিপ নেভি - ডিফল্ট)</option>
-              <option value="theme-slate">২. High Court Slate (আইস ব্লু ও টাইটানিয়াম স্লেট)</option>
-              <option value="theme-midnight">৩. Midnight Judicial (লুমিনাস মিন্ট ও ডার্ক ওবিসিডিয়ান)</option>
-              <option value="theme-amber">৪. Legal Aid Amber (আইভরি গোল্ড ও গাঢ় ব্রোঞ্জ)</option>
-            </select>
-          </div>
+          <div class="config-title">ইউজার ইন্টারফেস থিম</div>
+          <select id="config-theme-select" class="config-select" onchange="setTheme(this.value)">
+            <option value="theme-sovereign" selected>১. Sovereign Justice (পান্না সবুজ ও ডিপ নেভি)</option>
+            <option value="theme-slate">২. High Court Slate (আইস ব্লু ও স্লেট)</option>
+            <option value="theme-midnight">৩. Midnight Judicial (লুমিনাস মিন্ট ও ব্ল্যাক)</option>
+            <option value="theme-amber">৪. Legal Aid Amber (আইভরি গোল্ড ও ব্রোঞ্জ)</option>
+          </select>
         </div>
       </div>
+
       <div style="margin-top:1.5rem; text-align:right;">
-        <button class="btn-telemetry btn-telemetry-primary" onclick="toggleAdminDrawer(false)">
-          পরিবর্তনগুলো সংরক্ষণ ও প্রয়োগ করুন
+        <button class="btn-header-action btn-header-primary" onclick="toggleAdminDrawer(false)">
+          প্রয়োগ করুন
         </button>
       </div>
     </div>
   </div>
 
-  <!-- Main Cockpit Container -->
-  <main class="prototype-container">
-
-    <!-- MODULE 1: TIER 3 - DLAC COMMAND CENTER & NYAY-TRIAGE DOCKET -->
-    <section class="module-section" id="mod-triage">
-      <div class="module-header">
-        <div>
-          <div class="module-meta">
-            <span class="tier-badge">
-              <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-              TIER 3: বিচারিক কমান্ড সেন্টার
-            </span>
-            <span class="module-method-badge">অ্যালগরিদম: ধারা ১৫ প্যানেল বণ্টন ও প্যারা ২ ট্রায়াজ</span>
-          </div>
-          <h2 class="module-title">
-            <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-            DLAC অফিসার ডকেট ও ১-পৃষ্ঠার বাংলা কেস ব্রিফ জেনারেটর
-          </h2>
-          <p class="module-description">
-            বাংলাদেশে বাস্তবসম্মত ১০টি ফৌজদারি ও দেওয়ানি আইনি সহায়তা মামলার রিয়েল-টাইম কিউ। যে কোনো মামলায় ক্লিক করে তাৎক্ষণিক সংবিধিবদ্ধ সচ্ছলতা পরীক্ষণ ও স্বয়ংক্রিয় বাংলা ব্রিফ দেখুন।
-          </p>
-        </div>
-        <div style="min-width:240px; background:var(--bg-tertiary); padding:0.75rem; border-radius:var(--radius-md); border:1px solid var(--border-subtle);">
-          <div style="display:flex; justify-content:space-between; font-size:0.72rem; color:var(--text-muted); font-weight:600;">
-            <span>ধারা ১৫ নারী আইনজীবী কোটা</span>
-            <span style="color:#ec4899; font-weight:700;">৩৩.৩% সংবিধিবদ্ধ মান</span>
-          </div>
-          <div class="quota-bar-wrapper">
-            <div class="quota-fill-female" style="width: 38%;" title="নারী আইনজীবী বরাদ্দ: ৩৮%"></div>
-            <div class="quota-fill-general" style="width: 62%;" title="সাধারণ প্যানেল আইনজীবী: ৬২%"></div>
-          </div>
-          <div style="font-size:0.68rem; color:var(--text-muted); margin-top:4px;">
-            বর্তমান বরাদ্দ: ৩৮% নারী • ৬২% সাধারণ (কোটা উত্তীর্ণ)
-          </div>
-        </div>
-      </div>
-
-      <div class="cockpit-grid">
-        <!-- Left: Case Queue List -->
-        <div>
-          <div style="font-size:0.8rem; font-weight:700; color:var(--accent-light); margin-bottom:0.6rem; display:flex; justify-content:space-between;">
-            <span>১০টি বাস্তব আইনি সহায়তা মামলার লাইভ তালিকা</span>
-            <span style="color:var(--text-muted); font-family:var(--font-mono);">১০টি রেকর্ড সক্রিয়</span>
-          </div>
-          <div class="case-queue-list" id="case-queue-container">
-            <!-- Dynamically populated from BANGLADESH_CASES -->
-          </div>
-        </div>
-
-        <!-- Right: 1-Page Bengali Brief Sheet -->
-        <div>
-          <div style="font-size:0.8rem; font-weight:700; color:var(--accent-light); margin-bottom:0.6rem;">
-            ১-পৃষ্ঠার বাংলা কেস ব্রিফ (স্বয়ংক্রিয় জেনারেটেড)
-          </div>
-          <div class="bengali-brief-sheet" id="bengali-brief-container">
-            <!-- Dynamically updated by selectCase() -->
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- MODULE 2: TIER 1 - KANLHONYAY 16430 & RETRO USSD PHONE -->
-    <section class="module-section" id="mod-voice-ussd">
-      <div class="module-header">
-        <div>
-          <div class="module-meta">
-            <span class="tier-badge">
-              <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              TIER 1: সার্বজনীন ভয়েস ও USSD প্রবেশদ্বার
-            </span>
-            <span class="module-method-badge">ইঞ্জিন: FreeSWITCH SIP + কোকুই ডায়ালেক্ট ফিল্টার</span>
-          </div>
-          <h2 class="module-title">
-            <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
-            কণ্ঠন্যায় ১৬৪৩০ হটলাইন ও নোকিয়া ফিচার ফোন USSD সিমুলেটর
-          </h2>
-          <p class="module-description">
-            স্মার্টফোনবিহীন প্রান্তিক জনগণের জন্য ২জি নেটওয়ার্কে ভয়েস ও ইউএসএসডি (*16430#) সেবা। আঞ্চলিক উপভাষা শনাক্তকরণ এবং লাইভ বাংলা ট্রান্সক্রিপশন।
-          </p>
-        </div>
-      </div>
-
-      <div class="cockpit-grid">
-        <!-- Voice AI Stream -->
-        <div class="audio-stream-card">
-          <div class="audio-controls">
-            <div>
-              <label style="font-size:0.75rem; color:var(--text-muted); display:block; margin-bottom:0.25rem;">আঞ্চলিক উপভাষা নির্বাচন:</label>
-              <select id="voice-dialect-select" class="config-select" style="width:200px;">
-                <option value="sylheti" selected>সিলেটি উপভাষা (সুরমা অববাহিকা)</option>
-                <option value="chatgaya">চাটগাঁইয়া উপভাষা (উপকূলীয় অঞ্চল)</option>
-                <option value="standard">প্রমিত বাংলা (ঢাকা/রাজশাহী)</option>
-              </select>
-            </div>
-            <button class="btn-telemetry btn-telemetry-primary" id="voice-play-btn" onclick="toggleHotlineAudio()">
-              <svg class="svg-icon" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-              কল অডিও শুনুন ও রিয়েলটাইম ট্রান্সক্রিপ্ট
-            </button>
-          </div>
-
-          <!-- Waveform Equalizer -->
-          <div class="audio-bars-container" id="audio-visualizer-bars">
-            <div class="audio-bar"></div>
-            <div class="audio-bar"></div>
-            <div class="audio-bar"></div>
-            <div class="audio-bar"></div>
-            <div class="audio-bar"></div>
-            <div class="audio-bar"></div>
-            <div class="audio-bar"></div>
-            <div class="audio-bar"></div>
-            <div class="audio-bar"></div>
-            <div class="audio-bar"></div>
-            <div class="audio-bar"></div>
-            <div class="audio-bar"></div>
-            <div class="audio-bar"></div>
-            <div class="audio-bar"></div>
-            <div class="audio-bar"></div>
-            <div class="audio-bar"></div>
-          </div>
-
-          <!-- Live Transcript Stream -->
-          <div style="margin-top:1rem;">
-            <div style="font-size:0.75rem; font-weight:700; color:var(--accent-light); margin-bottom:0.35rem;">
-              লাইভ ট্রান্সক্রিপশন ও আইনি ইনটেন্ট সনাক্তকরণ:
-            </div>
-            <div id="voice-transcript-stream" style="height:140px; background:var(--bg-secondary); border:1px solid var(--border-subtle); border-radius:var(--radius-sm); padding:0.75rem; overflow-y:auto; font-family:var(--font-bangla);">
-              <span style="color:var(--text-dim); font-size:0.8rem;">“কল অডিও শুনুন” বাটনে চাপ দিয়ে ১৬৪৩০ আইনি সহায়তা অডিও ডায়লগ সক্রিয় করুন...</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Retro USSD Phone Simulator -->
-        <div>
-          <div class="ussd-phone-frame">
-            <div class="phone-speaker"></div>
-            <div class="phone-lcd" id="ussd-lcd-screen">
-              ডায়াল করুন:<br/>
-              *16430#<br/><br/>
-              [SEND চাপুন]
-            </div>
-            <div class="phone-keypad">
-              <button class="key-btn" onclick="pressUssdKey('1')">1 <span class="key-sub">.</span></button>
-              <button class="key-btn" onclick="pressUssdKey('2')">2 <span class="key-sub">ABC</span></button>
-              <button class="key-btn" onclick="pressUssdKey('3')">3 <span class="key-sub">DEF</span></button>
-              <button class="key-btn" onclick="pressUssdKey('4')">4 <span class="key-sub">GHI</span></button>
-              <button class="key-btn" onclick="pressUssdKey('5')">5 <span class="key-sub">JKL</span></button>
-              <button class="key-btn" onclick="pressUssdKey('6')">6 <span class="key-sub">MNO</span></button>
-              <button class="key-btn" onclick="pressUssdKey('7')">7 <span class="key-sub">PQRS</span></button>
-              <button class="key-btn" onclick="pressUssdKey('8')">8 <span class="key-sub">TUV</span></button>
-              <button class="key-btn" onclick="pressUssdKey('9')">9 <span class="key-sub">WXYZ</span></button>
-              <button class="key-btn" onclick="pressUssdKey('*')">* <span class="key-sub">@</span></button>
-              <button class="key-btn" onclick="pressUssdKey('0')">0 <span class="key-sub">+</span></button>
-              <button class="key-btn" onclick="pressUssdKey('#')"># <span class="key-sub">_</span></button>
-              <button class="key-btn" style="background:#047857; color:#fff;" onclick="pressUssdKey('CALL')">SEND</button>
-              <button class="key-btn" style="background:#b91c1c; color:#fff;" onclick="pressUssdKey('CLEAR')">END</button>
-              <button class="key-btn" onclick="pressUssdKey('CLEAR')">CLR</button>
-            </div>
-          </div>
-          <div style="text-align:center; font-size:0.75rem; color:var(--text-muted); margin-top:0.6rem;">
-            ইন্টারেক্টিভ সিমুলেটর: কীপ্যাডে নম্বর চাপুন এবং SEND বাটনে ক্লিক করুন।
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- MODULE 3: TIER 3 - FASTBAIL-BD CRYPTOGRAPHIC RELEASE & PRISON GATE SCANNER -->
-    <section class="module-section" id="mod-fastbail">
-      <div class="module-header">
-        <div>
-          <div class="module-meta">
-            <span class="tier-badge">
-              <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-              TIER 3: ক্রিপ্টোগ্রাফিক জামিন মুক্তি
-            </span>
-            <span class="module-method-badge" id="active-crypto-badge">অ্যালগরিদম: Ed25519 Curve / SHA-256</span>
-          </div>
-          <h2 class="module-title">
-            <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-            FastBail-BD তাৎক্ষণিক ডিজিটাল বেইল পাস ও কারাগার গেট অডিট
-          </h2>
-          <p class="module-description">
-            চিঠিপত্র বিলম্বে বন্দির অতিরিক্ত আটকাবস্থা প্রতিরোধে ক্রিপ্টোগ্রাফিক ডিজিটাল সাইন করা কিউআর পাস। কারাগার ফটকের অফলাইন ক্যামেরা দিয়ে তাৎক্ষণিক অডিট।
-          </p>
-        </div>
-      </div>
-
-      <div class="cockpit-grid">
-        <!-- Input & Grant Controls -->
-        <div>
-          <div style="background:var(--bg-tertiary); padding:1.25rem; border-radius:var(--radius-md); border:1px solid var(--border-subtle); margin-bottom:1rem;">
-            <div style="font-size:0.82rem; font-weight:700; color:var(--text-main); margin-bottom:0.75rem;">
-              ম্যাজিস্ট্রেট জামিন আদেশ ফর্ম:
-            </div>
-            <div style="margin-bottom:0.65rem;">
-              <label class="config-label">বন্দির নাম ও কয়েদি নং:</label>
-              <input type="text" id="fastbail-inmate-id" class="config-select" value="মোঃ রফিকুল ইসলাম, বন্দি নং- ৮৪১৯/ক">
-            </div>
-            <div style="margin-bottom:0.65rem;">
-              <label class="config-label">মামলা নম্বর ও অধিক্ষেত্র:</label>
-              <input type="text" id="fastbail-case-no" class="config-select" value="NLAS-2026-0841 (CJM Gazipur, CrPC §497)">
-            </div>
-            <button class="btn-telemetry btn-telemetry-primary" style="width:100%; justify-content:center; padding:0.6rem;" onclick="issueFastBailOrder()">
-              <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
-              বিচারিক জামিন মঞ্জুর ও কিউআর সিল প্রস্তুত করুন
-            </button>
-          </div>
-
-          <div id="fastbail-seal-output">
-            <!-- Populated on bail grant -->
-          </div>
-        </div>
-
-        <!-- Simulated Prison Gate Verification Scanner -->
-        <div>
-          <div style="background:#020610; border:1px solid var(--border-subtle); border-radius:var(--radius-md); padding:1.25rem; height:100%; display:flex; flex-direction:column; justify-content:space-between;">
-            <div>
-              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
-                <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--accent-light); font-weight:700;">
-                  [PRISON_GATE_TERMINAL_KASHIMPUR_01]
-                </span>
-                <span class="telemetry-pill" style="font-size:0.65rem; padding:0.15rem 0.45rem;">
-                  <span class="indicator-dot"></span> ক্যামেরা স্ট্যান্ডবাই
-                </span>
-              </div>
-              <div style="background:#080e18; border:1px dashed #334155; height:140px; border-radius:6px; display:flex; align-items:center; justify-content:center; color:var(--text-dim); font-size:0.78rem;">
-                <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24" style="margin-right:6px;"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-                কারাগার ফটক ক্যামেরা কিউআর কোড ডিটেক্টর
-              </div>
-            </div>
-
-            <div style="margin-top:1rem;" id="fastbail-gate-log">
-              <div style="color:var(--text-dim); font-size:0.75rem; font-family:var(--font-mono);">
-                সিস্টেম রেডি। বাম পাশের “বিচারিক জামিন মঞ্জুর” বাটনে ক্লিক করুন।
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- MODULE 4: TIER 3 - BHOO-CHITRA CADASTRAL WARPING & FARAYEZ CALCULATOR -->
-    <section class="module-section" id="mod-bhoochitra">
-      <div class="module-header">
-        <div>
-          <div class="module-meta">
-            <span class="tier-badge">
-              <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              TIER 3: স্পেশিয়াল ল্যান্ড অডিট ও ফারায়েজ
-            </span>
-            <span class="module-method-badge" id="active-map-method-label">পদ্ধতি: TPS (Thin Plate Spline)</span>
-          </div>
-          <h2 class="module-title">
-            <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
-            ভূ-চিত্র স্প্লিট-স্ক্রিন মৌজা ম্যাপ ওয়ার্পিং ও ফারায়েজ বণ্টন ক্যালকুলেটর
-          </h2>
-          <p class="module-description">
-            ব্রিটিশ আমলের সিএস ১৮৮৮ ক্যাডাস্ট্রাল নকশার সাথে আধুনিক স্যাটেলাইট ইমেজের সাব-পিক্সেল সুপার-ইম্পোজিশন এবং কুরআনীয় নীতিতে অংশ বণ্টন হিসাব।
-          </p>
-        </div>
-      </div>
-
-      <div class="cockpit-grid">
-        <!-- Split-Screen Cadastral Map Viewer -->
-        <div>
-          <div style="font-size:0.8rem; font-weight:700; color:var(--accent-light); margin-bottom:0.5rem; display:flex; justify-content:space-between;">
-            <span>সিএস ১৮৮৮ বনাম আধুনিক স্যাটেলাইট ওভারলে</span>
-            <span style="color:#ef4444; font-family:var(--font-mono);">১৪.৮ শতক দখল শনাক্ত</span>
-          </div>
-          <div class="map-slider-viewport" id="bhoo-chitra-slider-container">
-            <!-- Background: CS 1888 Colonial Survey Parchment Layer -->
-            <div class="map-layer map-layer-cs">
-              <svg viewBox="0 0 500 340" width="100%" height="100%" style="opacity:0.75;">
-                <path d="M30 40 L180 35 L220 180 L50 210 Z" fill="none" stroke="#78350f" stroke-width="2"/>
-                <text x="70" y="110" fill="#78350f" font-family="sans-serif" font-size="12" font-weight="bold">দাগ নং: ৮৪২ (সিএস ১৮৮৮)</text>
-                <!-- Encroachment polygon boundary -->
-                <polygon points="145,110 195,112 188,165 140,160" fill="rgba(239, 68, 68, 0.45)" stroke="#dc2626" stroke-width="2"/>
-                <text x="148" y="140" fill="#b91c1c" font-size="10" font-weight="bold">দখলকৃত: ১৪.৮ শতক</text>
-              </svg>
-            </div>
-
-            <!-- Foreground: Modern Ortho-Rectified Satellite Layer -->
-            <div class="map-layer map-layer-sat" id="map-layer-sat">
-              <svg viewBox="0 0 500 340" width="100%" height="100%">
-                <path d="M30 40 L180 35 L220 180 L50 210 Z" fill="none" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4"/>
-                <text x="70" y="110" fill="#38bdf8" font-family="sans-serif" font-size="12">দাগ নং: ৮৪২ (RS ১৯৭০)</text>
-              </svg>
-            </div>
-
-            <!-- Draggable Divider Bar -->
-            <div class="map-divider-bar" id="map-divider-bar">
-              <div class="map-handle-knob">
-                <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/><polyline points="9 18 3 12 9 6"/><polyline points="21 18 15 12 21 6"/></svg>
-              </div>
-            </div>
-          </div>
-          <div style="font-size:0.72rem; color:var(--text-muted); margin-top:0.4rem; text-align:center;">
-            মাউস বা আঙুল দিয়ে স্লাইডারটি ডানে-বামে টেনে তুলনা করুন।
-          </div>
-        </div>
-
-        <!-- Farayez Inheritance Calculator Engine -->
-        <div style="background:var(--bg-tertiary); border:1px solid var(--border-subtle); border-radius:var(--radius-md); padding:1.25rem;">
-          <div style="font-size:0.82rem; font-weight:700; color:var(--text-main); margin-bottom:0.75rem; display:flex; align-items:center; gap:0.4rem;">
-            <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="M12 3v18M6 8l6-5 6 5M3 13l3-5 3 5a3 3 0 0 1-6 0zM15 13l3-5 3 5a3 3 0 0 1-6 0zM4 21h16"/></svg>
-            ফারায়েজ উত্তরাধিকার বণ্টন গণক (ওয়েব ওয়ার্কার প্রসেসিং)
-          </div>
-          <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:0.5rem; margin-bottom:0.75rem;">
-            <div>
-              <label class="config-label">মোট জমি (শতক):</label>
-              <input type="number" id="farayez-land-amount" class="config-select" value="84" oninput="triggerFarayezCalculation()">
-            </div>
-            <div>
-              <label class="config-label">স্ত্রী (বিধবা):</label>
-              <input type="number" id="farayez-widow-count" class="config-select" value="1" min="0" max="4" oninput="triggerFarayezCalculation()">
-            </div>
-            <div>
-              <label class="config-label">পুত্র সন্তান:</label>
-              <input type="number" id="farayez-son-count" class="config-select" value="2" min="0" oninput="triggerFarayezCalculation()">
-            </div>
-            <div>
-              <label class="config-label">কন্যা সন্তান:</label>
-              <input type="number" id="farayez-daughter-count" class="config-select" value="3" min="0" oninput="triggerFarayezCalculation()">
-            </div>
-            <div>
-              <label class="config-label">মাতা:</label>
-              <input type="number" id="farayez-mother-count" class="config-select" value="0" min="0" max="1" oninput="triggerFarayezCalculation()">
-            </div>
-            <div>
-              <label class="config-label">পিতা:</label>
-              <input type="number" id="farayez-father-count" class="config-select" value="0" min="0" max="1" oninput="triggerFarayezCalculation()">
-            </div>
-          </div>
-
-          <!-- Calculated Shares Results -->
-          <div id="farayez-results-container">
-            <!-- Populated dynamically by triggerFarayezCalculation() -->
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- MODULE 5: TIER 0 - ARUCO OPTICAL PAPER SCANNER -->
-    <section class="module-section" id="mod-aruco">
-      <div class="module-header">
-        <div>
-          <div class="module-meta">
-            <span class="tier-badge">
-              <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-              TIER 0: ফিজিক্যাল পেপার অটো-ব্রিজিং
-            </span>
-            <span class="module-method-badge">অ্যালগরিদম: ArUco 4-Point Homography & Bangla OCR</span>
-          </div>
-          <h2 class="module-title">
-            <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-            স্মার্টফোন ও ওয়েবক্যাম ArUco পেপার স্ক্যানার
-          </h2>
-          <p class="module-description">
-            কাগজের ফর্মের চার কোণায় প্রিন্ট করা ArUco ফিডুশিয়াল মার্কার স্বয়ংক্রিয়ভাবে শনাক্ত করে বাঁকা বা কুঁচকানো পাতাকে সোজা করে এবং বাংলা হাতের লেখা তথ্য বের করে।
-          </p>
-        </div>
-      </div>
-
-      <div class="cockpit-grid">
-        <!-- Optical Viewport -->
-        <div>
-          <div class="scanner-viewport" id="aruco-viewport">
-            <!-- Laser Scan Line -->
-            <div class="laser-line"></div>
-
-            <!-- Physical Paper Form Sheet with ArUco Markers -->
-            <div class="scanner-sheet">
-              <!-- 4 ArUco Fiducial Corners -->
-              <div class="aruco-marker aruco-tl"><div></div><div></div><div></div></div>
-              <div class="aruco-marker aruco-tr"><div></div><div></div><div></div></div>
-              <div class="aruco-marker aruco-bl"><div></div><div></div><div></div></div>
-              <div class="aruco-marker aruco-br"><div></div><div></div><div></div></div>
-
-              <!-- Sheet Content Mockup -->
-              <div style="border-bottom:1px solid #cbd5e1; padding-bottom:4px; margin-bottom:4px; font-weight:bold; font-size:0.65rem; text-align:center;">
-                জাতীয় আইনগত সহায়তা প্রদান সংস্থা (LAF-1)
-              </div>
-              <div style="line-height:1.4; color:#334155;">
-                <strong>নাম:</strong> মোছাঃ রেজিয়া খাতুন<br/>
-                <strong>পিতা/স্বামী:</strong> মৃত আকমল হোসেন<br/>
-                <strong>এনআইডি:</strong> 19842691234567890<br/>
-                <strong>বিরোধ:</strong> চর এলাকার ১৪.৮ শতক জমি দখল<br/>
-                <strong>স্বাক্ষর:</strong> [রেজিয়া খাতুন]
-              </div>
-
-              <!-- OCR Extracted Bounding Boxes -->
-              <div class="ocr-bounding-box" style="top:32px; left:4px; width:150px; height:18px;"></div>
-              <div class="ocr-bounding-box" style="top:52px; left:4px; width:170px; height:18px;"></div>
-              <div class="ocr-bounding-box" style="top:72px; left:4px; width:160px; height:18px;"></div>
-
-              <div style="text-align:right; font-size:0.55rem; color:#64748b;">
-                ArUco-Dict-4x4-50
-              </div>
-            </div>
-          </div>
-          <div style="margin-top:0.75rem;">
-            <button class="btn-telemetry btn-telemetry-primary" id="aruco-scan-btn" style="width:100%; justify-content:center;" onclick="triggerArucoScan()">
-              <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-              ক্যামেরা স্ক্যান ও রিয়েলটাইম পার্সপেক্টিভ ওয়ার্প সিমুলেট করুন
-            </button>
-          </div>
-        </div>
-
-        <!-- Extracted JSON & Form Fields -->
-        <div style="background:var(--bg-tertiary); border:1px solid var(--border-subtle); border-radius:var(--radius-md); padding:1.25rem;">
-          <div id="aruco-extracted-fields">
-            <div style="color:var(--text-muted); font-size:0.8rem; text-align:center; padding:2rem 0;">
-              বাম পাশের বাটনে চাপ দিয়ে অপটিক্যাল স্ক্যানিং প্রক্রিয়া শুরু করুন।
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- MODULE 6: TIER 2 - WHATSAPP BOT & NARI-SHIELD PANIC ESCAPE -->
-    <section class="module-section" id="mod-whatsapp">
-      <div class="module-header">
-        <div>
-          <div class="module-meta">
-            <span class="tier-badge">
-              <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-              TIER 2: স্মার্টফোন ও মেসেজিং প্রবেশদ্বার
-            </span>
-            <span class="module-method-badge">নিরাপত্তা: নারী-শিল্ড স্টিলথ ও ডিসক্রিট প্রস্থান</span>
-          </div>
-          <h2 class="module-title">
-            <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            হোয়াটসঅ্যাপ লিগ্যাল বট ও নারী-শিল্ড প্যানিক এস্কেপ
-          </h2>
-          <p class="module-description">
-            পারিবারিক সহিংসতার শিকার নারীদের জন্য নিরাপদ পরামর্শ এবং অপরাধীর চোখ এড়াতে ১-ক্লিকে তাৎক্ষণিক আবহাওয়া/রেসিপি পোর্টালে রূপান্তরের সুবিধা।
-          </p>
-        </div>
-        <div>
-          <button class="discreet-panic-btn" onclick="triggerPanicEscape()">
-            <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            জরুরি প্রস্থান (Panic Escape)
-          </button>
-        </div>
-      </div>
-
-      <div class="cockpit-grid">
-        <!-- WhatsApp Chat Mockup -->
-        <div style="background:#0b141a; border-radius:var(--radius-md); border:1px solid #222d34; overflow:hidden; font-family:var(--font-bangla);">
-          <!-- WhatsApp Top Bar -->
-          <div style="background:#202c33; padding:0.65rem 1rem; display:flex; align-items:center; gap:0.75rem; border-bottom:1px solid #2a3942;">
-            <div style="width:34px; height:34px; border-radius:50%; background:#00a884; display:flex; align-items:center; justify-content:center; color:#fff;">
-              <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-            </div>
-            <div>
-              <div style="font-size:0.85rem; font-weight:bold; color:#e9edef;">জাতীয় আইনি সহায়তা বট (NLASO Official)</div>
-              <div style="font-size:0.7rem; color:#8696a0;">অনলাইন • এন্ড-টু-এন্ড এনক্রিপ্টেড</div>
-            </div>
-          </div>
-
-          <!-- Chat Stream -->
-          <div style="padding:1rem; height:240px; overflow-y:auto; display:flex; flex-direction:column; gap:0.65rem; background:#0b141a;">
-            <div style="align-self:flex-start; background:#202c33; color:#d1d7db; padding:0.55rem 0.85rem; border-radius:0 8px 8px 8px; max-width:80%; font-size:0.8rem;">
-              সালামু আলাইকুম। জাতীয় আইনি সহায়তা সংস্থায় স্বাগতম। আপনি ভয়েস মেসেজ পাঠাতে পারেন অথবা আপনার সমস্যা লিখে জানান।
-            </div>
-            <div style="align-self:flex-end; background:#005c4b; color:#e9edef; padding:0.55rem 0.85rem; border-radius:8px 0 8px 8px; max-width:80%; font-size:0.8rem;">
-              আমার স্বামী যৌতুকের জন্য আমাকে শারীরিক নির্যাতন করে ঘর থেকে বের করে দিয়েছে। আমি এখন বাবার বাড়ি আছি কিন্তু ওরা হুমকি দিচ্ছে।
-            </div>
-            <div style="align-self:flex-start; background:#202c33; color:#d1d7db; padding:0.55rem 0.85rem; border-radius:0 8px 8px 8px; max-width:80%; font-size:0.8rem; border-left:3px solid #00a884;">
-              <strong>জরুরি সহায়তা শনাক্ত:</strong> আপনি নারী ও শিশু নির্যাতন দমন আইন এবং পারিবারিক সহিংসতা আইনে পূর্ণ বিনামূল্যে সরকারি সুরক্ষা ও আইনজীবী পাওয়ার যোগ্য।<br/>
-              আপনার জেলা ও বর্তমান অবস্থান নিশ্চিত করুন, আমরা তাৎক্ষণিক প্যানেল আইনজীবী ও নারী আশ্রয়কেন্দ্রের সহায়তা পাঠাচ্ছি।
-            </div>
-          </div>
-
-          <!-- Input Bar -->
-          <div style="background:#202c33; padding:0.65rem 1rem; display:flex; gap:0.5rem; align-items:center;">
-            <input type="text" placeholder="বার্তা লিখুন অথবা ভয়েস রেকর্ড পাঠান..." style="flex:1; background:#2a3942; border:none; color:#e9edef; padding:0.45rem 0.75rem; border-radius:8px; font-size:0.8rem; outline:none;">
-            <button style="background:#00a884; border:none; color:#fff; border-radius:50%; width:32px; height:32px; display:flex; align-items:center; justify-content:center; cursor:pointer;">
-              <svg class="svg-icon svg-icon-stroke" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-            </button>
-          </div>
-        </div>
-
-        <!-- Privacy & Safety Information -->
-        <div style="background:var(--bg-tertiary); border:1px solid var(--border-subtle); border-radius:var(--radius-md); padding:1.25rem; display:flex; flex-direction:column; justify-content:space-between;">
-          <div>
-            <div style="font-size:0.85rem; font-weight:700; color:var(--accent-light); margin-bottom:0.5rem;">
-              নারী-শিল্ড (Nari-Shield) জরুরি সুরক্ষা ব্যবস্থা
-            </div>
-            <p style="font-size:0.8rem; color:var(--text-muted); line-height:1.6; margin-bottom:1rem;">
-              সহিংসতার ঝুঁকিতে থাকা নারীদের ফোন তল্লাশি বা নজরদারির হাত থেকে বাঁচাতে এই প্রোটোকল তৈরি। যে কোনো মুহূর্তে <strong>“জরুরি প্রস্থান (Panic Escape)”</strong> বাটনে চাপ দিলে বা কি-বোর্ডে <strong>Esc</strong> চাপলে স্ক্রিন অবিলম্বে একটি স্বাভাবিক রন্ধনপ্রণালী ও আবহাওয়া পোর্টালে রূপান্তরিত হয়।
-            </p>
-          </div>
-          <div style="border-top:1px solid var(--border-subtle); padding-top:0.75rem; display:flex; justify-content:space-between; align-items:center;">
-            <span style="font-size:0.75rem; color:var(--text-dim);">ব্রাউজার হিস্ট্রি স্বয়ংক্রিয় গোপনীয়তা সক্রিয়</span>
-            <button class="discreet-panic-btn" onclick="triggerPanicEscape()">
-              পরীক্ষা করুন: প্যানিক এস্কেপ
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Nari-Shield Panic Escape Screen (Innocent Disguise: Weather & Recipe Portal) -->
-  <div class="panic-overlay-screen" id="panic-overlay-screen">
+  <!-- Nari-Shield Panic Escape Screen (Innocent Weather & Recipe Portal) -->
+  <div class="nari-disguise-screen" id="nari-disguise-screen">
     <div style="max-width:800px; margin:0 auto;">
       <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:2px solid #e2e8f0; padding-bottom:1rem; margin-bottom:1.5rem;">
         <div style="font-size:1.4rem; font-weight:bold; color:#1e293b;">
           ডেইলি লাইফস্টাইল ও আজকের আবহাওয়া ডাইজেস্ট
         </div>
-        <button onclick="closePanicEscape()" style="background:#e2e8f0; border:none; padding:0.4rem 0.8rem; border-radius:4px; cursor:pointer; font-size:0.8rem;">
+        <button onclick="closeNariShieldEscape()" style="background:#e2e8f0; border:none; padding:0.4rem 0.8rem; border-radius:4px; cursor:pointer; font-size:0.8rem;">
           নিরাপদ: মূল স্ক্রিনে ফিরুন
         </button>
       </div>
