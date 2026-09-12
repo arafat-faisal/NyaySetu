@@ -1,0 +1,1 @@
+// Paste raw response from mistral for Challenge 4 here

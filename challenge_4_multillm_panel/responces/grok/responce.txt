@@ -1,0 +1,1 @@
+// Paste raw response from grok for Challenge 4 here

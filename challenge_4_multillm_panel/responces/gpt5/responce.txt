@@ -1,0 +1,1 @@
+// Paste raw response from gpt5 for Challenge 4 here
