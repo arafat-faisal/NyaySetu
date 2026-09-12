@@ -1,0 +1,84 @@
+## SECTION 1: OFFICIAL SUBMISSION RESPONSE (MAXIMUM 300 WORDS)
+
+**AI-Assisted Workflow for Proxy Intake under Extreme Surveillance**
+
+Upon Ripon's voice call to 16699, the DLAS AI conducts empathetic, 100% voice-driven Bangla intake. The AI extracts entities (victim Moyuri, perpetrator Sohel, location Kalai, Joypurhat; allegations of nighttime beatings, 5-month economic deprivation, coercive motorcycle demand under threat of polygamy). It classifies this as a third-party proxy report under Legal Aid Services Act 2000 (as amended 2026) and tags it with extreme-surveillance safety protocols. [bdlaws.minlaw.gov](http://bdlaws.minlaw.gov.bd/act-1600.html)
+
+**What AI Can Do:** Capture spoken narrative; parse into structured fields; flag high-risk domestic violence indicators under Domestic Violence Act 2010 §§ 2(14), 10–12; record the Friday midday 20-minute safe-contact window; compile a Third-Party Intake Packet for the DLAO; reassure Ripon that legal aid is free and a human officer will review urgently. [sadat-sarwat](https://sadat-sarwat.com/guide-domestic-violence-prevention-protection-act-bangladesh/)
+
+**What AI Should Not Do:** Provide substantive legal advice or predict outcomes; make final eligibility determinations (reserved for DLAO under Legal Aid Services Act 2000); reject due to missing NID or victim absence; send automated SMS/IVR to the household button phone; contact the perpetrator; treat proxy claims as verified truth. [bdlaws.minlaw.gov](http://bdlaws.minlaw.gov.bd/act-1600.html)
+
+**When Escalation Occurs:** Immediate high-priority transfer to a human DLAO/panel lawyer upon detecting: ongoing physical battery; child endangerment via 5-month sustenance deprivation; dowry extortion with abandonment/bigamy threats (Dowry Prohibition Act 2018 §§ 3–4); proxy dynamics with victim under surveillance; acute caller distress. [brill](https://brill.com/display/book/edcoll/9789004437784/BP000023.xml?language=en)
+
+**Information Captured for Human Officer:** Structured dossier including: Ripon's identity, relationship, contact, disability status; Moyuri's profile (age ~24, Kalai, Joypurhat), 4-year-old dependent, lack of NID/phone; factual allegations (beatings, economic abuse, motorcycle demand, polygamy threats); strict safety protocol ("DO NOT SMS/call button phone"; safe window Friday 1:15–1:35 PM or covert Upazila Women Affairs Officer visit under DV Act § 14/§ 16); statutory tags (DV Act 2010 §§ 10–12; Dowry Prohibition Act 2018 §§ 3–4); data integrity marker: "Unverified Third-Party Information – Direct Victim Verification Required." [sadat-sarwat](https://sadat-sarwat.com/guide-domestic-violence-prevention-protection-act-bangladesh/)
+
+**Word Count: 298**
+
+***
+
+## SECTION 2: ARCHITECTURAL, SAFETY & STATUTORY RATIONALE
+
+### 1. Decision Workflow Diagram / Step-by-Step Flow
+
+```
+[Ripon dials 16699]
+        ↓
+[ASR: Bangla Speech-to-Text (accent-tolerant)]
+        ↓
+[NLU: Entity Extraction & Safety Triage]
+   - Victim: Moyuri Akter, ~24, Kalai, Joypurhat
+   - Perpetrator: Sohel (husband, rice mill worker)
+   - Dependent: 4-year-old daughter
+   - Caller: Ripon (brother, blind, smartphone user)
+   - Allegations: Physical abuse, economic deprivation (5 months), dowry demand (motorcycle), threat of polygamy
+        ↓
+[Proxy Classification + Extreme Surveillance Flag]
+   - Tag: Third-Party Intake (unverified)
+   - Safety Lock: NO automated SMS/IVR to household
+   - Safe Window: Friday midday ~20 min
+        ↓
+[Voice Reassurance to Ripon]
+   - "Government legal aid is free; officer will contact safely"
+   - Provide memorizable 4-digit reference token
+        ↓
+[Escalation Trigger: High-Priority Human Review]
+   - Physical violence + child endangerment + dowry coercion
+        ↓
+[Third-Party Intake Packet → DLAO (Joypurhat)]
+   - Structured JSON/PDF dossier with safety protocol
+   - DLAO initiates covert verification (female Protection Officer/UP member)
+        ↓
+[Human DLAO: Direct Victim Contact (Friday window or covert visit)]
+   - Verify consent, assess evidence, file DV Act § 11/§ 12 application
+   - Appoint panel advocate under Legal Aid Services Act 2000
+```
+
+### 2. Zero-Harm Anti-Surveillance Safeguards
+
+**Button Phone Risk:** Any outbound SMS or standard IVR callback to the household button phone will be intercepted by the mother-in-law or Sohel, triggering retaliatory violence (Penal Code §§ 323, 325, 342). The AI enforces a hard block on all automated push communications to that number. [sadat-sarwat](https://sadat-sarwat.com/guide-domestic-violence-prevention-protection-act-bangladesh/)
+
+**Friday 20-Minute Window:** The system records this as the only permissible direct-contact slot (Friday 1:15–1:35 PM, aligned with Jumu'ah prayer). The DLAO schedules a female officer's call precisely within this window, using a neutral caller ID (e.g., "Health Department" cover if needed).
+
+**Offline Covert Verification:** Under DV Act 2010 § 14, the Upazila Women Affairs Officer (Protection Officer) may visit under an innocent pretext (maternal health check, child vaccination follow-up). This avoids digital traces and leverages community trust. [sadat-sarwat](https://sadat-sarwat.com/guide-domestic-violence-prevention-protection-act-bangladesh/)
+
+### 3. Accessibility Accommodations for Visually Impaired Proxy
+
+- **Pure Voice Interface:** No text menus, captchas, or OTPs. All prompts are spoken Bangla with natural pauses.
+- **Audio Confirmation:** Ripon receives a 4-digit verbal reference code (e.g., "চার-এক-নয়-তিন") to memorize and quote in follow-up calls.
+- **Callback Option:** Ripon can request a callback at his convenience; the system calls his smartphone and resumes the voice session without requiring any visual interaction.
+- **Screen Reader Bypass:** Since Bengali screen readers fail, the AI avoids any reliance on smartphone UI; all navigation is via DTMF (keypad tones) or voice commands.
+
+### 4. Statutory Alignment Matrix
+
+| Fact Pattern | Statutory Provision | Legal Effect |
+|--------------|---------------------|--------------|
+| Nighttime beatings by husband | DV Act 2010 § 2(14) (Physical Abuse) | Grounds for Protection Order (§ 14) |
+| 5-month deprivation of food/maintenance for child | DV Act 2010 § 2(14) (Economic Abuse); § 12 | Monetary Relief & Maintenance Order |
+| Threat of eviction/abandonment | DV Act 2010 § 11 | Residence Order (protects shared household) |
+| Coercive motorcycle demand + polygamy threat | Dowry Prohibition Act 2018 §§ 3–4 | Cognizable, non-bailable offense; criminal complaint |
+| Ripon (blind brother) as caller | Legal Aid Services Act 2000 § 2(n); Policy 2014 ¶2 | Eligible for free legal aid (disability + proxy) |
+| Application by relative (not victim) | DV Act 2010 § 16 | Permitted; requires Magistrate/DLAO verification of victim's consent |
+| DLAO's authority to grant aid | Legal Aid Services Act 2000 (as amended 2026) | Exclusive statutory power; AI cannot decide eligibility  [bdlaws.minlaw.gov](http://bdlaws.minlaw.gov.bd/act-1600.html) |
+| Covert verification by Protection Officer | DV Act 2010 § 14 | Lawful method to establish victim's condition without digital exposure  [sadat-sarwat](https://sadat-sarwat.com/guide-domestic-violence-prevention-protection-act-bangladesh/) |
+
+This architecture ensures compliance with Bangladesh's statutory framework while prioritizing victim safety, accessibility for disabled proxies, and strict AI-human role boundaries.

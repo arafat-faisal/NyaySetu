@@ -1,1 +1,102 @@
-[Paste Gemini 1.5 / 2.0 Pro response for Challenge 2 here]
+### SECTION 1: OFFICIAL SUBMISSION RESPONSE
+
+This AI-assisted workflow operates strictly as a voice-driven triage system in spoken Bangla.
+
+**What AI Can Do:**
+The AI conducts empathetic voice intake, extracting key entities without requiring visual inputs like OTPs or PDFs, accommodating Ripon’s visual impairment under the Legal Aid Services Act 2000. It logs the case as an "Extreme Surveillance Hazard," records the Friday 20-minute safe communication window, and issues a verbal confirmation code.
+
+**What AI Should Not Do:**
+The AI must not provide substantive legal advice, reject applications due to missing data like Moyuri’s NID, or exercise judicial discretion reserved for the District Legal Aid Officer (DLAO). Crucially, to prevent retaliatory violence, the AI must strictly prohibit automated SMS or callbacks to the household's button phone. It treats Ripon’s report purely as an unverified third-party intake.
+
+**When Escalation Occurs:**
+Escalation to a human officer is triggered immediately by physical safety red flags, five-month destitution endangering a minor under the Domestic Violence Act 2010 § 12, and coercive motorcycle demands violating the Dowry Prohibition Act 2018 §§ 3, 4. The extreme domestic surveillance dynamic itself mandates urgent intervention.
+
+**Information Captured for the DLAO:**
+The AI compiles a structured Third-Party Intake Brief containing:
+
+1. Informant vulnerability context (Ripon, blind).
+
+
+2. Victim profile (Moyuri, Kalai, Joypurhat).
+
+
+3. Allegation summary (battery, economic deprivation, dowry coercion).
+
+
+4. Strict safety protocols, highlighting the Friday safe window and recommending covert verification via an Upazila Women Affairs Officer under DV Act 2010 § 16.
+
+
+
+*Exact Word Count: 249 words (excluding citations).*
+
+---
+
+### SECTION 2: ARCHITECTURAL, SAFETY & STATUTORY RATIONALE
+
+To ensure complete clarity on the technological and legal mechanics of this solution, the following is a comprehensive, step-by-step architectural and statutory breakdown of the proposed Digital Legal Aid System (DLAS).
+
+#### 1. Decision Workflow Diagram / Step-by-Step Flow
+
+The DLAS architecture relies on an asynchronous, highly secure intake pipeline designed specifically for proxy reporting.
+
+* **Step 1: Inbound Accessibility Routing.** Ripon dials 16699. The system recognizes standard feature-phone audio and immediately routes to the Natural Language Understanding (NLU) module optimized for colloquial spoken Bangla.
+
+
+* **Step 2: Empathetic Entity Extraction.** Through conversational prompts, the AI extracts structured variables from unstructured dialogue: Victim Identity (Moyuri), Perpetrator Identity (Sohel), Geography (Kalai Upazila), and Abuse Metrics (physical battery, starvation, dowry extortion).
+
+
+* **Step 3: Hazard & Triage Classification.** The NLU detects keywords related to phone confiscation and visual impairment. The system immediately classifies the caller as a "Disabled Proxy" and the victim under an "Extreme Surveillance Hazard".
+
+
+* **Step 4: Outbound Communications Lockdown.** A hard-coded kill switch activates, disabling all automated SMS receipts or standard follow-up calls to both Ripon (who cannot read them) and Moyuri (who would be endangered by them).
+
+
+* **Step 5: DLAO Handoff.** The AI generates a "Third-Party Intake Packet," assigns a 4-digit spoken verbal code to Ripon, and queues the dossier for an immediate high-priority human review by the Joypurhat District Legal Aid Officer.
+
+
+
+#### 2. Zero-Harm Anti-Surveillance Safeguards
+
+The domestic surveillance dynamic is the most critical threat vector in this case. Any technological footprint left by the DLAS could trigger severe retaliatory domestic violence under Sections 323, 325, and 342 of the Penal Code 1860.
+
+* **Handling the Button Phone Risk:** The AI registers the button phone held by Moyuri's mother-in-law as compromised. The system protocol enforces a "Zero Unsolicited Push" rule, meaning the DLAS will never independently initiate digital contact with that number.
+
+
+* **The Friday 20-Minute Window:** The system meticulously records the 1:15 PM to 1:35 PM Friday window (during Jumu'ah prayer) as the singular digital safe zone for the DLAO to attempt direct contact.
+
+
+* **Offline Covert Verification Mechanism:** Understanding that a 20-minute window is fragile, the AI's dossier recommends offline, covert verification. Under Section 14 and Section 16 of the Domestic Violence (Prevention and Protection) Act 2010, the DLAO can dispatch a female Upazila Women Affairs Protection Officer or a female Union Parishad member to Moyuri's residence. This visit can be executed under the guise of an innocent domestic health or welfare check, thereby verifying Moyuri's status and consent without alerting Sohel.
+
+
+
+#### 3. Accessibility Accommodations for Visually Impaired Proxy
+
+Ripon's visual impairment requires a radical departure from standard digital intake forms. The DLAS complies with the Legal Aid Services Policy 2014, Section 2(n), which mandates accessibility for persons with visual disabilities.
+
+* **100% Voice Interface:** Because screen readers fail on Bengali text and Ripon cannot read PDFs or text fields, the entire intake loop is conducted via an interactive voice response (IVR) utilizing advanced conversational AI.
+
+
+* **No Visual Bottlenecks:** The system entirely bypasses standard security bottlenecks like CAPTCHAs or SMS-based One-Time Passwords (OTPs), which would otherwise create a dead-end for a visually impaired user navigating a handed-down device.
+
+
+* **Auditory Confirmation:** Instead of sending a case number via SMS, the system provides a highly memorable, short verbal reference token (e.g., a simple 4-digit spoken code) aligned with Ripon's auditory memory skills.
+
+
+
+#### 4. Statutory Alignment Matrix
+
+To bridge the gap between technical data capture and legal action, the AI maps the extracted facts to specific, actionable sections of Bangladesh jurisprudence for the reviewing DLAO:
+
+* **Nighttime Beatings:** Mapped to physical abuse under the Domestic Violence Act 2010 § 2(14), establishing grounds for an emergency Interim Protection Order under Section 10.
+
+
+* **Five-Month Starvation & Child Deprivation:** Mapped to economic abuse under DV Act 2010 § 2(14). This triggers urgent grounds for Monetary Relief & Maintenance under Section 12.
+
+
+* **Threat of Polygamy & Eviction:** Mapped to psychological abuse. This provides the DLAO with the foundation to file for a Residence Order under DV Act 2010 § 11, legally barring Sohel from evicting Moyuri from the tin-roofed marital home.
+
+
+* **Motorcycle Extortion:** Mapped directly to the Dowry Prohibition Act 2018 §§ 3, 4. The AI flags this as a cognizable, non-bailable offense involving coercive demands for property.
+
+
+* **Proxy Standing:** Mapped to DV Act 2010 § 16, legally validating Ripon’s right to initiate the intake notice on his sister's behalf, provided that the DLAO subsequently establishes Moyuri's consent.

@@ -1,1 +1,97 @@
-[Paste Sakana AI response for Challenge 2 here]
+**SECTION 1: OFFICIAL SUBMISSION RESPONSE (298 WORDS)**
+
+AI-Assisted Workflow: Ripon calls the National Legal Aid Helpline 16699. The DLAS voice assistant conducts empathetic primary intake in spoken Bangla, extracting key entities (victim, perpetrator, allegations, location) while classifying Ripon as an unverified third-party proxy. The system flags an extreme surveillance hazard, immediately locks all automated outbound channels, compiles a structured Third-Party Intake Packet, and routes the case to a human District Legal Aid Officer (DLAO).
+
+What AI Can Do: The AI can perform voice-based primary triage in natural Bangla, parse unstructured narration into structured fields, classify the caller as an unverified proxy, tag the case for safety risks, provide general orientation that government legal aid is free, and compile a complete dossier for human review.
+
+What AI Should Not Do: The AI must not offer substantive legal advice, predict judicial outcomes, make final eligibility determinations, reject the application due to missing NID or the victim's absence, treat proxy claims as verified truth, or initiate any automated SMS, call, or notice to the victim's household or the alleged perpetrator.
+
+When Escalation Occurs: Immediate escalation is mandatory upon detection of ongoing physical violence, child endangerment through five months of economic deprivation, coercive dowry demands with threats of bigamy, extreme domestic surveillance preventing safe victim contact, or acute caller distress.
+
+Information Captured for the Human Officer: The AI must deliver a Third-Party Intake Brief containing: informant profile (Ripon, brother, blind, contact number); victim and dependent details (Moyuri, age 24, Kalai Upazila, Joypurhat, four-year-old daughter, no phone, no NID); factual allegations (nighttime beatings, starvation, motorcycle demand, abandonment threats); a strict safety protocol (no outbound SMS or calls to the residence button phone); the safe Friday 20-minute contact window; statutory tags under the Domestic Violence Act 2010 and Dowry Prohibition Act 2018; and an explicit unverified-third-party marker requiring direct victim verification.
+
+---
+
+**SECTION 2: ARCHITECTURAL, SAFETY & STATUTORY RATIONALE**
+
+### 1. Decision Workflow Diagram / Step-by-Step Flow
+
+The call flows through five architecturally distinct stages, each with explicit human oversight gates:
+
+**Stage 1: Inbound Voice Acquisition**
+Ripon dials 16699. The DLAS voice gateway captures spoken Bangla audio. No visual interface, SMS, or OTP is requested. Automatic Speech Recognition (ASR) optimized for Joypurhat regional accent transcribes the stream.
+
+**Stage 2: NLU Entity Extraction & Proxy Classification**
+The Natural Language Understanding (NLU) layer parses the transcript for:
+- Primary victim identity (Moyuri Akter, age ~24, village under Kalai Upazila, Joypurhat).
+- Dependent (4-year-old daughter).
+- Alleged perpetrator (Sohel, husband, rice mill worker).
+- Informant relationship and disability status (Ripon, brother, blind since childhood).
+- Core allegations (physical abuse, 5-month economic deprivation, coercive motorcycle demand, threat of polygamy/abandonment).
+The system immediately classifies the caller as a "Third-Party Proxy" and marks all extracted data with an "Unverified - Direct Victim Confirmation Required" integrity flag.
+
+**Stage 3: Safety Triage & Surveillance Risk Scoring**
+The Safety Protocol Engine evaluates the factual narrative against a statutory risk matrix. It identifies:
+- Active physical violence (nighttime beatings).
+- Child endangerment and destitution (5-month denial of food and living expenses).
+- Coercive extortion (motorcycle demand under threat of second marriage).
+- Extreme surveillance ecosystem (victim lacks independent phone, NID locked away, call logs monitored).
+The system assigns an "Extreme Surveillance Hazard" classification and immediately disables all automated outbound pushes (SMS, IVR, robocalls, postal notices) to the victim's residence.
+
+**Stage 4: Dossier Compilation**
+The AI assembles a standardized "Third-Party Intake Packet" containing structured fields, a factual narrative, safety warnings, and statutory classification tags. This packet is written to the DLAO queue with an "Urgent - High-Risk Domestic Violence" priority marker.
+
+**Stage 5: Human Escalation & Case Handover**
+The call is warm-transferred or immediately queued for a human DLAO or senior panel lawyer. The AI's role terminates at intake; all subsequent legal assessment, victim verification planning, and case admission decisions are reserved for the human officer under the Legal Aid Services Act, 2000.
+
+---
+
+### 2. Zero-Harm Anti-Surveillance Safeguards
+
+The case presents a lethal surveillance environment where a single mistimed digital touchpoint can trigger severe retaliatory violence. The following safeguards are mandatory:
+
+**A. Absolute Prohibition on Automated Outbound Contact**
+Under the "Do-No-Harm" Directive, the system must permanently block all automated SMS, standard callback IVR, or postal letters to Moyuri's household. An SMS to the shared button phone will be inspected by the mother-in-law or Sohel, directly endangering Moyuri. The AI must record an explicit, hard-coded warning in the dossier: "DO NOT SEND SMS OR OUTBOUND CALL TO RESIDENCE BUTTON PHONE."
+
+**B. Temporal Safe-Window Mapping**
+The AI must capture and flag the only known safe communication window: approximately 20 minutes on Friday midday while Sohel is at Jumu'ah prayer and the mother-in-law rests. This temporal intelligence allows the human DLAO to plan confidential victim contact without exposing Moyuri.
+
+**C. Covert Offline Verification via Statutory Protection Officers**
+Given that Moyuri cannot travel 30 km to the Joypurhat District Legal Aid Office and cannot safely receive calls, the DLAO must trigger an offline, in-person verification mechanism. Under Section 14 of the Domestic Violence (Prevention and Protection) Act 2010, the Upazila Women Affairs Officer (Protection Officer) has a statutory mandate to intervene. A female Protection Officer, female Union Parishad member, or trusted community para-legal can visit the residence under an innocuous welfare or health cover (e.g., maternal-child health check, routine Union Parishad welfare visit) to establish direct, confidential contact with Moyuri and confirm her consent and factual claims. This bypasses the surveilled phone entirely.
+
+**D. Constitutional and Penal Code Imperatives**
+Disclosing legal aid outreach to the abusive husband violates Moyuri's constitutional right to life and personal liberty under Article 32 of the Constitution of Bangladesh. It also risks aggravating offenses under Sections 323 (voluntarily causing hurt) and 325 (grievous hurt) of the Penal Code 1860. The AI must therefore treat surveillance mitigation as a non-negotiable system constraint, not an optional preference.
+
+---
+
+### 3. Accessibility Accommodations for Visually Impaired Proxy
+
+Ripon's disability profile imposes strict accessibility requirements on the DLAS architecture:
+
+**A. 100% Voice-Driven Interaction**
+The entire intake must operate through natural spoken Bangla. The system cannot require Ripon to read text, PDFs, forms, or graphical interfaces. No visual CAPTCHA or screen-based confirmation may be requested.
+
+**B. No SMS/OTP Dead-Ends**
+Because Ripon cannot read Bangla text and screen readers fail on Bengali labels, SMS-based OTPs or text confirmations are inaccessible and must be excluded. Authentication and confirmation must rely on spoken tokens (e.g., a memorizable 4-digit verbal reference code repeated audibly at the end of the call).
+
+**C. Auditory Confirmation & Reference Codes**
+At the conclusion of the intake, the AI must provide a clear, spoken reference number that Ripon can memorize and repeat to the DLAO during any follow-up. All status updates must be delivered via return voice calls, not text messages.
+
+**D. Calibrated Pacing**
+The system must accommodate natural speech pauses and regional Bangla phrasing, allowing Ripon to narrate facts in his own temporal and episodic structure without forcing rigid form-field timing that could disorient a blind caller relying on auditory memory.
+
+---
+
+### 4. Statutory Alignment Matrix
+
+| **Fact from Case** | **Governing Law & Section** | **Legal Significance** |
+|---|---|---|
+| Nighttime beatings by husband Sohel | DV Act 2010, Section 2(14) (Physical Abuse) | Establishes prima facie domestic violence; triggers Protection Officer jurisdiction. |
+| 5-month deprivation of food and living expenses for Moyuri and her 4-year-old daughter | DV Act 2010, Section 2(14) (Economic Abuse); Section 12 (Monetary Relief & Maintenance) | Qualifies as economic abuse; grounds for emergency maintenance order for child and victim. |
+| Coercive demand for a motorcycle to prevent abandonment/second marriage | Dowry Prohibition Act 2018, Sections 3 & 4 | Cognizable, non-bailable offense; coercive demand for valuable security as condition of marriage. |
+| Threat of polygamy/abandonment | DV Act 2010, Section 2(14) (Psychological Abuse & Coercion) | Constitutes psychological coercion; supports interim protection order. |
+| Need for interim protection from violence and residence security | DV Act 2010, Sections 10 (Interim Protection Order) & 11 (Residence Order) | Allows ex-parte or urgent judicial orders prohibiting further violence and eviction from the marital home. |
+| Ripon filing on behalf of his sister | DV Act 2010, Section 16; Legal Aid Services Act, 2000, Section 2(n) | Permits third-party/representative applications; Ripon's disability also qualifies him for legal aid services. |
+| Final eligibility and case admission determination | Legal Aid Services Act, 2000; DLAO procedural mandates | Reserved exclusively for the District Legal Aid Officer (Senior Assistant Judge/Joint District Judge); AI cannot exercise this judicial discretion. |
+
+**Conclusion:** The AI serves as a critical, safety-conscious intake layer that transforms Ripon's spoken Bangla into a structured, statute-tagged, high-priority dossier for human review. It respects the statutory boundaries of the Legal Aid Services Act, 2000, the protective mandates of the Domestic Violence Act 2010, and the anti-surveillance imperatives of constitutional and penal law, while ensuring full accessibility for a blind proxy caller. All substantive legal decisions remain with the human DLAO.

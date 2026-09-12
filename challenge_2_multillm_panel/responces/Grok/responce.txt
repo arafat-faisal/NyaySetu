@@ -1,0 +1,32 @@
+**SECTION 1: OFFICIAL SUBMISSION RESPONSE**
+
+Proposed AI-assisted workflow begins with fully voice-driven Bangla intake of Ripon’s call. The AI performs real-time ASR and NLU to extract entities (victim Moyuri Akter, age ~24, Kalai, Joypurhat; 4-year-old daughter; alleged perpetrator Sohel; informant brother Ripon, visually impaired) and classifies the report as unverified third-party information under Legal Aid Services Act 2000 and DV Act 2010 §16. It tags the case Extreme Surveillance Hazard, records the sole safe window (Friday midday ~20 minutes), and locks all outbound channels. It delivers calm rights orientation that free legal aid is available and compiles a Third-Party Intake Packet for the Joypurhat District Legal Aid Officer (DLAO). Transfer to a human officer occurs immediately thereafter; AI never proceeds beyond triage.
+
+What AI can do: empathetic voice intake accommodating accents and pauses; structured entity extraction; safety and surveillance flagging; general free-aid reassurance; dossier compilation labelled “Unverified Third-Party Information – Direct Victim Verification Required.”
+
+What AI should not do: give substantive legal advice or assess evidence strength; determine final eligibility or refuse aid (reserved exclusively for DLAO); reject for missing NID or absence of the victim on the line; send any automated SMS, IVR or letter to the household button phone; treat proxy claims as verified facts or issue notices to the husband.
+
+Escalation triggers: ongoing nighttime battery (Penal Code §§323/325), five-month economic deprivation endangering a child (DV Act §12), coercive motorcycle demand under threat of bigamy (Dowry Prohibition Act 2018 §§3–4), high-risk proxy surveillance preventing independent contact, or detected caller distress.
+
+Information captured for the human officer: informant identity, disability and contact; victim/dependent profile and location; precise allegation narrative; strict “DO NOT CONTACT RESIDENCE PHONE” protocol with Friday window or covert Upazila Women Affairs Officer dispatch (DV Act §§14/16); statutory tags under DV Act §§10–12 and Dowry Act; data-integrity marker requiring safe verification with Moyuri before any substantive action.
+
+Word count: 298
+
+**SECTION 2: ARCHITECTURAL, SAFETY & STATUTORY RATIONALE**
+
+**1. Decision Workflow**  
+Ripon dials 16699 → Voice ASR (Bangla, accent-robust) → NLU entity extraction & third-party classification → Safety triage engine evaluates red-flag rules → Immediate high-priority queue to DLAO with locked outbound channels → Human officer reviews packet, arranges covert verification, decides eligibility and next steps. No AI loop continues past triage.
+
+**2. Zero-Harm Anti-Surveillance Safeguards**  
+Any SMS or unsolicited call to the shared button phone creates imminent risk of aggravated assault or confinement. The system therefore hard-blocks all automated outbound messaging. The only recorded contact option is the Friday midday window or offline dispatch of a female Protection Officer / UP member under DV Act §§14 & 16, presented under an innocuous welfare cover. This preserves Article 32 constitutional protections and the statutory duty of confidentiality.
+
+**3. Accessibility for Visually Impaired Proxy**  
+Interaction is 100 % spoken Bangla. No forms, PDFs, captchas, OTPs or Bengali screen-reader failures are imposed. Confirmations use simple spoken 4-digit reference tokens that Ripon can memorise. Screen-reader silence on Bangla labels is thereby bypassed entirely.
+
+**4. Statutory Alignment Matrix**  
+- Physical & economic abuse + child deprivation → DV Act 2010 §§2(14), 10 (interim protection), 11 (residence), 12 (maintenance).  
+- Motorcycle demand + threat of second marriage → Dowry Prohibition Act 2018 §§3–4.  
+- Free legal aid eligibility for insolvent women, domestic-violence victims and persons with visual disability → Legal Aid Services Act 2000 & Policy 2014.  
+- Third-party application permitted but requires subsequent victim confirmation → DV Act §16; DLAO retains exclusive authority to grant aid and appoint panel counsel.  
+
+All information remains labelled unverified until the DLAO safely verifies it with Moyuri, ensuring AI remains strictly primary-support only.

@@ -1,1 +1,122 @@
-[Paste Claude 3.7 / Opus response for Challenge 2 here]
+# Legal Tech Hackathon 2026 — Challenge 2: AI for Legal Aid
+### Case: Moyuri Akter (Kalai, Joypurhat) — Proxy Intake via Ripon
+
+---
+
+## SECTION 1: OFFICIAL SUBMISSION RESPONSE (293 words)
+*Ready to paste into the submission portal as-is.*
+
+Ripon, blind since childhood, calls the National Legal Aid Helpline (16699) on behalf of his sister Moyuri, a domestic violence victim under extreme household surveillance in Kalai, Joypurhat. Because Moyuri never speaks to the system directly, the Digital Legal Aid System (DLAS) AI must function strictly as a voice-driven triage layer, not a decision-maker, consistent with the Legal Aid Services Act 2000 and Domestic Violence Act 2010 Section 16, which permits an authorised person to lodge a protection application on a victim's behalf.
+
+**What AI can do:** Conduct fully voice-driven Bangla intake; extract structured entities (parties, allegations, dependents, location); classify Ripon's account explicitly as unverified third-party information; flag physical abuse, five months of economic deprivation, and dowry coercion under DV Act Sections 10–12 and Dowry Prohibition Act 2018 Sections 3–4; capture and lock the Friday midday safe-contact window; compile a structured dossier for the District Legal Aid Officer.
+
+**What AI should not do:** Give substantive legal advice or predict outcomes; make any eligibility, acceptance, or rejection determination; reject the case for a missing NID or Moyuri's absence from the call; send any SMS, robocall, or notice to Moyuri's household or to Sohel; treat Ripon's account as established fact.
+
+**When escalation occurs:** Immediately on detecting ongoing physical violence, child-affecting economic deprivation, dowry-linked threats of abandonment, or a surveillance situation preventing direct victim contact, all present here, mandating human handoff before any further action.
+
+**Information for the human officer:** A dossier labelled "Unverified Third-Party Intake" containing Ripon's identity, relationship, and disability status; Moyuri's and her daughter's profile and location; the factual allegation narrative; an explicit no-outbound-contact warning; the Friday 1:15–1:35 PM safe window; a recommendation for covert verification via the Upazila Women Affairs Officer under DV Act Section 14; and statutory tags for DLAO review.
+
+**[Word count: 293 words]**
+
+---
+
+## SECTION 2: ARCHITECTURAL, SAFETY & STATUTORY RATIONALE
+
+### 2.1 Decision Workflow — Step-by-Step Flow
+
+```
+STAGE 0  INBOUND CALL
+         Ripon dials 16699. No visual UI, no menu tones requiring sight —
+         a spoken Bangla greeting opens the call.
+              |
+              v
+STAGE 1  ASR (AUTOMATIC SPEECH RECOGNITION)
+         Bangla speech-to-text tuned for rural/regional accent variation
+         and disfluent, emotional speech. Runs continuously; no "press 1"
+         menus, since Ripon cannot see a keypad map and should not need one.
+              |
+              v
+STAGE 2  NLU / ENTITY EXTRACTION
+         Parses the narrative into structured fields:
+           - Caller: Ripon (brother, visually impaired, phone number)
+           - Subject: Moyuri Akter, ~24, Kalai, Joypurhat
+           - Dependent: daughter, age 4
+           - Respondent: Sohel (husband, rice-mill worker)
+           - Allegations: nighttime battery; 5-month denial of maintenance;
+             coercive dowry demand (motorcycle) with threat of bigamy
+              |
+              v
+STAGE 3  SAFETY TRIAGE ENGINE
+         Cross-checks extracted entities against escalation triggers
+         (Section 2.4 of Attachment 3): physical violence, child-affecting
+         destitution, dowry coercion, surveillance-blocked victim, caller
+         distress. ANY single trigger = mandatory escalation. All five are
+         present in this case.
+              |
+              v
+STAGE 4  THIRD-PARTY / PROVENANCE FLAG
+         Every field extracted from Ripon is stamped:
+         "UNVERIFIED — THIRD-PARTY REPORT, PENDING DIRECT VICTIM CONTACT."
+         This flag cannot be cleared by the AI under any condition; only a
+         human officer, after confidential contact with Moyuri, may clear it.
+              |
+              v
+STAGE 5  ANTI-SURVEILLANCE LOCK
+         System captures the stated safe window (Friday, Sohel at Jumu'ah
+         prayer, mother-in-law resting) and sets a hard rule in the case
+         record: NO outbound SMS, IVR, or robocall to the household button
+         phone, ever, under any workflow condition.
+              |
+              v
+STAGE 6  DOSSIER COMPILATION
+         Structured "Third-Party Intake Brief" assembled (see 2.4) and a
+         verbal 4-digit reference token is read back to Ripon so he can
+         confirm the case exists without needing to read anything.
+              |
+              v
+STAGE 7  HUMAN HANDOFF — DISTRICT LEGAL AID OFFICER (DLAO)
+         Case queued as URGENT. A human officer (or delegated Upazila
+         Women Affairs Protection Officer) takes over all further contact,
+         verification, and legal decision-making. AI involvement ends here.
+```
+
+The AI's entire function is compressed into Stages 1–6: listening, structuring, flagging risk, and locking down unsafe contact channels. Stage 7 — actual verification, judgment, and legal action — is exclusively human, matching the Evaluation Committee's rule that AI provides only primary support while case-management decisions remain human-centric.
+
+### 2.2 Zero-Harm Anti-Surveillance Safeguards
+
+| Risk Factor | Why It's Dangerous | System Safeguard |
+|---|---|---|
+| Shared button phone controlled by mother-in-law; outgoing call logs inspected | Any inbound call, missed-call callback, or SMS is visible to the household and can trigger immediate retaliatory violence | Absolute ban on automated outbound contact to this number, hard-coded at the case level, not left to agent discretion |
+| Sohel holds the only smartphone | Rules out any AI-initiated digital contact with the household entirely | No workflow branch assumes digital reachability of the victim |
+| Friday ~20-minute window (Jumu'ah prayer + mother-in-law resting) | The one moment Moyuri can speak unsupervised | Captured verbatim as structured data ("Fri 1:15–1:35 PM") and passed to the DLAO as the *only* sanctioned direct-contact instruction, not a suggestion |
+| NID locked in husband's almirah | Cannot be used as a verification credential; demanding it would stall or expose the case | AI is explicitly barred from treating missing NID as a rejection ground (Boundary 2.3, Attachment 3) |
+| Need for confidential verification without alerting Sohel | A uniformed or obviously legal-aid visit would expose Moyuri to danger | Dossier recommends covert dispatch of a female Upazila Women Affairs Officer or female Union Parishad member under an innocuous "health/welfare visit" pretext, consistent with DV Act 2010 Section 14 (Protection Officer function) |
+
+The unifying principle: the AI never initiates any channel of contact toward Moyuri's household. It only records constraints for a human to act on later, safely.
+
+### 2.3 Accessibility Accommodations for the Visually Impaired Proxy
+
+Ripon can dial and speak but cannot read forms, PDFs, captchas, or OTPs, and his phone's screen reader fails on Bangla labels. The DLAS design responds with:
+
+- **Voice-only interaction end-to-end** — no menu requires sight; the AI speaks all prompts, confirmations, and next steps aloud in Bangla.
+- **No OTP, no SMS confirmation, no app navigation** — identity and case continuity are handled through a **spoken 4-digit reference token**, repeated back and, if needed, re-read on a later call, rather than a code Ripon would have to read from a screen.
+- **No forced structured answers** — the AI accepts free-flowing narrative speech and does the structuring itself (Stage 2), rather than asking Ripon to "select an option" he cannot see.
+- **Graceful handling of what Ripon doesn't know** (e.g., Moyuri's NID) — the AI proceeds with intake regardless and flags the gap for the DLAO to resolve through Moyuri directly, rather than stalling on missing fields.
+
+### 2.4 Statutory Alignment Matrix
+
+| Case Fact | Statute & Section | AI Role | Human/DLAO Role |
+|---|---|---|---|
+| Nighttime beatings by Sohel | Domestic Violence (Prevention & Protection) Act 2010, §2(14) (physical abuse), §10 (Interim Protection Order) | Extract and tag as physical-abuse indicator; trigger urgent escalation | Assess evidence, seek Interim Protection Order from Magistrate |
+| 5-month denial of food/maintenance for Moyuri and daughter | DV Act 2010, §2(14) (economic abuse), §12 (Monetary Relief & Maintenance) | Flag as economic abuse / child-endangerment trigger | Petition for maintenance and emergency monetary relief |
+| Risk of eviction / disposal of the marital home | DV Act 2010, §11 (Residence Order) | Not applicable at intake (no stated eviction threat yet) — noted as a monitorable risk in the dossier | Assess need for a Residence Order if raised |
+| Motorcycle dowry demand with threat of bigamy/abandonment | Dowry Prohibition Act 2018, §§3–4 (cognizable, non-bailable) | Extract and classify as dowry coercion | Determine whether to pursue criminal complaint |
+| Application lodged by brother, not victim | DV Act 2010, §16 (application by an authorised person on victim's behalf) | Stamp all data as unverified third-party input under §16's representative-application framework | Independently confirm Moyuri's genuine condition and consent before any substantive order |
+| Ripon's visual disability | Legal Aid Services Policy 2014, ¶2 (persons with disabilities qualify for free aid) | Note disability status in dossier as a qualifying/support factor | Confirm eligibility, arrange accessible follow-up channel for Ripon |
+| Moyuri's insolvency / inability to travel 30 km | Legal Aid Services Act 2000; Legal Aid Services Policy 2014, ¶2 (insolvent women) | Note as eligibility-relevant context, not a determination | Confirm eligibility and waive in-person appearance where possible |
+| Need for confidential field verification | DV Act 2010, §14 (Protection Officer) | Recommend covert verification channel in dossier | Dispatch Upazila Women Affairs Protection Officer / female UP member |
+| Overall AI-human division | Legal Aid Services Act 2000 (DLAO statutory authority); CrPC/Civil Rules on representation | Intake, structuring, risk-flagging only | Sole authority over eligibility, verification, and case admission |
+
+### 2.5 Why This Design Satisfies the Evaluation Committee's Rule
+
+The AI never adjudicates, never contacts the household, and never treats Ripon's account as more than a flagged, provenance-stamped lead. Every legally consequential act — verifying Moyuri's consent, issuing notices, granting aid, and arranging safe contact — is reserved for the DLAO or a designated Protection Officer, in direct compliance with the mandate that *"AI may only provide relevant primary support, but human-centric intervention is required for final legal assistance and case-management decisions."*

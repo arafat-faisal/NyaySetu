@@ -1,0 +1,174 @@
+## SECTION 1: OFFICIAL SUBMISSION RESPONSE
+
+The DLAS should treat Ripon as a proxy informant, not as the applicant, and every allegation as “unverified third-party information” pending safe verification with Moyuri. The call remains 100% voice-based Bangla.
+
+What AI can do: ASR converts Ripon’s speech to structured intake; NLU extracts the victim, proxy, location, child, alleged abuse, duration and motorcycle demand; a safety engine classifies the case as extreme-surveillance/high-risk; and the system creates an auditable third-party intake packet. AI may give only neutral, high-level information that legal aid is available and that a human officer will review the report. It must not require NID, OTP, CAPTCHA, forms or visual interaction.
+
+What AI should not do: it must not give substantive case-specific legal advice, assess credibility or evidence, make final eligibility/admission decisions, reject the report because Moyuri is absent or her NID is unavailable, contact the victim’s monitored phone by SMS/IVR/callback, or contact/threaten Sohel.
+
+When escalation occurs: immediate priority human review is triggered by repeated or current violence, serious injury/threat, deprivation affecting Moyuri or the child, coercive dowry demand, confinement/surveillance, inability of the victim to communicate safely, or other indicators of imminent harm. The DLAO should then coordinate safe verification and, where appropriate, a panel lawyer and the Enforcement Officer.
+
+What the human officer receives: Ripon’s identity, relationship and contact; Moyuri’s known identity/location and communication constraints; child’s age; allegation chronology and exact language; perpetrator details; NID unavailable; surveillance risks; Friday’s 20-minute safe window; a strict “no unsolicited household contact” flag; and a verification plan. The packet remains expressly unverified until human verification and consent.
+
+Statutory anchors: Legal Aid Services Act 2000, as amended in 2026, §§2, 7, 21A–21D; Domestic Violence Act 2010, §§3, 5–6, 10–17; and Dowry Prohibition Act 2018, §§3–4.
+
+**Exact word count: 284 words.**
+
+---
+
+# SECTION 2: ARCHITECTURAL, SAFETY & STATUTORY RATIONALE
+
+### 1. Decision Workflow
+
+```text
+Ripon calls 16699
+      |
+      v
+100% Voice Bangla Interface
+      |
+      v
+ASR
+Speech -> Bengali transcript
+      |
+      v
+NLU / Entity Extraction
+Victim | Proxy | Relationship | Location | Child
+Abuse | Duration | Perpetrator | Dowry demand
+      |
+      v
+Safety Triage Engine
+Domestic violence + economic deprivation
++ child vulnerability + surveillance
++ victim absent + unsafe household contact
+      |
+      v
+THIRD-PARTY FLAG
+"Unverified Third-Party Information"
+      |
+      +------------------------------+
+      |                              |
+      v                              v
+Routine / incomplete            High-risk triggers
+      |                         immediate priority
+      |                              |
+      +---------------+--------------+
+                      v
+            Human DLAO / Legal-Aid Officer
+                      |
+          +-----------+-----------+
+          |                       |
+          v                       v
+   Safe verification       Panel lawyer / specialist
+   with Moyuri              referral as appropriate
+          |
+          v
+ Protection / residence / compensation
+ / legal-aid / other lawful remedies
+```
+
+This division is consistent with the current Legal Aid Services Act framework: the 2026 amendment expressly defines legal aid to include legal information/advice, court assistance, mediation and ancillary assistance, while assigning legal-aid functions to the Department and Legal Aid Officers. It also expressly provides for emergency legal support and referrals. ([BD Laws][1])
+
+Importantly, the 2026 amendment revised section 21A so that Chief Legal Aid Officers and Legal Aid Officers are appointed from the Bangladesh Judicial Service, and section 21A(2) empowers those officers to provide legal advice and undertake mediation. That supports the AI boundary: AI prepares and triages; the human officer exercises the professional/legal function. ([BD Laws][1])
+
+### 2. Zero-Harm / Anti-Surveillance Design
+
+The system should adopt a **“no unsolicited outbound contact”** state as soon as Ripon reports that household communications are monitored.
+
+The following should be technically blocked, not merely discouraged:
+
+* SMS to the button phone.
+* Automated callback or IVR to the household.
+* Verification links or app invitations.
+* Voice messages naming “legal aid,” “domestic violence,” “DLAO,” or “Moyuri.”
+* Any automated communication with Sohel.
+* Any notification that could expose the existence of the case.
+
+The safe Friday window should be stored as a **restricted human-contact constraint**, not as an automated appointment. The DLAO or designated officer determines whether contact is actually safe on that occasion.
+
+The strongest statutory route for covert verification is the Domestic Violence Act's **Enforcement Officer** mechanism. Under section 5, the Enforcement Officer may be appointed for the relevant upazila/thana/district; the Act defines that officer as the Upazila Women Affairs Officer or another government-appointed officer. Section 6 assigns duties including assisting the victim to obtain legal aid, assisting with applications for protection orders upon request, maintaining service-provider links, and arranging shelter according to the victim's consent. ([BD Laws][2])
+
+Thus, the system should not invent a covert "AI investigation." It should create a human task such as:
+
+> **“Extreme surveillance hazard. Do not contact household electronically. Consider confidential in-person verification through the Enforcement Officer or another lawful, safe channel.”**
+
+### 3. Accessibility for Ripon
+
+The proxy interaction should remain entirely auditory:
+
+**Speak → listen → confirm → continue.**
+
+No captcha, PDF, form, visual screen, Bengali screen-reader dependency, SMS OTP, or web link should be required.
+
+The system can confirm extracted facts conversationally:
+
+> “আপনি কি বলছেন, আপনার বোন কালাই, জয়পুরহাটে থাকেন এবং তাঁর চার বছরের একটি মেয়ে আছে?”
+
+A simple spoken reference code can be used for continuity, but it must never become a barrier to human escalation.
+
+The distinction between accessibility and authority is crucial: Ripon's inability to read or see must **not** reduce the system's willingness to capture and escalate his report. His disability is an accessibility fact, not a reason for rejection.
+
+### 4. What the AI Must Capture
+
+The DLAO should receive a machine-generated but human-readable **Third-Party Intake Brief** containing:
+
+| Category           | Required capture                                                                              |
+| ------------------ | --------------------------------------------------------------------------------------------- |
+| Proxy              | Ripon, relationship, contact number, visual disability/accessibility needs                    |
+| Victim             | Moyuri's known name, age, village, union/upazila/district                                     |
+| Dependents         | 4-year-old daughter; immediate welfare concerns                                               |
+| Allegations        | Nighttime beatings; five-month deprivation; motorcycle demand; abandonment/remarriage threats |
+| Perpetrator        | Sohel; husband; rice-mill worker; known locality                                              |
+| Identity gaps      | NID unavailable; victim not personally verified                                               |
+| Safety             | Household surveillance; shared button phone; monitored call logs                              |
+| Contact rule       | No unsolicited SMS/callback; Friday ~20-minute safe window                                    |
+| Evidentiary status | Every proxy statement marked unverified                                                       |
+| Escalation         | Priority level, reason, recommended human action                                              |
+
+The system should preserve **confidence and provenance at field level**: “reported by proxy,” “directly verified,” “unknown,” or “contradictory.” This prevents AI-extracted data from silently becoming an established fact.
+
+---
+
+## 5. Statutory Alignment Matrix
+
+| Fact / system action                          | Correct statutory anchor                                                                                                                                                                      |
+| --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Physical, psychological and economic abuse    | **DV Act 2010 §3** defines domestic violence to include physical, mental, sexual and economic abuse; economic harm includes deprivation of entitled resources and necessities. ([BD Laws][2]) |
+| Victim can seek remedy through another person | **DV Act §11(1)** expressly permits the aggrieved person **or an Enforcement Officer, service provider, or other person on her behalf** to apply. ([BD Laws][2])                              |
+| Court jurisdiction                            | **DV Act §12** permits filing based on victim residence, respondent residence, place of violence, or temporary residence. ([BD Laws][2])                                                      |
+| Immediate protection need                     | **DV Act §13** permits an ex parte interim protection order where the court is satisfied that domestic violence occurred or is likely. ([BD Laws][2])                                         |
+| Protection against further violence/contact   | **DV Act §14** provides protection orders, including restrictions on violence and communication. ([BD Laws][2])                                                                               |
+| Shared-home safety                            | **DV Act §10** protects the right to reside in the shared residence; **§15** provides residence and safe-shelter mechanisms. ([BD Laws][2])                                                   |
+| Maintenance/compensation                      | **DV Act §16** permits compensation and expressly allows the court to order adequate maintenance for the aggrieved person and child. ([BD Laws][2])                                           |
+| Enforcement Officer pathway                   | **DV Act §§5–6**: Upazila Women Affairs Officer/appointed Enforcement Officer and duties including legal-aid assistance and protection-order support. ([BD Laws][2])                          |
+| Motorcycle demand                             | **Dowry Prohibition Act 2018 §3** criminalizes direct or indirect dowry demand. **§4** addresses giving/receiving/assisting/agreement to give or receive dowry.                               |
+| Legal-aid scope                               | **Legal Aid Services Act 2000, §2 as amended 2026** includes legal information/advice, legal assistance, ancillary support, pre-case mediation and court-referred mediation. ([BD Laws][1])   |
+| Human legal-aid authority                     | **§21A, as amended 2026** places legal-advice/mediation functions with Chief Legal Aid Officers/Legal Aid Officers. ([BD Laws][1])                                                            |
+| Digital/legal-aid infrastructure              | **§7(1)(n)** directs digital accessibility and database information security; §7(1)(c),(g) also addresses emergency legal support and referral. ([BD Laws][1])                                |
+
+### 6. Critical Correction to the Supplied Statutory Notes
+
+For a competition submission, I strongly recommend **not repeating the section numbering in the supplied Attachment 2**, because several citations there are materially inaccurate.
+
+The official Bangladesh text shows:
+
+* **DV Act §10 = right to reside in shared residence**, not interim protection.
+* **§11 = application to court**.
+* **§12 = place of filing**.
+* **§13 = interim protection order**.
+* **§14 = protection order**.
+* **§15 = residence order**.
+* **§16 = compensation/maintenance**. ([BD Laws][2])
+
+Also, the Act does **not** put the third-party application rule in §16; the relevant authority is **§11(1)**. The Enforcement Officer mechanism is grounded in **§§5–6**. ([BD Laws][2])
+
+Similarly, under the Dowry Prohibition Act 2018, **§3 is the provision on demanding dowry**, while **§4 concerns giving/receiving/assisting/agreement to give or receive dowry**. 
+
+Finally, the 2026 Legal Aid amendment is real and currently reflected in the official Bangladesh Laws database. The amended law expressly includes emergency legal support, referral mechanisms, digital accessibility/data security, and Legal Aid Officer functions. 
+
+One particularly important current point for the hackathon: the 2026 amendment's mandatory pre-case mediation provisions have been brought into force in **Joypurhat from 31 July 2026**, and the schedule includes complaints under **Dowry Prohibition Act 2018 §§3–4**. Therefore, a human officer should determine the appropriate procedural route; the AI should never automatically decide that mediation, litigation, police action, or any other remedy is legally required. 
+
+The official NLASO site also confirms **16699** as the current National Legal Aid Helpline. ([nlaso.gov.bd][3])
+
+[1]: https://bdlaws.minlaw.gov.bd/act-print-1674.html "bdlaws.minlaw.gov.bd"
+[2]: https://bdlaws.minlaw.gov.bd/act-print-1063.html "bdlaws.minlaw.gov.bd"
+[3]: https://nlaso.gov.bd/?utm_source=chatgpt.com "হোম | বাংলাদেশ আইনগত সহায়তা অধিদপ্তর"

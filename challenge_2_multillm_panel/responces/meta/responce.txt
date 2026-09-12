@@ -1,1 +1,135 @@
-[Paste Meta Llama 3.3 response for Challenge 2 here]
+SECTION 1: OFFICIAL SUBMISSION RESPONSE (MAXIMUM 300 WORDS)
+AI-Assisted Workflow: Ripon's Bangla voice call to 16699 is processed via Bangla ASR/NLU for empathetic intake, entity extraction (victim Moyuri Akter, Kalai Joypurhat, NID locked; dependent 4-year daughter; perpetrator Sohel; informant Ripon, blind brother proxy) and auto-tagging as Extreme Surveillance Hazard with Friday midday 20-minute safe window.
+
+What AI Can Do: Provide calm voice-only rights orientation that government legal aid is free under Legal Aid Services Act 2000 and 2026 amendments, Policy 2014 para 2 for women, children and disabled; extract prima facie classification under Domestic Violence Act 2010 s.2(14) physical/economic/psychological abuse and s.12 maintenance, and Dowry Prohibition Act 2018 ss.3-4 motorcycle demand; compile Third-Party Intake Packet; issue memorizable 4-digit voice reference; flag for human DLAO review without requiring text, OTP, captcha or NID.
+
+What AI Should Not Do: Must not provide substantive legal advice, predict outcome, assess credibility, grant or reject aid, or treat proxy narration as verified affidavit. Under do-no-harm and Article 32, must not trigger automated SMS or IVR to victim's button phone, nor contact Sohel, nor reject for missing NID. Final eligibility and case admission rests solely with DLAO per procedural mandate.
+
+When Escalation Occurs: Immediate high-priority escalation triggered by ongoing nighttime battery under Penal Code ss.323/325, 5-month starvation and child destitution under DV Act s.12, dowry coercion with threat of abandonment/polygamy under Dowry Act ss.3-4, victim isolation under surveillance, and proxy visual disability.
+
+Information Captured for Human Officer: Dossier marked Unverified Third-Party Information - Direct Victim Verification Required containing informant vulnerability profile, victim/dependent profile, factual chronology, explicit safety protocol DO NOT CONTACT residence phone, permissible contact Friday window only or covert verification via Upazila Women Affairs Officer under DV Act ss.14,16, and statutory tags for s.10 Protection Order, s.11 Residence Order, s.12 Monetary Relief.
+
+Word Count: 289
+
+SECTION 2: ARCHITECTURAL, SAFETY & STATUTORY RATIONALE
+1. Decision Workflow Diagram / Step-by-Step Flow
+Step-by-step:
+
+T1 - Inbound Capture (16699): Ripon dials 16699. Call audio captured, encrypted. Language detected: Bangla (Joypurhat dialect).
+
+T2 - Bangla ASR: Fine-tuned Bangla ASR tolerant to colloquialisms, pauses, regional accent. Output: verbatim transcript of allegation.
+
+T3 - NLU Entity Extraction: Extracts structured slots:
+
+Victim: Moyuri Akter, 24, Kalai Upazila, tin-roofed shared household, no phone, NID locked
+Dependent: 4-year daughter
+Perpetrator: Sohel, husband, rice mill worker
+Informant: Ripon, 32, brother, blind, handed-down smartphone, contact number
+Allegations: nighttime beatings, 5-month economic deprivation, motorcycle dowry demand from April, threat of second marriage/abandonment
+T4 - Safety Triage Engine: Rule-based classifier flags Extreme Surveillance Hazard if keywords: button phone checked, NID locked, husband holds only smartphone, call log inspected. Auto-locks outbound channel and records safe window: Friday Jumu'ah 1:15-1:35 PM.
+
+T5 - Third-Party Proxy Flag: Detects victim != caller. Applies Third-Party Standard: all data marked as Intake Notice / Alert, not affidavit. Sets Data Integrity Marker.
+
+T6 - Accessibility Layer: Bypasses all visual dependencies. No PDF, form, captcha, OTP. 100% voice dialogue with slow TTS Bangla, repeat and confirm loops.
+
+T7 - Dossier Compilation: Generates Third-Party Intake Packet JSON with safety warnings, statutory tags, transcript hash.
+
+T8 - Escalation Router: Pushes packet to DLAO Dashboard in Joypurhat District Legal Aid Office as HIGH PRIORITY RED. Generates spoken 4-digit token for Ripon: e.g., "Apnar reference 7-2-9-1".
+
+T9 - Human DLAO Action: DLAO assumes full judicial discretion. No AI action beyond.
+
+2. Zero-Harm Anti-Surveillance Safeguards
+The button phone is controlled by mother-in-law, call logs inspected. An unsolicited SMS/IVR at wrong hour constitutes direct provocation of retaliatory violence under Penal Code ss.323,325,342 and violates Article 32 Constitution (right to life).
+
+Safeguards implemented:
+
+Zero Unsolicited Push Lock: System hard-blocks any automated SMS, IVR callback, or WhatsApp to Moyuri's household number. Only outbound to Ripon's verified number in voice.
+Safe Window Vault: Friday 20-min window stored as permissible inbound-only. DLAO may call Moyuri ONLY during that window via human officer, after confirming Sohel at mosque.
+Covert Verification Mechanism: Under DV Act ss.14 and 16, DLAO dispatches Protection Officer defined as Upazila Women Affairs Officer or female UP member/para-legal. Cover story: routine health, family welfare, or disability allowance verification - not legal aid. Direct victim consent obtained in private, away from in-laws.
+Data Minimization: Victim location generalized to Kalai Upazila in AI logs, not precise bari; full address visible only to DLAO role.
+Perpetrator Non-Contact: No notice to Sohel until DLAO secures interim protection order under s.10 from Magistrate.
+3. Accessibility Accommodations for Visually Impaired Proxy
+Ripon cannot read Bangla labels, screen readers fail, cannot solve OTP/captcha.
+
+Voice-Only Interaction: DLAS designed as voice-first, no requirement to press, read, or type.
+No Visual Gate: Authentication via voice biometrics and memorizable token, not OTP. NID not mandatory at intake per Legal Aid Services Act procedural flexibility for marginalized groups.
+Calm Rights Orientation: TTS in clear Bangla: "Sorkari aini sohayota sampurno binamulle" - reduces cognitive load.
+Audio Confirmation Loop: Repeats extracted facts: "Ami bujhechi, apnar bon Kalai thaken..." for Ripon to confirm verbally.
+Referral without App: No URL, no PDF. Ripon told officer will call him back.
+This complies with Legal Aid Policy 2014 para 2(n) eligibility for persons with disabilities and ADLASB inclusion mandate.
+
+4. Statutory Alignment Matrix
+Fact Pattern
+
+Statute
+
+Section
+
+Legal Remedy / Significance
+
+Nighttime beatings
+
+Domestic Violence (Prevention & Protection) Act 2010; Penal Code 1860
+
+DV Act s.2(14) Physical Abuse; Penal Code ss.323/325 hurt/grievous hurt
+
+Ground for Interim Protection Order, criminal liability
+
+5 months no food, child starved
+
+DV Act 2010
+
+s.2(14) Economic Abuse; s.12 Monetary Relief & Maintenance
+
+Emergency maintenance for Moyuri and 4-year daughter
+
+Threat of abandonment, second marriage
+
+DV Act 2010
+
+s.2(14) Psychological Abuse
+
+Protection Order s.10, counseling
+
+Tin-roofed marital house, risk of eviction
+
+DV Act 2010
+
+s.11 Residence Order
+
+Protects right to reside in shared household
+
+Motorcycle demand as condition to continue marriage
+
+Dowry Prohibition Act 2018
+
+ss.3,4 Demand and penalty for dowry, cognizable non-bailable
+
+Criminal prosecution, compoundable with court permission
+
+Application by brother on behalf of victim
+
+DV Act 2010
+
+s.14 Protection Officer; s.16 Application by authorized person
+
+Allows third-party filing, but Magistrate must verify victim consent
+
+Free legal aid eligibility
+
+Legal Aid Services Act 2000 & 2026 amendments; Policy 2014
+
+Para 2: insolvent women, children, disabled; s.2(n) disabled includes Ripon
+
+DLAO authority to grant aid, appoint panel lawyer, ADR
+
+Final decision authority
+
+Legal Aid Services Act 2000; Judicial Service Regulations
+
+DLAO procedural mandate
+
+AI cannot grant/reject aid, cannot exercise judicial discretion, mandatory human-centric intervention
+
+Balance Principle: AI provides primary intake/triage support (voice, extraction, safety flagging, rights orientation). Human DLAO provides final legal assistance, credibility assessment, direct safe verification, decision on s.10, s.11, s.12 reliefs, and panel lawyer appointment.
+
