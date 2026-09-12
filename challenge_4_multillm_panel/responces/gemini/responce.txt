@@ -1,1 +1,87 @@
-// Paste raw response from gemini for Challenge 4 here
+### PART 1: OFFICIAL SUBMISSION RESPONSE
+
+**Process Diagram**
+[Entry: 16699 Voice IVR] -> [Intake: Safety Screen] -> [Mediation: Async Tele-Caucus] -> [Outcome: Voice/Biometric Consent] -> [Record: MFS Escrow]
+| (If Dowry Extortion / Active Violence Detected)
+[HALT: Emergency Ex-Parte Protection Order Pipeline]
+
+**Minimum Digital Process Explanation**
+
+1. **Citizen entry**: Ripon dials the 16699 IVR, utilizing a zero-screen, voice-only interface that bypasses his visual barriers. The system registers Moyuri's 20-minute Friday safe window and implements a hard block on all unscheduled outbound SMS to her surveilled button phone.
+
+
+2. **Eligibility/intake**: A female legal aid paralegal conducts a confidential audio screening exactly during Moyuri's Friday safe window. This verifies statutory eligibility and assesses domestic power asymmetries.
+
+
+3. **Mediation**: To bridge Gazipur factory shifts and Kalai network drops, the system employs asynchronous tele-caucusing. Separate shuttle audio sessions prevent joint confrontation, strictly limiting digital negotiations to the legally compoundable maintenance claim under Section 5 of the Family Courts Act 2023.
+
+
+4. **Outcome**: The drafted settlement is read aloud via automated text-to-speech for Ripon's verbal consent. Moyuri executes the agreement via biometric thumbprint at the Union Digital Center, which the District Legal Aid Officer (DLAO) certifies into an enforceable decree under Section 21A of the Legal Aid Services Act 2000.
+
+
+5. **Record/follow-up**: The platform establishes an automated Mobile Financial Services (MFS) tracking ledger. Ripon receives silent voice confirmations of Sohel's deposits; 30-day payment defaults automatically trigger an Execution Petition in Family Court.
+
+
+
+**Mandatory Stop Condition & Alternative Pathway**
+The system must categorically refuse and halt online mediation if the intake screening detects active domestic battery or non-compoundable criminal dowry extortion under Section 3 of the Dowry Prohibition Act 2018. Upon detection, the system locks the mediation pipeline and automatically routes the file to the DLAO to file an emergency ex-parte Interim Protection Order and Residence Order under Sections 13 and 15 of the Domestic Violence Act 2010. Simultaneously, it alerts the Upazila Enforcement Officer and dispatches a local Union Parishad volunteer to secure Moyuri's physical safety.
+
+*Word Count: 334 words*
+
+---
+
+### PART 2: ARCHITECTURAL, LEGAL & OPERATIONAL DEEP-DIVE
+
+#### 1. Statutory & Ethical Framework
+
+The legal viability of this ODR architecture rests on strictly distinguishing between civil claims and criminal offenses.
+
+* **Compoundable Civil Claims**: The claim for wife and child maintenance is a statutory entitlement grounded in Section 5 of the Family Courts Act 2023 and Section 16 of the Domestic Violence (Prevention and Protection) Act 2010. Because setting monetary support schedules is a civil, financial matter, it is legally compoundable and highly suitable for remote mediation.
+
+
+* **Non-Compoundable Criminal Offenses**: The demand for a motorcycle, backed by threats of second marriage and physical battery, is a cognizable, non-bailable criminal offense under Section 3 of the Dowry Prohibition Act 2018.
+
+
+* **Mediation Ethics**: Under Bangladesh criminal jurisprudence and Supreme Court doctrine, criminal dowry extortion and physical domestic violence cannot be settled or bargained away. Attempting to mediate a dowry demand legally condones criminal coercion, violating core dispute resolution ethics requiring free, uncoerced consent.
+
+
+
+#### 2. Low-Bandwidth Asynchronous Caucus Design
+
+Synchronous video conferencing is technologically and culturally impossible due to severe operational asymmetries.
+
+* **Technological Barriers**: Moyuri relies on a 2G cellular network in rural Kalai that drops for hours, while Sohel works long industrial shifts in Gazipur.
+
+
+* **Tele-Caucus Methodology**: The system utilizes asynchronous shuttle mediation (tele-caucusing) via separate audio calls. The mediator speaks to Sohel during his factory break and to Moyuri during her isolated Friday safe window.
+
+
+* **Conflict De-escalation**: By eliminating joint digital confrontation, the system prevents emotional bullying and circumvents network buffering failures.
+
+
+
+#### 3. Zero-Screen Accessibility & Safety Protocol
+
+The intake and communication architecture is custom-built to protect highly vulnerable end-users without requiring conventional digital literacy.
+
+* **Proxy Accessibility**: Ripon has been blind since childhood and cannot read text, captchas, PDFs, or visual OTPs. The system captures his representative application via a voice-guided IVR ticket at 16699 or a Union Digital Center (UDC). System outputs meant for Ripon are delivered as automated Bangla Text-to-Speech (TTS) audio.
+
+
+* **Surveillance Mitigation**: Moyuri's button phone is actively surveilled by her mother-in-law, and her call logs are checked. The system registers a strict rule against unscheduled outbound calls or SMS to her device.
+
+
+* **Verified Safe Channels**: The system verifies Moyuri's mother's phone number as the primary contact conduit and restricts direct screening to Moyuri's 20-minute unmonitored Friday window.
+
+
+
+#### 4. Enforceability & MFS Accountability
+
+An ODR settlement lacks utility if it cannot be monitored and enforced without requiring the vulnerable party to initiate complex litigation.
+
+* **Statutory Formalization**: Once consent is captured via UDC biometric thumbprint and IVR confirmation, the District Legal Aid Officer applies a digital judicial signature. Under Section 21A(4) of the Legal Aid Services Act 2000 and Section 89A of the Code of Civil Procedure 1908, this digitally executed agreement acquires the full legal force of a civil court decree.
+
+
+* **Automated Ledger Integration**: The digital platform establishes a payment ledger integrated with Mobile Financial Services (bKash/Nagad). Sohel remits funds using his case ID, which are disbursed to Moyuri's mother's verified wallet.
+
+
+* **Execution Trigger**: If Sohel defaults on maintenance payments for over 30 days, the system automatically files an Execution Petition (Jari Mamla) in the Joypurhat Family Court to attach his factory wages, eliminating the need for Moyuri to travel or hire private counsel.

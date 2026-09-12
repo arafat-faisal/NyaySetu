@@ -1,1 +1,130 @@
-// Paste raw response from gpt5 for Challenge 4 here
+Below is a submission-ready response followed by the legal and systems rationale. I have corrected several material inaccuracies in the supplied research, most importantly that the Dowry Prohibition Act 2018 describes offences under the Act as compoundable, not non-compoundable, and that the 2026 amendment introduced Sections 21B and 21C rather than a new Section 21A framework.
+
+PART 1: OFFICIAL SUBMISSION RESPONSE
+Minimum process: voice-first, human-decided, safety-gated and auditable.
+
+Diagram:
+Citizen entry -> eligibility/intake -> mediation -> outcome -> record/follow-up
+                           | unsafe, coerced or no private channel
+                           v
+              STOP ODR -> protection and court/criminal referral
+
+1. Citizen entry: Ripon calls 16699 as Moyuri’s representative or uses assisted voice intake at a Union Digital Center. No app, CAPTCHA, PDF or visual OTP is required. The operator records allegations, locations, child, missing NID, proxy status under Domestic Violence (Prevention and Protection) Act 2010 Section 11 and a coded safe-contact window. No unplanned call or SMS goes to Moyuri.
+
+2. Eligibility/intake: A female legal-aid officer verifies identity progressively without making NID an entry barrier; confirms Moyuri privately; separates maintenance from dowry and violence allegations; checks eligibility, voluntariness, retaliation risk and confidential access; and records informed consent. Only a human Legal Aid Officer opens mediation.
+
+3. Mediation: If safe and voluntary, the officer mediates maintenance through asynchronous shuttle calls: separate short caucuses with Moyuri in her safe window or a protected UDC room, and Sohel during a factory break. Sessions resume after dropped calls. No joint video, direct party messaging or AI decision occurs. Terms cover wife and child maintenance, arrears, due dates, payment channel and review.
+
+4. Outcome: The officer reads the complete Bangla terms aloud separately, tests understanding and free consent, time-stamps confirmations and obtains witnessed thumbprint or lawful signature. The Legal Aid Officer formalises the settlement under the Legal Aid Services Act 2000 as amended in 2026, giving it the Act’s prescribed enforceability. No term waives safety, criminal-process or statutory rights.
+
+5. Record/follow-up: Encrypted, role-based records preserve intake, consent, caucuses, agreement and audit trail. Voice-accessible copies use safe channels. With consent, the system logs bKash or Nagad references, sends discreet reminders, flags default for human review and prepares the appropriate execution application, never auto-filing it.
+
+Mandatory stop: If screening finds current violence or threats, dowry-linked coercion, or no private channel and free consent, online mediation is refused. The file is access-locked; a human officer activates safety planning, Enforcement Officer, police and shelter referral, supports applications under Domestic Violence Act Sections 13 and 15, and refers the Dowry Prohibition Act Section 3 allegation to the competent criminal-justice authority.
+
+The diagram shows a five-stage path with a safety gate before mediation; failure diverts the dispute to protection and adjudication.
+
+Word count: 349
+
+PART 2: ARCHITECTURAL, LEGAL AND OPERATIONAL DEEP-DIVE
+1. Statutory and ethical framework
+Maintenance is suitable for mediation
+
+The Family Courts Act 2023 places maintenance within Family Court jurisdiction under Section 5. However, the supplied materials incorrectly characterize Section 14 as the reconciliation provision. The official statute’s contents identify Section 11 as pre-trial proceedings, Section 14 as conclusion of trial, Section 15 as compromise decree, and Section 17 as enforcement. The final submission therefore avoids incorrectly attributing reconciliation or execution to Section 14.
+
+Maintenance is suitable for ODR because the negotiation concerns lawful civil obligations capable of precise settlement:
+
+monthly wife and child maintenance;
+arrears and instalments;
+payment dates and approved destination;
+annual or event-based review;
+proof of payment and default handling.
+
+The Domestic Violence Act’s Section 11 permits an application by the victim or another person on her behalf. Sections 13 and 15 concern interim protection and residence orders. Section 16 is a compensation order, not simply a freestanding “maintenance section,” although monetary loss and appropriate financial relief may be addressed through it.
+
+Correct treatment of the dowry allegation
+
+A materially important correction is required: Section 7 of the Dowry Prohibition Act 2018 states that offences under the Act are cognizable, non-bailable and compoundable. Accordingly, a claim that Section 3 is legally “non-compoundable” would be vulnerable before legally trained judges. Section 3 nevertheless makes demanding dowry an offence punishable by imprisonment, fine, or both.
+
+The stronger winning position is therefore:
+
+The dowry allegation is not sent to online mediation in this case because violence, surveillance, retaliation risk and lack of confidential, voluntary participation make ODR unsafe and ethically defective, not because the Act invariably labels the offence non-compoundable.
+
+Even where compromise may legally be possible, the platform must not facilitate payment, waiver, suppression of evidence or coercive settlement of an alleged offence. The motorcycle demand must never be converted into a negotiable term. The system preserves the allegation and refers it for human legal assessment.
+
+2. Low-bandwidth asynchronous caucus design
+
+The uploaded case establishes that Moyuri has only a short safe speaking window, Sohel works shifts in Gazipur, and Ripon cannot use visual interfaces. The minimum architecture therefore uses the ordinary telephone network, assisted UDC access and separate audio caucuses rather than video conferencing.
+
+The mediator operates a controlled shuttle process:
+
+A female officer privately hears Moyuri during the registered safe window.
+The officer records only a structured summary necessary for mediation.
+The officer separately contacts Sohel during an agreed break.
+Offers are relayed without exposing telephone numbers or opening direct messaging.
+Each caucus receives a session identifier, start and end time, participant-verification method and mediator note.
+If the call drops, the session pauses without treating silence as consent.
+A settlement is produced only after both parties separately hear identical terms.
+
+“Asynchronous” must not mean unattended AI negotiation. AI may assist transcription, translation, redaction or scheduling, but a human officer must verify outputs and make every eligibility, safety, referral and settlement-recording decision.
+
+3. Zero-screen accessibility and survivor safety
+Ripon
+
+The interface should support:
+
+live operator intake through 16699;
+keypad-free transfer to a human agent;
+verbal challenge questions rather than visual OTP;
+Bangla read-aloud of notices and terms;
+replay and slower-speed options;
+representative status clearly recorded;
+independent confirmation from Moyuri before Ripon receives confidential updates.
+
+Ripon may initiate the application, but he cannot replace Moyuri’s consent concerning mediation or disclosure.
+
+Moyuri
+
+The system should apply a “safe contact policy” rather than treating a telephone number as permission to communicate:
+
+no unscheduled SMS, voicemail or callback;
+innocuous caller identification where operationally lawful;
+coded appointment language chosen by Moyuri;
+disclosure of the case only after a safe-word or verbal check;
+automatic suppression of sensitive notification previews;
+no shared-party case portal;
+rapid termination if another person enters the room;
+a protected UDC or alternative safe location where available.
+
+The file should contain separate fields for “contactable number,” “safe recipient,” “safe time,” “safe channel” and “prohibited channel.” This prevents an ordinary automated notification from becoming a source of retaliation.
+
+4. Enforceability and MFS accountability
+
+The currently operative reform is the Legal Aid Services (Amendment) Act 2026, Act No. 45 of 2026, dated 10 April 2026. It replaced the 2025 ordinance and inserted Sections 21B, 21C, 21D and 21E into the principal Act. Some provisions concerning mandatory pre-case mediation and the statutory schedule depend on government notification specifying the date and area of operation.
+
+Consequently, the design should not casually promise “automatic conversion under Section 21A.” The production system must maintain a jurisdiction-and-commencement rules table that checks:
+
+the applicable legal-aid office;
+whether the relevant provision has commenced in Joypurhat;
+the dispute category;
+the authorized officer or mediator;
+execution formalities;
+the legally prescribed enforcement route.
+
+MFS integration should be an accountability ledger, not unlicensed escrow. With informed consent, the system records the provider, transaction reference, amount, due date and payer confirmation. It should not expose Moyuri’s location or wallet information to Sohel beyond what payment law requires.
+
+A rules engine may flag:
+
+payment not matched by the due date;
+partial payment;
+repeated late payment;
+inconsistent payer identity;
+possible reversal or duplicate reference.
+
+A human officer then verifies the event, contacts Moyuri only through the safe channel and decides whether to issue a notice, seek execution, vary arrangements or provide further legal aid. Auto-preparing documents is appropriate; automatically filing proceedings without legal review, verified default and client instructions is not.
+
+Principal improvements made
+Corrected the dowry offence from “non-compoundable” to compoundable under Section 7, while preserving a strong safety-based refusal rule.
+Replaced the inaccurate reliance on a new “Section 21A” with cautious reference to the 2026 amended legal-aid framework.
+Corrected the functions attributed to Family Courts Act Sections 14 and 16.
+Removed unsafe automatic filing, wage attachment and “digital escrow” promises.
+Made the stop condition objective, auditable and directly connected to protection, criminal referral and survivor safety.

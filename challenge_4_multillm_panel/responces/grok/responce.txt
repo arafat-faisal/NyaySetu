@@ -1,1 +1,65 @@
-// Paste raw response from grok for Challenge 4 here
+**PART 1: OFFICIAL SUBMISSION RESPONSE (348 words)**
+
+**Minimum Digital ODR Process for Moyuri–Sohel Dispute**
+
+```
+Citizen Entry (16699 IVR / UDC voice)
+          |
+Eligibility/Intake + Safety Screen
+          |
+    +-----+-----+
+    |           |
+ Safe (maint.   Active battery /
+ only)          dowry threats
+    |           |
+ Tele-Caucus    HALT ODR → DV Act
+ Mediation      Sec 13/15 + Dowry
+    |           Act Sec 3 referral
+ Outcome        + local paralegal
+ (voice +       + Upazila alert
+  UDC thumb)
+    |
+ Record/Follow-up
+ (MFS ledger + auto-execution)
+```
+
+**1. Citizen Entry**  
+Ripon dials National Legal Aid Helpline 16699 or visits Kalai Union Digital Center. Voice IVR or UDC staff captures spoken statement (no screen, captcha or OTP). System tags proxy filing under Domestic Violence Act 2010 Section 11, logs Moyuri’s mother’s number and Friday safe window, and blocks all unscheduled SMS/calls to the surveilled button phone.
+
+**2. Eligibility/Intake**  
+Automatic income check confirms free legal aid. Separate IVR/SMS notifies Sohel in Gazipur of zero-cost pre-case mediation under Legal Aid Services Act 2000 Section 21A. Female officer conducts confidential audio screen with Moyuri in her 20-minute Friday window (or at UDC with paralegal). Screens for active battery, dowry threats or coercion.
+
+**3. Mediation**  
+If screen is clear of violence/dowry, mediator runs asynchronous tele-caucus only on maintenance: separate audio calls with Sohel (factory-break window) and Moyuri (UDC or safe Friday slot). No joint session, no video. Issues limited to monthly allowance, child support and arrears.
+
+**4. Outcome**  
+Settlement terms converted to Bangla TTS audio for Ripon/Moyuri verbal confirmation. Sohel confirms by IVR; Moyuri gives thumbprint at Union Parishad/UDC before female member. District Legal Aid Officer digitally certifies under Section 21A(4); settlement acquires force of Family Court decree (CPC Section 89A).
+
+**5. Record/Follow-up**  
+DLAS records schedule and integrates bKash/Nagad. Payments credited to verified maternal wallet; Ripon receives silent voice confirmation. Default after 30 days auto-triggers execution petition in Joypurhat Family Court attaching Gazipur wages.
+
+**Compulsory Stop Condition**  
+System refuses online mediation upon any detection of active domestic battery, threats of harm, or criminal dowry demand (Dowry Prohibition Act 2018 Section 3).  
+
+**Alternative Pathway**  
+ODR track locks; file marked CRITICAL. DLAO files urgent ex-parte Interim Protection Order and Residence Order under Domestic Violence Act 2010 Sections 13 and 15; criminal referral under Dowry Act Section 3; Upazila Women Affairs Officer and local thana alerted; female Union Parishad paralegal dispatched for immediate safe contact and shelter.
+
+Word count: 348
+
+---
+
+**PART 2: ARCHITECTURAL, LEGAL & OPERATIONAL DEEP-DIVE**
+
+**1. Statutory & Ethical Framework**  
+Maintenance for wife and minor child is a classic compoundable civil claim under Family Courts Act 2023 Sections 4–5, Muslim Family Laws Ordinance 1961 Section 9 and Domestic Violence Act 2010 Section 16. It is therefore suitable for pre-case mediation under Legal Aid Services Act 2000 Section 21A and CPC Section 89A; the resulting settlement is executable as a decree.  
+
+Dowry demand (motorcycle backed by second-marriage threats and prior battery) is a non-compoundable, cognizable offence under Dowry Prohibition Act 2018 Section 3. Domestic battery itself engages DV Act 2010 Section 3 and Penal Code offences. Bangladesh jurisprudence and international restorative-justice standards prohibit bargaining over criminal coercion or physical violence. Mediating such claims would invalidate consent, expose the victim to retaliation, and convert a criminal process into private compromise. Hence the hard stop.
+
+**2. Low-Bandwidth Asynchronous Caucus Design**  
+Synchronous video is impossible: Moyuri has no smartphone/internet, network drops for hours, Sohel works long factory shifts and both parties are tech-uncomfortable. The design therefore uses pure PSTN/IVR audio caucus (shuttle mediation). The mediator speaks separately to each party on ordinary cellular voice, scheduling around Gazipur shift breaks and Moyuri’s Friday safe window or a supervised UDC visit. This eliminates bandwidth failure, joint-confrontation risk and screen literacy barriers while still producing a structured, recorded negotiation trail.
+
+**3. Zero-Screen Accessibility & Safety Protocol**  
+Ripon’s blindness is solved by exclusive voice capture at 16699/UDC; no visual OTP, captcha or PDF is ever required. Screen-reader English menus are bypassed by human-assisted or TTS Bangla prompts. Moyuri’s surveillance is mitigated by: (a) registering only the mother’s number as contact, (b) absolute ban on unscheduled outbound SMS/calls to the button phone, (c) confining all interaction to the documented Friday window or a female-paralegal-supervised UDC session, and (d) proxy filing under DV Act Section 11 so Moyuri never needs to leave the household unescorted. Power-asymmetry screening is mandatory before any mediation invitation is issued to Sohel.
+
+**4. Enforceability & MFS Accountability**  
+Once parties consent, the DLAO (a judicial officer) reviews the digital record and applies a digital signature under Legal Aid Services Act Section 21A(4). The instrument thereby acquires the force of a civil/family-court decree under CPC Section 89A and is directly executable. Payment obligations are logged in DLAS and linked to bKash/Nagad/Rocket. Sohel remits against the case ID; funds route to the verified maternal MFS wallet. Ripon receives only a silent voice confirmation. Persistent default auto-generates an execution petition (jari mamla) in the Joypurhat Family Court, attaching Gazipur wages without requiring Moyuri to travel or instruct counsel. This closes the accountability loop while remaining entirely within existing statutory and mobile-money infrastructure.

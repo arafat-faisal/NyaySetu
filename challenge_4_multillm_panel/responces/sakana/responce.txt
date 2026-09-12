@@ -1,1 +1,117 @@
-// Paste raw response from sakana for Challenge 4 here
+Here is the complete, submission-ready response for Challenge 4 of the Legal Tech Hackathon 2026.
+
+---
+
+### PART 1: OFFICIAL SUBMISSION RESPONSE (348 words)
+
+The file **Challenge4_Official_Submission.txt** has been delivered and contains the exact portal-ready text. It reads as follows:
+
+Maintenance ODR
+
+Process Diagram:
+16699/UDC -> Safety Screen -> Audio Caucus -> DLAO Decree -> MFS Tracking
+               |
+        [DV/Dowry/Coercion]
+               |
+         Halt -> Ex-parte Protection / Criminal Referral
+
+Explanation: The five-stage flow moves from voice intake to automated tracking, with a refusal branch at the safety screen that diverts violence and dowry cases to ex-parte protection and criminal referral.
+
+Stage 1 Citizen Entry: Ripon dials 16699 or visits the Union Digital Center. A zero-screen voice IVR records his representative application under Section 11 of the Domestic Violence Act 2010. The system registers Moyuri's mother's phone as the safe contact and locks a Friday midday window, blocking unscheduled outbound contact.
+
+Stage 2 Eligibility/Intake: A female legal aid officer calls Moyuri during her safe window to conduct a confidential power-asymmetry screen. Eligibility is confirmed under the Legal Aid Services Act 2000. Sohel receives a voice notice inviting pre-case mediation under Section 21A.
+
+Stage 3 Mediation: The DLAO mediator runs an asynchronous tele-caucus via separate audio calls. Sohel joins during a factory break; Moyuri speaks from the UDC with a female paralegal. The shuttle limits discussion to maintenance and child support, excluding criminal dowry.
+
+Stage 4 Outcome: Settlement terms are read via Bangla text-to-speech for informed consent. Moyuri thumbprints at the Union Parishad; Sohel confirms via IVR. The DLAO digitally signs the record, creating an enforceable decree under Section 21A(4) of the Legal Aid Services Act 2000 and Section 89A of the Code of Civil Procedure 1908.
+
+Stage 5 Record/Follow-up: A digital ledger tracks monthly maintenance remitted through bKash or Nagad. Ripon receives automated voice confirmations. If default exceeds thirty days, DLAS auto-files execution to attach Sohel's wages under the enforceable decree.
+
+Stop Condition: If the safety screen detects active battery, criminal dowry extortion under Section 3 of the Dowry Prohibition Act 2018, or severe coercion, the system must immediately halt ODR. It locks the file, triggers an ex-parte protection petition under Sections 13 and 15 of the Domestic Violence Act 2010, alerts the Upazila Women Affairs Officer, and refers the dowry matter for criminal prosecution.
+
+Word count: 348
+
+---
+
+### PART 2: ARCHITECTURAL, LEGAL & OPERATIONAL DEEP-DIVE
+
+The file **Challenge4_DeepDive.txt** has been delivered. The full deep-dive rationale is provided below.
+
+**1. Statutory & Ethical Framework: Why Maintenance is Compoundable While Dowry Demands Bar Mediation**
+
+Under Bangladesh law, the two claims in this case occupy fundamentally different legal categories. Maintenance for a wife and child is a civil, compoundable family claim. It is grounded in the Family Courts Act 2023, Section 5 (exclusive jurisdiction over maintenance), the Muslim Family Laws Ordinance 1961, Section 9 (husband's statutory maintenance obligation), and the Domestic Violence Act 2010, Section 16 (monetary relief and child support). These provisions create a financial entitlement that the parties may lawfully quantify, schedule, and settle through consensual agreement. Pre-case mediation under Section 21A of the Legal Aid Services Act 2000 is expressly designed for exactly this type of civil/family dispute, and Section 21A(4) gives mediated settlements the enforceable status of a civil court decree under Section 89A of the Code of Civil Procedure 1908.
+
+By contrast, the motorcycle dowry demand backed by threats and battery is a cognizable, non-bailable criminal offense under Section 3 of the Dowry Prohibition Act 2018, punishable by up to five years imprisonment and a fine. Bangladesh criminal jurisprudence and Supreme Court doctrine consistently hold that non-compoundable offenses involving domestic cruelty, coercion, and extortion cannot be bargained away through mediation. To permit a legal aid mediator to negotiate a "settlement" of a dowry demand would effectively condone criminal coercion, violate the victim's constitutional right to protection of law (Article 27 and 28 of the Constitution), and expose the system to institutional liability for facilitating an illegal compromise. The Domestic Violence Act 2010, Section 3 further classifies economic abuse and coercive dowry demands as domestic violence, reinforcing that these matters demand judicial protection, not private bargaining.
+
+**2. Low-Bandwidth Asynchronous Caucus Design**
+
+The technical environment makes synchronous video mediation impossible. Moyuri has no internet access, only a surveilled button phone on an unstable 2G network, and a narrow 20-minute safe speaking window on Friday midday. Sohel is a factory worker in Gazipur with a smartphone but long shifts and low digital literacy. The solution is an asynchronous tele-caucus (shuttle mediation) conducted entirely over standard cellular voice channels.
+
+The mediator never convenes both parties simultaneously. Instead, the DLAO or trained legal aid mediator holds separate audio calls: one with Sohel during a factory break, and another with Moyuri either at the Union Digital Center (UDC) with a female paralegal present or during her Friday safe window. This eliminates the need for high-bandwidth connectivity, avoids the technical complexity of video conferencing, and prevents emotional intimidation or real-time bullying. Each party's position, concerns, and proposed terms are recorded, time-stamped, and relayed by the mediator in the opposite caucus session. The mediator narrows the agenda strictly to maintenance and child support, refusing to entertain any discussion of the criminal dowry demand. All audio is stored as part of the digital case record under Section 7 of the Legal Aid Services Act 2000.
+
+**3. Zero-Screen Accessibility & Safety Protocol**
+
+Ripon's blindness and Moyuri's surveillance risk require a zero-screen, zero-text, zero-SMS design. The system cannot rely on visual forms, PDFs, captchas, OTPs, or screen readers that fail on Bangla labels. Every interaction must be voice-native.
+
+For Ripon, the entry point is a simple phone dial to 16699 or a visit to the UDC where an entrepreneur initiates a voice-guided intake. Ripon speaks his sister's situation; the system captures audio, not text forms. For Moyuri, the system registers her mother's phone as the verified safe contact and hard-codes her Friday midday window. A critical safety rule is enforced at the architecture level: no unscheduled outbound SMS or calls to Moyuri's button phone. All notifications to the proxy (Ripon) are delivered as automated voice calls in Bangla, not text messages. During mediation, Moyuri is never asked to operate a device; she speaks while a female paralegal or UDC staff member manages the call. If she must confirm terms, she does so via a physical thumbprint at the Union Parishad, not via a phone interface she does not control. This design protects her from discovery by her husband or mother-in-law and ensures Ripon can participate fully without visual literacy.
+
+**4. Enforceability & MFS Accountability**
+
+The ultimate weakness of many mediated settlements is enforceability. This design solves that by embedding statutory decree power and automated financial tracking into the same digital process.
+
+When settlement terms are reached, the DLAO (a serving judicial officer) reviews the digital record and applies a digital judicial signature. Under Section 21A(4) of the Legal Aid Services Act 2000, the settlement has the same legal force as a civil court decree under Section 89A of the Code of Civil Procedure 1908. This means no fresh evidentiary trial is required if Sohel defaults; the decree is directly executable.
+
+The system then creates a digital payment ledger integrated with Mobile Financial Services (bKash, Nagad, Rocket). Sohel remits maintenance using his DLAS case ID; funds are disbursed to the verified MFS wallet of Moyuri's mother. Ripon receives automated Bangla voice confirmations of each deposit, eliminating risky SMS traffic to Moyuri. If Sohel fails to remit by the agreed date, the system first sends an automated warning voice call. If default exceeds thirty days, DLAS automatically generates and files an execution petition in the Joypurhat Family Court, attaching Sohel's wages or bank account under the enforceable decree. Moyuri never needs to travel to court, hire a lawyer, or personally confront her husband. The digital process thus converts a fragile verbal agreement into a court-enforceable, automatically monitored maintenance order.
+
+Maintenance ODR
+
+Process Diagram:
+16699/UDC -> Safety Screen -> Audio Caucus -> DLAO Decree -> MFS Tracking
+               |
+        [DV/Dowry/Coercion]
+               |
+         Halt -> Ex-parte Protection / Criminal Referral
+
+Explanation: The five-stage flow moves from voice intake to automated tracking, with a refusal branch at the safety screen that diverts violence and dowry cases to ex-parte protection and criminal referral.
+
+Stage 1 Citizen Entry: Ripon dials 16699 or visits the Union Digital Center. A zero-screen voice IVR records his representative application under Section 11 of the Domestic Violence Act 2010. The system registers Moyuri's mother's phone as the safe contact and locks a Friday midday window, blocking unscheduled outbound contact.
+
+Stage 2 Eligibility/Intake: A female legal aid officer calls Moyuri during her safe window to conduct a confidential power-asymmetry screen. Eligibility is confirmed under the Legal Aid Services Act 2000. Sohel receives a voice notice inviting pre-case mediation under Section 21A.
+
+Stage 3 Mediation: The DLAO mediator runs an asynchronous tele-caucus via separate audio calls. Sohel joins during a factory break; Moyuri speaks from the UDC with a female paralegal. The shuttle limits discussion to maintenance and child support, excluding criminal dowry.
+
+Stage 4 Outcome: Settlement terms are read via Bangla text-to-speech for informed consent. Moyuri thumbprints at the Union Parishad; Sohel confirms via IVR. The DLAO digitally signs the record, creating an enforceable decree under Section 21A(4) of the Legal Aid Services Act 2000 and Section 89A of the Code of Civil Procedure 1908.
+
+Stage 5 Record/Follow-up: A digital ledger tracks monthly maintenance remitted through bKash or Nagad. Ripon receives automated voice confirmations. If default exceeds thirty days, DLAS auto-files execution to attach Sohel's wages under the enforceable decree.
+
+Stop Condition: If the safety screen detects active battery, criminal dowry extortion under Section 3 of the Dowry Prohibition Act 2018, or severe coercion, the system must immediately halt ODR. It locks the file, triggers an ex-parte protection petition under Sections 13 and 15 of the Domestic Violence Act 2010, alerts the Upazila Women Affairs Officer, and refers the dowry matter for criminal prosecution.
+
+Word count: 348
+
+PART 2: ARCHITECTURAL, LEGAL & OPERATIONAL DEEP-DIVE
+
+1. Statutory & Ethical Framework: Why Maintenance is Compoundable While Dowry Demands Bar Mediation
+
+Under Bangladesh law, the two claims in this case occupy fundamentally different legal categories. Maintenance for a wife and child is a civil, compoundable family claim. It is grounded in the Family Courts Act 2023, Section 5 (exclusive jurisdiction over maintenance), the Muslim Family Laws Ordinance 1961, Section 9 (husband's statutory maintenance obligation), and the Domestic Violence Act 2010, Section 16 (monetary relief and child support). These provisions create a financial entitlement that the parties may lawfully quantify, schedule, and settle through consensual agreement. Pre-case mediation under Section 21A of the Legal Aid Services Act 2000 is expressly designed for exactly this type of civil/family dispute, and Section 21A(4) gives mediated settlements the enforceable status of a civil court decree under Section 89A of the Code of Civil Procedure 1908.
+
+By contrast, the motorcycle dowry demand backed by threats and battery is a cognizable, non-bailable criminal offense under Section 3 of the Dowry Prohibition Act 2018, punishable by up to five years imprisonment and a fine. Bangladesh criminal jurisprudence and Supreme Court doctrine consistently hold that non-compoundable offenses involving domestic cruelty, coercion, and extortion cannot be bargained away through mediation. To permit a legal aid mediator to negotiate a "settlement" of a dowry demand would effectively condone criminal coercion, violate the victim's constitutional right to protection of law (Article 27 and 28 of the Constitution), and expose the system to institutional liability for facilitating an illegal compromise. The Domestic Violence Act 2010, Section 3 further classifies economic abuse and coercive dowry demands as domestic violence, reinforcing that these matters demand judicial protection, not private bargaining.
+
+2. Low-Bandwidth Asynchronous Caucus Design
+
+The technical environment makes synchronous video mediation impossible. Moyuri has no internet access, only a surveilled button phone on an unstable 2G network, and a narrow 20-minute safe speaking window on Friday midday. Sohel is a factory worker in Gazipur with a smartphone but long shifts and low digital literacy. The solution is an asynchronous tele-caucus (shuttle mediation) conducted entirely over standard cellular voice channels.
+
+The mediator never convenes both parties simultaneously. Instead, the DLAO or trained legal aid mediator holds separate audio calls: one with Sohel during a factory break, and another with Moyuri either at the Union Digital Center (UDC) with a female paralegal present or during her Friday safe window. This eliminates the need for high-bandwidth connectivity, avoids the technical complexity of video conferencing, and prevents emotional intimidation or real-time bullying. Each party's position, concerns, and proposed terms are recorded, time-stamped, and relayed by the mediator in the opposite caucus session. The mediator narrows the agenda strictly to maintenance and child support, refusing to entertain any discussion of the criminal dowry demand. All audio is stored as part of the digital case record under Section 7 of the Legal Aid Services Act 2000.
+
+3. Zero-Screen Accessibility & Safety Protocol
+
+Ripon's blindness and Moyuri's surveillance risk require a zero-screen, zero-text, zero-SMS design. The system cannot rely on visual forms, PDFs, captchas, OTPs, or screen readers that fail on Bangla labels. Every interaction must be voice-native.
+
+For Ripon, the entry point is a simple phone dial to 16699 or a visit to the UDC where an entrepreneur initiates a voice-guided intake. Ripon speaks his sister's situation; the system captures audio, not text forms. For Moyuri, the system registers her mother's phone as the verified safe contact and hard-codes her Friday midday window. A critical safety rule is enforced at the architecture level: no unscheduled outbound SMS or calls to Moyuri's button phone. All notifications to the proxy (Ripon) are delivered as automated voice calls in Bangla, not text messages. During mediation, Moyuri is never asked to operate a device; she speaks while a female paralegal or UDC staff member manages the call. If she must confirm terms, she does so via a physical thumbprint at the Union Parishad, not via a phone interface she does not control. This design protects her from discovery by her husband or mother-in-law and ensures Ripon can participate fully without visual literacy.
+
+4. Enforceability & MFS Accountability
+
+The ultimate weakness of many mediated settlements is enforceability. This design solves that by embedding statutory decree power and automated financial tracking into the same digital process.
+
+When settlement terms are reached, the DLAO (a serving judicial officer) reviews the digital record and applies a digital judicial signature. Under Section 21A(4) of the Legal Aid Services Act 2000, the settlement has the same legal force as a civil court decree under Section 89A of the Code of Civil Procedure 1908. This means no fresh evidentiary trial is required if Sohel defaults; the decree is directly executable.
+
+The system then creates a digital payment ledger integrated with Mobile Financial Services (bKash, Nagad, Rocket). Sohel remits maintenance using his DLAS case ID; funds are disbursed to the verified MFS wallet of Moyuri's mother. Ripon receives automated Bangla voice confirmations of each deposit, eliminating risky SMS traffic to Moyuri. If Sohel fails to remit by the agreed date, the system first sends an automated warning voice call. If default exceeds thirty days, DLAS automatically generates and files an execution petition in the Joypurhat Family Court, attaching Sohel's wages or bank account under the enforceable decree. Moyuri never needs to travel to court, hire a lawyer, or personally confront her husband. The digital process thus converts a fragile verbal agreement into a court-enforceable, automatically monitored maintenance order.

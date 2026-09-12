@@ -1,1 +1,39 @@
-// Paste raw response from claude for Challenge 4 here
+349 words — right at the limit. Here's the two-part response.
+
+## PART 1: OFFICIAL SUBMISSION RESPONSE (349 words)
+
+**PROCESS DIAGRAM**
+
+```
+CITIZEN ENTRY -> ELIGIBILITY/INTAKE -> SAFETY SCREEN -+-> SAFE: MEDIATION -> OUTCOME -> RECORD/FOLLOW-UP
+                                                        |
+                                                        +-> UNSAFE: STOP -> Emergency DV Act Referral
+```
+
+*Diagram explanation:* entry uses a voice channel; a safety filter splits the two claims; only the safe, compoundable claim proceeds to mediation and a decree, while the unsafe claim exits directly to court-based emergency protection.
+
+**FIVE STAGES**
+
+1. **Citizen entry:** Ripon dials Helpline 16699 or visits the Kalai Union Digital Center; a voice agent records his spoken account, no screen, form, or captcha needed. Moyuri's mother's number and her Friday 12:45–1:15pm window are logged, with a standing rule of no unscheduled SMS or calls to her phone.
+
+2. **Eligibility/intake:** DBLA verifies income eligibility, tags the filing as representative under Domestic Violence Act 2010 Section 11, notifies Sohel by IVR/SMS of a free Section 21A pre-case mediation, and a trained female officer conducts a confidential audio safety screen with Moyuri during her window, checking for battery, threats, and coercion.
+
+3. **Mediation:** If the screen is clear on maintenance only, an asynchronous voice tele-caucus proceeds — separate calls with Sohel during his Gazipur factory break and with Moyuri at the Union Parishad or in her window, never a joint call.
+
+4. **Outcome:** Terms are read back in Bangla text-to-speech for informed consent; Sohel confirms by IVR keypress, Moyuri by thumbprint witnessed at the Union Parishad; the DLAO certifies the agreement under Section 21A(4), giving it decree force under Civil Procedure Code Section 89A.
+
+5. **Record/follow-up:** Monthly maintenance is tracked via bKash/Nagad to a verified wallet, confirmed to Ripon only by voice call, and default beyond 30 days auto-files an execution petition under Family Courts Act 2023 Section 14.
+
+**STOP CONDITION:** If screening finds active battery or dowry extortion under Dowry Prohibition Act 2018 Section 3, the system halts ODR immediately, locks joint contact, and instead routes the DLAO to seek an ex-parte Interim Protection Order (DV Act Section 13) and Residence Order (Section 15), alerts the Upazila Women Affairs Officer, and refers the dowry demand for criminal prosecution, since non-compoundable criminal coercion cannot lawfully be mediated.
+
+---
+
+## PART 2: ARCHITECTURAL, LEGAL & OPERATIONAL DEEP-DIVE
+
+**1. Statutory and ethical framework — why the two claims split.** The maintenance claim is a civil, quantifiable, ongoing-relationship obligation (Family Courts Act 2023 Sections 4–5; Muslim Family Laws Ordinance 1961 Section 9; DV Act 2010 Section 16) — the kind of dispute mediation exists to resolve, since a monthly figure and a payment channel are legitimately negotiable. The dowry demand is a different category entirely: Dowry Prohibition Act 2018 Section 3 makes it a cognizable, non-bailable criminal offense, and Bangladesh ADR doctrine (consistent with UNODC restorative-justice standards) treats criminal coercion as non-compoundable precisely because "mediating" it would let the offender bargain down a crime with the victim who has no real bargaining power. Bundling both claims into one mediation would let a real threat (the motorcycle demand) quietly discount a legal entitlement (maintenance) — so statutory design, not just caution, requires the split.
+
+**2. Low-bandwidth asynchronous caucus design.** Video is ruled out by both parties' constraints, not just preference: Sohel's factory shifts leave no continuous free block, and Moyuri's 2G connection drops for hours. A shuttle (caucus) model over PSTN voice — the mediator speaking to each side separately and on their own schedule — tolerates Moyuri's short windows and Sohel's shift breaks without requiring simultaneity, and it removes the risk of the parties confronting each other live, which matters given the documented history of battery.
+
+**3. Zero-screen accessibility and safety protocol.** Every citizen-facing touchpoint (entry, screening, consent) is voice-based specifically because Ripon cannot process text, captchas, or OTPs, and Moyuri has never used the internet. Ripon's intake and the outcome confirmation both route through voice, sidestepping the screen reader's failure on Bangla labels. For Moyuri, the system never initiates unscheduled contact to the surveilled button phone — all communication to her is timed to her verified safe window or delivered in person at the Union Parishad, and her mother's number, not hers, is the registered fallback contact, so a check of her outgoing call log reveals nothing new.
+
+**4. Enforceability and MFS accountability.** Once terms are voice-confirmed by both parties, Section 21A(4) gives the DLAO's certified settlement the same force as a court decree, enforceable under CPC Section 89A without a fresh trial. Tying disbursement to bKash/Nagad turns that decree into something self-monitoring: payments are logged automatically, confirmation goes to Ripon by voice (never risking Moyuri's phone), and a missed payment past 30 days auto-generates an execution petition (Family Courts Act 2023 Section 14) — so enforcement doesn't depend on Moyuri being able to travel to Joypurhat or retain a lawyer, which was the original access barrier the whole design is meant to remove.
