@@ -516,6 +516,75 @@ NyaySetu is an omnichannel, inclusive digital legal aid infrastructure designed 
 2. **Encroachment Heatmap:** Highlights boundary overlaps in red, calculating exact decimal and square-foot intrusions.
 3. **Farayez Inheritance Calculator:** Mathematical partitioning engine based on statutory Muslim and Hindu succession laws.
 4. **1-Click Village Court Resolution Decree:** Generates an indisputable Bengali mediation report for Union Parishad Chairmen and DLAOs.
+`,
+
+    explanation: `# NyaySetu (ন্যায়সেতু) — Comprehensive System Explanation & Operational Blueprint
+
+**"No device, no literacy, no distance, no delay — no citizen left outside justice."**  
+*Master Architecture & Operational Mechanics Guide • Legal Tech Hackathon BD 2026*
+
+---
+
+## 1. Executive Summary: What is NyaySetu?
+Bangladesh courts face a crushing **4.64 million case backlog**, and over **70% of inmates are undertrial detainees**. Despite the *Legal Aid Services Act 2000* and 64 District Legal Aid Offices, less than 3% of eligible poor citizens get aid due to three barriers:
+1. **Digital & Literacy Divide:** 25%+ illiterate, 50M+ 2G button phone users without smartphones.
+2. **DLAO Processing Bottleneck:** Only 27 full-time officers manually reading 40-page handwritten FIRs and typing statutory forms.
+3. **14-Day Paper Dispatch Delay:** Physical bail orders take 7 to 21 days to reach jail gates, causing unlawful over-detention.
+
+**NyaySetu (The Justice Bridge)** solves this with a **4-tier omnichannel continuum** connecting illiterate farmers, 2G phone users, and smartphones directly to an automated judicial operations backbone.
+
+---
+
+## 2. "What is What" Glossary & System Breakdown
+
+### The 4 Inclusive Access Tiers
+- **Tier 0 (Paper Auto-Bridging):** For citizens with no phone or literacy. Pre-printed physical paper forms with ArUco markers are filled at 4,554 Union Digital Centres (UDCs) and Village Courts. Scanned with a webcam, Bangla OCR auto-parses data with zero typing.
+- **Tier 1 (2G Button Phone):** For 50M+ keypad phone owners. Calling 16430 connects to FreeSWITCH Voice AI with dialect-tolerant ASR (Sylheti, Chatgaya). Dialing *16430# triggers a zero-data USSD status check.
+- **Tier 2 (Smartphone):** WhatsApp bot (voice notes, FIR photos, NID) + Sub-2MB Offline-First PWA with IndexedDB local caching for remote field paralegals. Includes Nari-Shield discreet domestic abuse panic escape.
+- **Tier 3 (Justice Backbone):** Enterprise operations dashboard for DLAOs, judges, and jail superintendents. Automated statutory means-testing, Section 15 panel matching (33% female quota), and FastBail-BD cryptographic bail dispatch.
+
+### Core Subsystems Decoded
+1. **Nyay-Triage:** Evaluates applicants against the 14 statutory eligibility categories under the 2014 Policy, tags urgency (Red Alert / Medium / Normal), and generates a 150-word 1-Page Bengali Case Brief (বাংলা কেস ব্রিফ).
+2. **FastBail-BD:** Digital bail network using X.509 PKI (SHA-256) signed QR tokens dispatched from court registry to jail gates in under 30 seconds.
+3. **HabeasAlert:** Jail census watchdog cross-referencing inmate rosters against CrPC statutory custody limits to flag illegal over-detention.
+4. **Bhoo-Chitra:** Computer vision engine warping historical colonial CS 1888 / RS 1970 mouza paper maps onto modern satellite imagery to detect boundary encroachments and calculate Farayez inheritance shares.
+5. **KanthoNyay:** Dialect-tolerant Whisper speech recognition engine powering the 16430 voice helpline.
+6. **Nari-Shield:** Discreet domestic abuse reporting interface with one-tap panic screen masking and zero browser history.
+7. **Nyayatori:** Solar-powered floating digital legal aid tablet kit for flood-affected char and haor communities.
+
+---
+
+## 3. How Things Actually Work (Operational Workflows)
+
+### Workflow A: Citizen Intake to Assigned Legal Aid Lawyer
+1. **Intake:** Citizen speaks into 16430 in Sylheti dialect or submits an ArUco paper form at a Union Digital Centre.
+2. **AI Triage:** Whisper ASR transcribes the audio; the LLM extracts penal sections, dates, and income, runs the 2014 Policy means-test, and compiles a 1-page Bengali Brief.
+3. **DLAO Review:** The DLAO reviews the brief in 30 seconds instead of 45 minutes of manual FIR reading.
+4. **Panel Lawyer Matching:** The system matches a Section 15 panel advocate based on domain expertise, proximity, caseload cap, and the mandatory 33% female lawyer quota.
+5. **Milestone Dispatch:** The citizen receives proactive SMS milestone alerts throughout the court process.
+
+### Workflow B: 30-Second FastBail-BD Release from Prison Gate
+1. **Judicial Grant:** Judge approves bail in the court registry.
+2. **PKI Signing:** FastBail-BD signs an X.509 SHA-256 digital token and embeds it in a high-density QR code on the bail certificate.
+3. **Instant Transmission:** Transmits securely via TLS to the Central Jail terminal in under 30 seconds.
+4. **Gate Verification:** Jail gate officer scans the QR code with any smartphone camera, verifying the cryptographic signature against the Supreme Court public key.
+5. **Release:** Detainee is released the same afternoon, eliminating 14 days of paper courier delay.
+
+### Workflow C: Bhoo-Chitra Rural Land Dispute Resolution
+1. **Historical Warping:** Scanned CS 1888 / RS 1970 mouza paper sheets are aligned with satellite imagery using Thin Plate Spline (TPS) transformation.
+2. **Encroachment Heatmap:** Highlights physical boundary overlaps in red, calculating exact decimal intrusions.
+3. **Farayez Partitioning:** Computes exact Quranic fractional shares for legal heirs and draws geometric division lines.
+4. **Mediation Brief:** Produces an objective 2-page Bengali report for the Village Court Chairman to settle disputes under Section 21B pre-case mediation.
+
+---
+
+## 4. 48-Hour Hackathon Prototype & Demo Blueprint
+
+### What Works Live in 48 Hours:
+- **Live Bengali Voice & FIR Triage:** Microphone audio transcription and 3-second generation of the 1-Page Bengali Case Brief and 2014 statutory means-test result.
+- **Live 1-Click PDF Form Automation:** Instant export of official Legal Aid Forms 21 and 23 with QR codes.
+- **Live FastBail Smartphone Camera Scan:** Scanning a signed QR code on stage to verify a valid bail order in real time.
+- **Live Section 15 Panel Matching:** Interactive matching widget with a real-time 33% female quota meter.
 `
 };
 
@@ -952,6 +1021,7 @@ function switchProposalDoc(docKey) {
     if (!contentEl) return;
 
     const fileNames = {
+        explanation: 'docs/SYSTEM_EXPLANATION_AND_ARCHITECTURE.md (What is What & How It Works)',
         faisal: 'FAISAL_Proposal.md (Master Proposal)',
         prd: 'docs/PRD.md (Product Requirements)',
         sakib: 'SAKIB_Proposal.md (Nyay-Triage)',
